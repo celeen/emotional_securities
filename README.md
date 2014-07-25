@@ -1,5 +1,5 @@
 
-Emotional Securities
+#Emotional Securities
 
 [![Build Status](https://travis-ci.org/celeen/emotional_securities.svg?branch=master)](https://travis-ci.org/celeen/emotional_securities)
 [![Coverage Status](https://img.shields.io/coveralls/celeen/emotional_securities.svg)](https://coveralls.io/r/celeen/emotional_securities)
