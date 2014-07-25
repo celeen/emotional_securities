@@ -53,6 +53,7 @@ group :test, :development do
 	gem 'factory_girl_rails'
 	gem 'mongoid-rspec'
 	gem 'capybara'
+	gem 'mock_redis'
 end
 
 require 'net/http'
