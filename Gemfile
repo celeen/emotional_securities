@@ -50,6 +50,7 @@ group :test, :development do
 	gem 'database_cleaner'
 	gem 'factory_girl_rails'
 	gem 'mongoid-rspec'
+	gem 'capybara'
 end
 
 # Use ActiveModel has_secure_password
