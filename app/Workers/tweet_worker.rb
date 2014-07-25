@@ -6,6 +6,6 @@ class TweetWorker
 		tweet = Tweet.find(tweet_id)
 		response = alchemyapi.sentiment('text', tweet.text)
 		
-
+		
 	end
 end	

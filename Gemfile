@@ -54,9 +54,8 @@ group :test, :development do
 	gem 'mock_redis'
 end
 
-require 'net/http'
-require 'uri'
-require 'json'
+gem 'json'
+gem 'coveralls', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
