@@ -17,16 +17,10 @@ gem 'tweetstream'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-<<<<<<< HEAD
-# Twitter information
-gem 'twitter'
-gem 'tweetstream'
-
 # Stock information
 gem 'stock_quote'
 
-=======
->>>>>>> master
+
 # Sidekiq/Redis setup
 gem 'redis'
 gem 'sidekiq'
