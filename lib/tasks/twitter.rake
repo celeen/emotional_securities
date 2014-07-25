@@ -1,5 +1,5 @@
 
-include Sidekiq::Worker 
+include Sidekiq::Worker
 
 namespace :stream do
   desc 'collecting tweets script'
@@ -18,9 +18,10 @@ namespace :stream do
     TweetStream::Client.new.track('AAPL') do |tweet|
       #logic here
       # tweet = Tweet.create(tweet)
-      puts tweet.attrs 
+      puts tweet.attrs
+
+      #Quote.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
       TweetWorker.perform_async(tweet.id)
-      
     end
   end
 end

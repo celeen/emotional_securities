@@ -19,6 +19,9 @@ gem 'jquery-rails'
 gem 'twitter'
 gem 'tweetstream'
 
+# Stock information
+gem 'stock_quote'
+
 # Sidekiq/Redis setup
 gem 'redis'
 gem 'sidekiq'
@@ -47,7 +50,7 @@ gem 'rails_12factor', group: :production
 
 #Test environment wutwtu!
 
-group :test, :development do 
+group :test, :development do
 	gem 'rspec-rails'
 	gem 'database_cleaner'
 	gem 'factory_girl_rails'
