@@ -26,6 +26,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.include Mongoid::Matchers, type: :model
+  config.include FactoryGirl::Syntax::Methods
   
   config.before(:suite) do
     DatabaseCleaner[:mongoid].strategy = :truncation
