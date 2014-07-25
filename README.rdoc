@@ -1,28 +1,10 @@
-== README
+== Emotional Securities
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Emotional Securities is a sentiment tracking tool for the stock market.
 
-Things you may want to cover:
+You can use this website to see 'realtime' updates on the general public sentiment toward a publicly traded company as it relates to that company's current stock price.
 
-* Ruby version
+Currently, our data sources are Twitter and Seeking Alpha. Check them out. They're pretty cool.
 
-* System dependencies
+AlchemyAPI has generously offered us academic access to their service at an academic level, so many thanks to them. Their product is incredible.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
