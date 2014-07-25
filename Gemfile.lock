@@ -257,6 +257,7 @@ DEPENDENCIES
   mongoid-rspec
   rails (= 4.1.4)
   rails_12factor
+  redis
   rspec-rails
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
