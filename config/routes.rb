@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   root 'tweets#index'
 
   mount Sidekiq::Web => '/sidekiq'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
