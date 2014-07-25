@@ -17,6 +17,16 @@ gem 'tweetstream'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+<<<<<<< HEAD
+# Twitter information
+gem 'twitter'
+gem 'tweetstream'
+
+# Stock information
+gem 'stock_quote'
+
+=======
+>>>>>>> master
 # Sidekiq/Redis setup
 gem 'redis'
 gem 'sidekiq'
@@ -45,7 +55,7 @@ gem 'rails_12factor', group: :production
 
 #Test environment wutwtu!
 
-group :test, :development do 
+group :test, :development do
 	gem 'rspec-rails'
 	gem 'database_cleaner'
 	gem 'factory_girl_rails'
