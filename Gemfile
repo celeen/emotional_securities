@@ -17,7 +17,7 @@ gem 'jquery-rails'
 
 # Twitter information
 gem 'twitter'
-gem 'tweetsream'
+gem 'tweetstream'
 
 # Sidekiq/Redis setup
 gem 'sidekiq'
