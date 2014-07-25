@@ -20,6 +20,7 @@ gem 'twitter'
 gem 'tweetstream'
 
 # Sidekiq/Redis setup
+gem 'redis'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'

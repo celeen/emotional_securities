@@ -208,6 +208,7 @@ DEPENDENCIES
   mongoid (~> 4.0.0)
   rails (= 4.1.4)
   rails_12factor
+  redis
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   sidekiq
