@@ -17,14 +17,6 @@ gem 'tweetstream'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-
-# Twitter information
-gem 'twitter'
-gem 'tweetstream'
-
 # Sidekiq/Redis setup
 gem 'redis'
 gem 'sidekiq'
@@ -33,7 +25,6 @@ gem 'slim'
 
 
 
->>>>>>> 564891edf64549b4053f15e0c2b26a18b511dfc2
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -44,8 +35,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-<<<<<<< HEAD
-=======
 # Mongo-speficic gems
 gem 'mongoid', "~> 4.0.0"
 gem 'bson_ext'
@@ -62,13 +51,13 @@ group :test, :development do
 	gem 'factory_girl_rails'
 	gem 'mongoid-rspec'
 	gem 'capybara'
+	gem 'mock_redis'
 end
 
 require 'net/http'
 require 'uri'
 require 'json'
 
->>>>>>> 564891edf64549b4053f15e0c2b26a18b511dfc2
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -81,8 +70,7 @@ require 'json'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-<<<<<<< HEAD
-=======
+
 ruby "2.0.0"
 
->>>>>>> 564891edf64549b4053f15e0c2b26a18b511dfc2
+

@@ -20,6 +20,7 @@ namespace :stream do
       # tweet = Tweet.create(tweet)
       puts tweet.attrs 
       TweetWorker.perform_async(tweet.id)
+      #mongoDB << STOCKAPI.hit.getPrice 
       
     end
   end
