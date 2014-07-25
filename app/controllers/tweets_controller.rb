@@ -1,3 +1,7 @@
-class TweetsController < ApplicationController
+class TweetController < ApplicationController
+
+	def index
+		
+	end
 	
 end
