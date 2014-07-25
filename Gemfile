@@ -25,6 +25,7 @@ gem 'sinatra', require: false
 gem 'slim'
 
 
+
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -52,6 +53,10 @@ group :test, :development do
 	gem 'mongoid-rspec'
 	gem 'capybara'
 end
+
+require 'net/http'
+require 'uri'
+require 'json'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
