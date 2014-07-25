@@ -1,4 +1,4 @@
-class Tweets
+class Tweet
   include Mongoid::Document
   field :text, type: String
   field :created_at, type: Time

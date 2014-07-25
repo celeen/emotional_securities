@@ -22,6 +22,7 @@ namespace :stream do
 
       #Quote.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
       TweetWorker.perform_async(tweet.id)
+
     end
   end
 end

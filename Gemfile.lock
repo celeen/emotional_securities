@@ -100,6 +100,7 @@ GEM
     mime-types (1.25.1)
     mini_portile (0.6.0)
     minitest (5.4.0)
+    mock_redis (0.13.2)
     mongoid (4.0.0)
       activemodel (~> 4.0)
       moped (~> 2.0.0)
@@ -260,6 +261,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   json
+  mock_redis
   mongoid (~> 4.0.0)
   mongoid-rspec
   rails (= 4.1.4)
