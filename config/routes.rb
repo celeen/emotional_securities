@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  require 'sidekiq/web'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
-
+  # resources :tweets, only: {index}
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'tweet#index'
 
+  mount Sidekiq::Web => '/sidekiq'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
