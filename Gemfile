@@ -15,9 +15,12 @@ gem 'coffee-rails', '~> 4.0.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
+# Twitter information
 gem 'twitter'
 gem 'tweetsream'
 
+# Sidekiq/Redis setup
+gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
 
