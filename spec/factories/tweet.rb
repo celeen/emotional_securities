@@ -1,7 +1,7 @@
-require 'rails_helper'
-
-describe Tweet do 
-	context "attributes" do
-		
-	end
+FactoryGirl.define do
+  factory :tweet do
+    text "Hello world!"
+    tweet_id 5
+    sentiment 0.12
+	end   
 end
