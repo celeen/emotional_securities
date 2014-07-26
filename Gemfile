@@ -19,7 +19,7 @@ gem 'jquery-rails'
 
 # Stock information
 gem 'stock_quote'
-
+# Rss feeds
 
 # Sidekiq/Redis setup
 gem 'redis'

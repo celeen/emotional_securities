@@ -16,10 +16,10 @@ namespace :stream do
 
     a = Company.create(name:"Apple", symbol:"aapl")
 
-    TweetStream::Client.new.track('AAPL') do |tweet|
-      #logic here
-      # tweet = Tweet.create(tweet)
-      puts tweet.attrs
+    TweetStream::Client.new.track("aapl") do |tweet|
+
+      t = a.tweets.create(text: tweet.text)
+      # puts t.attrs
 
       a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
 

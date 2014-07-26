@@ -1,12 +1,12 @@
 require 'alchemiapi'
 
 class TweetWorker
-	include Sidekiq::Worker 
+	include Sidekiq::Worker
 
 	def perform(tweet_id)
 		alchemyapi = AlchemyAPI.new
 		puts alchemyapi
-		tweet = Tweet.find(tweet_id)
-		response = alchemyapi.sentiment('text', tweet.text)		
+		# tweet = Tweet.find(tweet_id)
+		# response = alchemyapi.sentiment('text', tweet.text)
 	end
-end	
+end
