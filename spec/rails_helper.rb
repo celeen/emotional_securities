@@ -8,7 +8,7 @@ require 'mock_redis'
 require 'sidekiq/testing'
 require 'coveralls'
 Coveralls.wear!
-
+require 'shoulda-matchers'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
