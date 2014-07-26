@@ -8,7 +8,7 @@ require 'mock_redis'
 require 'sidekiq/testing'
 require 'coveralls'
 Coveralls.wear!
-
+require 'shoulda-matchers'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -26,6 +26,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 RSpec.configure do |config|
   config.include Mongoid::Matchers, type: :model
+  config.include FactoryGirl::Syntax::Methods
   
   config.before(:suite) do
     DatabaseCleaner[:mongoid].strategy = :truncation

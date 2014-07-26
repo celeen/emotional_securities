@@ -56,6 +56,7 @@ group :test, :development do
 	gem 'mongoid-rspec'
 	gem 'capybara'
 	gem 'mock_redis'
+	gem 'shoulda-matchers'
 end
 
 gem 'json'
