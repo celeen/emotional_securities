@@ -60,7 +60,6 @@ production:
     default:
       uri: <%= ENV['MONGOHQ_URL'] %>
       options:
-        consistency: :strong
         max_retries: 5
         retry_interval: 0
         persist_in_safe_mode: true
