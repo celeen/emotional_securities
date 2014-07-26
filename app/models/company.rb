@@ -7,4 +7,8 @@ class Company
   embeds_many :tweets
   validates_presence_of :symbol
   validates_uniqueness_of :symbol
+
+  def self.get_400_symbols
+    self.all.to_a.map!{|e| e.symbol}.take(400)
+  end
 end
