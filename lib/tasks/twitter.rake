@@ -14,7 +14,7 @@ namespace :stream do
 
     tweet_array = []
 
-    a = Company.create(name:"Apple", quote:"aapl")
+    a = Company.create(name:"Apple", symbol:"aapl")
 
     TweetStream::Client.new.track('AAPL') do |tweet|
       #logic here
@@ -22,6 +22,7 @@ namespace :stream do
       puts tweet.attrs
 
       a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
+
       TweetWorker.perform_async(tweet.id)
     end
   end
