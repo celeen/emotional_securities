@@ -13,6 +13,7 @@ namespace :stream do
     end
 
     tweet_array = []
+    stock_tickers = []
 
     a = Company.create(name:"Apple", symbol:"aapl")
 
@@ -21,6 +22,7 @@ namespace :stream do
       # tweet = Tweet.create(tweet)
       puts tweet.attrs
 
+      a.tweets << Tweet.create(tweet_id: tweet.id, text: tweet.text, )
       a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
 
       TweetWorker.perform_async(tweet.id)
