@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Article, :type => :model do
+describe Article, :type => :model do
   let (:company) {Company.create(name:"apple", symbol:"aapl")}
   let (:article) {company.articles.create(url: "http://seekingalpha.com/article/2344175-teslas-real-problem-energy-density", sentiment: 0)}
   context "in attributes" do
@@ -20,5 +20,5 @@ RSpec.describe Article, :type => :model do
     end
   end
 
-  context update_articles(2344175-teslas-real-problem-energy-density)
+  # context update_articles(2344175-teslas-real-problem-energy-density)
 end

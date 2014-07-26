@@ -24,8 +24,6 @@ class TweetWorker
 		apple.tweets.create!(tweet_args)
 	end
 
-end
-
 	def get_stock_quote(symbol = 'aapl')
 		comp = Company.find_by(symbol: symbol)
 	  last_price = StockQuote::Stock.quote(comp.symbol).last_trade_price_only

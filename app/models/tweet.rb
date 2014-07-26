@@ -4,5 +4,6 @@ class Tweet
   field :text, type: String
   field :tweet_id, type: Integer
   field :sentiment, type: Integer
+  field :tweeted_at, type: DateTime
   embedded_in :company
 end
