@@ -19,14 +19,14 @@ gem 'jquery-rails'
 
 # Stock information
 gem 'stock_quote'
-
+# Rss feeds
+gem 'feedjira'
 
 # Sidekiq/Redis setup
 gem 'redis'
 gem 'sidekiq'
 gem 'sinatra', require: false
 gem 'slim'
-
 
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks

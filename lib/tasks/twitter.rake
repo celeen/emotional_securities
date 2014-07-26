@@ -18,7 +18,14 @@ namespace :stream do
 
     a = Company.create(name:"Apple", symbol:"aapl")
 
+
+    i = 0
     TweetStream::Client.new.track('AAPL') do |tweet|
+
+      i += 1 # no extra dynos
+      if i % 1000 == 0
+        Aticle.create_feeds(["http://finance.yahoo.com/rss/headline?s=aapl", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=AAPL"])
+      end
 
       tweet_args = {tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at }
 
