@@ -19,4 +19,6 @@ RSpec.describe Article, :type => :model do
       expect(article.company.name).to eq("apple")
     end
   end
+
+  context update_articles(2344175-teslas-real-problem-energy-density)
 end
