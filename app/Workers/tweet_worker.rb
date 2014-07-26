@@ -4,16 +4,17 @@ class TweetWorker
 	include Sidekiq::Worker 
 
 	def perform(tweet_args)
-		puts "args in perform: #{args}"
-		puts "response from alchemy is: #{response}"
+		get_stock_quote	
 
-		tweet_args[:sentiment] = get_alchemy_response(tweet_args[:text])
+		tweet_args[:sentiment] = get_alchemy_response(tweet_args['text'])
 
-		create_tweet(tweet_args)	
+		create_tweet(tweet_args)
 	end
 
 	def get_alchemy_response(text)
-		response = (AlchemyAPI.new).sentiment('text', text)
+		puts text
+		response = AlchemyAPI.new.sentiment('text', text)
+		puts response
 		response['docSentiment']['score'].to_f
 	end
 
@@ -21,4 +22,12 @@ class TweetWorker
 		apple = Company.find_by(symbol: 'aapl')
 		apple.tweets.create(tweet_args)
 	end
+
+	def get_stock_quote(symbol = 'aapl')
+		comp = Company.find_by(symbol: symbol)
+	  last_price = StockQuote::Stock.quote(comp.symbol).last_trade_price_only
+    volume = StockQuote::Stock.quote(comp.symbol).volume
+		comp.quotes.create(price: last_price, volume: volume)
+	end
+
 end	
