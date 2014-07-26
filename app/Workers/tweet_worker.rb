@@ -21,4 +21,5 @@ class TweetWorker
 		apple = Company.find_by(symbol: 'aapl')
 		apple.tweets.create(tweet_args)
 	end
+
 end	

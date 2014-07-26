@@ -25,7 +25,10 @@ namespace :stream do
       puts tweet.created_at
       puts tweet.id
 
-      a.tweets << Tweet.create(tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at)
+
+      a.tweets.create(tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at)
+
+
       a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
 
 
