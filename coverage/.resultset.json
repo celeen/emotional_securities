@@ -1,14 +1,9 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/app/models/tweet.rb": [
+      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/spec/models/company_spec.rb": [
         1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
+        null,
         1,
         1,
         null
@@ -22,6 +17,14 @@
         1,
         1,
         1,
+        1,
+        null
+      ],
+      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/spec/models/quote_spec.rb": [
+        1,
+        null,
+        1,
+        1,
         null
       ],
       "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/app/models/quote.rb": [
@@ -30,10 +33,71 @@
         1,
         1,
         1,
+        1,
+        null
+      ],
+      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/spec/models/tweet_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        1,
+        1,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        1,
+        0,
+        0,
+        null,
+        null,
+        null
+      ],
+      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/app/models/tweet.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/spec/models/tweet_worker_spec.rb": [
+        1,
+        null,
+        1,
+        1,
+        1,
+        0,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
         null,
         null
       ]
     },
-    "timestamp": 1406338204
+    "timestamp": 1406401879
   }
 }

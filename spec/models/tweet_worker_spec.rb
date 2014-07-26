@@ -2,20 +2,16 @@ require 'rails_helper'
 
 describe 'TweetWorker'
 	context '#perform' do 
-	let(:tweet_worker) { TweetWorker.new }
-		it "should accept a tweet_id" do
-			tweet_worker()
+		xit "should accept a tweet_id" do
+			tweet = Tweet.create(text: "Hello World", tweet_id: 5, created_at: Time.now)
+			puts "this is the sentiment: #{tweet.sentiment}"
+			TweetWorker.perform_async(5)
+			expect(tweet.sentiment).to_not be_nil
 		end
+	end
 
-		xit "should find a tweet object" do
-		end
-
-		xit "should instantiate a new AlchemyAPI connection" do
-		end
-
-		xit "should return a response from the AlchemyAPI" do
-		end
-
-		it "should return a tweet object that has a sentiment value" do
+	context '#get_alchemy_response' do
+		it "should return a numerical value" do
+			expect(get_alchemy_response("What a beautiful day!")).to exist
 		end
 	end

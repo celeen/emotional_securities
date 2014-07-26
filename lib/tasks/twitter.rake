@@ -19,11 +19,21 @@ namespace :stream do
     TweetStream::Client.new.track('AAPL') do |tweet|
       #logic here
       # tweet = Tweet.create(tweet)
-      puts tweet.attrs
+      puts tweet.to_json
+      puts tweet.text
+      puts tweet.created_at
+      puts tweet.id
 
-      a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
 
-      TweetWorker.perform_async(tweet.id)
+
+      quote = a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
+      puts "quote price is: #{quote.price}"
+
+      TweetWorker.perform_async({tweet_id: tweet.id, text: tweet.text, tweeted_at: created_at})
+
+      # tweet = a.tweets.create(text: tweet.text, tweeted_at: tweet.created_at, tweet_id: tweet.id,)
+      # puts "Tweet id after save is: #{tweet.tweet_id}"
+
     end
   end
 end
