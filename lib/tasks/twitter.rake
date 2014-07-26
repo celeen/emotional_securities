@@ -32,7 +32,6 @@ namespace :stream do
       if i % 1000 == 0
         Aticle.create_feeds(["http://finance.yahoo.com/rss/headline?s=aapl", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=AAPL"])
       end
-
     end
   end
 end
