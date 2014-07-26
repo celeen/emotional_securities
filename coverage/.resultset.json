@@ -12,8 +12,28 @@
         1,
         1,
         null
+      ],
+      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/app/models/company.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null
+      ],
+      "/Users/rainbowbrite/Documents/DBC/final_project/emotional_securities/app/models/quote.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
       ]
     },
-    "timestamp": 1406335329
+    "timestamp": 1406338204
   }
 }
