@@ -22,7 +22,7 @@ namespace :stream do
       # tweet = Tweet.create(tweet)
       puts tweet.attrs
 
-      a.tweets << Tweet.create(tweet_id: tweet.id, text: tweet.text, )
+      a.tweets << Tweet.create(tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at)
       a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
 
       TweetWorker.perform_async(tweet.id)
