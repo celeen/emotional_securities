@@ -3,10 +3,22 @@ require 'alchemiapi'
 class TweetWorker
 	include Sidekiq::Worker
 
-	def perform(tweet_id)
-		alchemyapi = AlchemyAPI.new
-		puts alchemyapi
-		# tweet = Tweet.find(tweet_id)
-		# response = alchemyapi.sentiment('text', tweet.text)
+	def perform(tweet_args)
+		puts "args in perform: #{args}"
+		puts "response from alchemy is: #{response}"
+
+		tweet_args[:sentiment] = get_alchemy_response(tweet_args[:text])
+
+		create_tweet(tweet_args)
+	end
+
+	def get_alchemy_response(text)
+		response = (AlchemyAPI.new).sentiment('text', tweet_args[:text])
+		response['docSentiment']['score']
+	end
+
+	def create_tweet(tweet_args)
+		apple = Company.find_by(symbol: 'aapl')
+		apple.tweets.create(tweet_args)
 	end
 end
