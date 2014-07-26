@@ -5,6 +5,7 @@ class Company
   field :sector, type: String
   embeds_many :quotes
   embeds_many :tweets
+  embeds_many :articles
   validates_presence_of :symbol
   validates_uniqueness_of :symbol
 
