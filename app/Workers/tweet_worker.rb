@@ -2,9 +2,10 @@ class TweetWorker
 	include Sidekiq::Worker 
 
 	def perform(tweet_id)
-		alchemyapi = AlchemyAPI.new
-		tweet = Tweet.find(tweet_id)
-		response = alchemyapi.sentiment('text', tweet.text)
+		# alchemyapi = AlchemyAPI.new
+		# tweet = Tweet.find(tweet_id)
+		# response = alchemyapi.sentiment('text', tweet.text)
+		puts 'made it through'
 		
 		
 	end
