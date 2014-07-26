@@ -4,6 +4,7 @@ describe 'TweetWorker'
 	context '#perform' do 
 	let(:tweet_worker) { TweetWorker.new }
 		it "should accept a tweet_id" do
+			tweet_worker()
 		end
 
 		xit "should find a tweet object" do
