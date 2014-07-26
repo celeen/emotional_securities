@@ -2,7 +2,6 @@ require 'alchemiapi'
 
 class TweetWorker
 	include Sidekiq::Worker 
-	puts "in the worker"
 
 	def perform(tweet_args)
 		get_stock_quote	
@@ -13,7 +12,9 @@ class TweetWorker
 	end
 
 	def get_alchemy_response(text)
-		response = (AlchemyAPI.new).sentiment('text', text)
+		puts text
+		response = AlchemyAPI.new.sentiment('text', text)
+		puts response
 		response['docSentiment']['score'].to_f
 	end
 
