@@ -5,3 +5,19 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+class SPYParser
+  attr_reader :file, :spy_array
+
+  def initialize(file)
+    @file = file
+    @spy_array = CSV.read(@file,{ :headers => true, :header_converters => :symbol })
+    @spy_array.each do |values|
+      puts values.headers
+      Company.create(name:values[:name], symbol: values[:symbol], sector: values[:sector])
+    end
+  end
+end
+
+SPYParser.new('lib/assets/SPYsymbols.csv')

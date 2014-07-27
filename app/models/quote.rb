@@ -1,7 +1,7 @@
 class Quote
   include Mongoid::Document
-  include Mongoid::Timestamps::Short
+  include Mongoid::Timestamps::Created::Short
   field :volume, type: Integer
   field :price, type: Integer
-  embedded_in :company
+  field :company, type: String
 end

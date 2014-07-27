@@ -1,12 +1,37 @@
 require 'alchemiapi'
 
 class TweetWorker
-	include Sidekiq::Worker 
+	include Sidekiq::Worker
 
-	def perform(tweet_id)
-		alchemyapi = AlchemyAPI.new
-		puts alchemyapi
-		tweet = Tweet.find(tweet_id)
-		response = alchemyapi.sentiment('text', tweet.text)		
+	def perform(tweet_args, symbol)
+		get_stock_quote(symbol)
+
+		tweet_args[:sentiment] = get_alchemy_response(tweet_args['text'])
+
+		create_tweet(tweet_args)
 	end
-end	
+
+	def get_alchemy_response(text)
+		puts text
+		response = AlchemyAPI.new.sentiment('text', text)
+		puts response
+		response['docSentiment']['score'].to_f
+	end
+
+	def create_tweet(tweet_args)
+		Tweet.create(tweet_args)
+		p Tweet.last
+	end
+
+	def get_stock_quote(symbol = 'aapl')
+		puts '---MAKING QUOTE------'
+	  last_price = StockQuote::Stock.quote(symbol).last_trade_price_only
+    volume = StockQuote::Stock.quote(symbol).volume
+    puts "---#{volume}------"
+    puts "---#{last_price}------"
+		Quote.create(price: last_price, volume: volume, company: symbol)
+		puts "CREATED (.)(.)   (.)(.)  (.)(.)  (.)(.)  (.)(.) (.)(.)"
+	end
+
+end
+

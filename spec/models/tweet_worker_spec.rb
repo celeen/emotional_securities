@@ -1,21 +1,36 @@
 require 'rails_helper'
 
-describe 'TweetWorker'
+describe TweetWorker do
 	context '#perform' do 
-	let(:tweet_worker) { TweetWorker.new }
-		it "should accept a tweet_id" do
-			tweet_worker()
-		end
-
-		xit "should find a tweet object" do
-		end
-
-		xit "should instantiate a new AlchemyAPI connection" do
-		end
-
-		xit "should return a response from the AlchemyAPI" do
-		end
-
-		it "should return a tweet object that has a sentiment value" do
+		xit "should accept a tweet_id" do
+			tweet = Tweet.create(text: "Hello World", tweet_id: 5, created_at: Time.now)
+			puts "this is the sentiment: #{tweet.sentiment}"
+			TweetWorker.perform_async(5)
+			expect(tweet.sentiment).to_not be_nil
 		end
 	end
+
+	context '#get_alchemy_response' do
+		let(:twerker) {TweetWorker.new}
+		it "should return something" do
+			expect(twerker.get_alchemy_response("What a beautiful day!")).to_not be_nil
+		end
+
+		it "should return a float" do
+			expect(twerker.get_alchemy_response("What a beautiful day!")).to be_kind_of Float
+		end
+	end
+
+	context '#create_tweet' do
+		let(:twerker) {TweetWorker.new}
+		let(:tweet_args) { {text: "Hello world!", tweet_id: 5, tweeted_at: Time.now } }
+		it "should add a new tweet to the database" do
+		apple = Company.find_or_create_by(symbol: 'aapl')
+		puts "count: #{apple.tweets.count}"
+		puts "putsing companies: #{Company.all.to_a}"
+		twerker.create_tweet(tweet_args)
+		puts "count: #{apple.tweets.count}"
+			expect(apple.tweets).to eq(1)		
+		end
+	end
+end

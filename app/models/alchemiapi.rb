@@ -105,9 +105,9 @@ class AlchemyAPI
 			# 	Process.exit(1)
 			# end
 
-			@apiKey = ENV['ALCHEMYAPI_KEY']
+			@apiKey = ENV['ALCHEMY_API_KEY']
 		# rescue => err
-		# 	#The file doesn't exist, so show the message and create the file.
+		# 	#The filexxe doesn't exist, so show the message and create the file.
 		# 	puts 'API Key not found! Please copy/paste your API key into the file: api_key.txt'
 		# 	puts 'If you do not have an API Key from AlchemyAPI please register for one at: http://www.alchemyapi.com/api/register.html'
 

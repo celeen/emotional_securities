@@ -4,6 +4,7 @@ include Sidekiq::Worker
 namespace :stream do
   desc 'collecting tweets script'
   task:emo_grabber => :environment do
+
     TweetStream.configure do |config|
       config.consumer_key       = ENV['CONSUMER_KEY']
       config.consumer_secret    = ENV['CONSUMER_SECRET']
@@ -15,17 +16,34 @@ namespace :stream do
     tweet_array = []
     stock_tickers = []
 
-    a = Company.create(name:"Apple", symbol:"aapl")
+    i = 0
+    symbols = ['AAPL', 'GOOG', 'TSLA', 'CHTP', 'SBUX','$FB', '$YHOO']
+    TweetStream::Client.new.track(symbols, language: 'en') do |tweet|
 
-    TweetStream::Client.new.track('AAPL') do |tweet|
-      #logic here
-      # tweet = Tweet.create(tweet)
-      puts tweet.attrs
+      puts 'in client'
+      p tweet.to_h
 
-      a.tweets << Tweet.create(tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at)
-      a.quotes.create(price: StockQuote::Stock.quote('aapl').last_trade_price_only, volume: StockQuote::Stock.quote("aapl").volume, )
+      i += 1 # no extra dynos
+      if i % 1000 == 0
+        Article.create_feeds(["http://finance.yahoo.com/rss/headline?s=aapl", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=AAPL"])
+      end
 
-      TweetWorker.perform_async(tweet.id)
+      puts '----PAST THE INFALLIBLE ZONE-----------'
+      p "#{tweet.text}"
+
+
+      companies = symbols.map { |symbol| symbol if /#{symbol.downcase}/.match(tweet.text.downcase) }
+      companies.compact!
+
+      p "------#{companies}---------"
+
+      companies.each do |symbol| 
+        tweet_args = {tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at, company: symbol }
+        puts "IN ARGS ************************************"
+        TweetWorker.perform_async(tweet_args, symbol) 
+      end
+
+
     end
   end
 end
