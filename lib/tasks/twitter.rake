@@ -31,6 +31,7 @@ namespace :stream do
       puts '----PAST THE INFALLIBLE ZONE-----------'
       p "#{tweet.text}"
 
+      # Optional dollar sign on FB
 
       companies = symbols.map { |symbol| symbol if /#{symbol.downcase}/.match(tweet.text.downcase) }
       companies.compact!
