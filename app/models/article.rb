@@ -3,9 +3,10 @@ class Article
   include Mongoid::Timestamps::Created::Short #c_at
   field :url, type: String
   field :sentiment, type: Integer
+  field :company, type: String
+  
   validates_uniqueness_of :url
   validates_presence_of :url
-  embedded_in :company
 
   def self.retrieve_feed(urls)
     @feeds = Feedjira::Feed.fetch_and_parse urls

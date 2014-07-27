@@ -3,8 +3,8 @@ require 'alchemiapi'
 class TweetWorker
 	include Sidekiq::Worker
 
-	def perform(tweet_args)
-		get_stock_quote
+	def perform(tweet_args, symbol)
+		get_stock_quote(symbol)
 
 		tweet_args[:sentiment] = get_alchemy_response(tweet_args['text'])
 
@@ -19,17 +19,18 @@ class TweetWorker
 	end
 
 	def create_tweet(tweet_args)
-		apple = Company.find_by(symbol: 'aapl')
-		apple.tweets.create(tweet_args)
+		Tweet.create(tweet_args)
+		p Tweet.last
 	end
 
-end
-
 	def get_stock_quote(symbol = 'aapl')
-		comp = Company.find_by(symbol: symbol)
-	  last_price = StockQuote::Stock.quote(comp.symbol).last_trade_price_only
-    volume = StockQuote::Stock.quote(comp.symbol).volume
-		comp.quotes.create(price: last_price, volume: volume)
+		puts '---MAKING QUOTE------'
+	  last_price = StockQuote::Stock.quote(symbol).last_trade_price_only
+    volume = StockQuote::Stock.quote(symbol).volume
+    puts "---#{volume}------"
+    puts "---#{last_price}------"
+		Quote.create(price: last_price, volume: volume, company: symbol)
+		puts "CREATED (.)(.)   (.)(.)  (.)(.)  (.)(.)  (.)(.) (.)(.)"
 	end
 
 end
