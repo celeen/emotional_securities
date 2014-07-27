@@ -23,7 +23,7 @@ describe TweetWorker do
 
 	context '#create_tweet' do
 		let(:twerker) {TweetWorker.new}
-		let(:tweet_args) { {text: "Hello world!", tweet_id: 5, tweeted_at: Time.now, sentiment: 0.05 } }
+		let(:tweet_args) { {text: "Hello world!", tweet_id: 5, tweeted_at: Time.now } }
 		it "should add a new tweet to the database" do
 		apple = Company.create(symbol: 'aapl', name: "Apple")
 		puts "count: #{apple.tweets.count}"

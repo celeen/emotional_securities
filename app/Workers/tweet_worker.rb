@@ -20,7 +20,8 @@ class TweetWorker
 
 	def create_tweet(tweet_args)
 		apple = Company.find_by(symbol: 'aapl')
-		apple.tweets.create(tweet_args)
+		puts "Within the create method: #{apple.tweets}"
+		apple.tweets.create!(tweet_args)
 	end
 
 end
