@@ -13,7 +13,7 @@ class Article
 
   def self.create_articles_from_feed(urls, company_symbol)
     urls.each do |url|
-      @url = @feeds[url].entries.map{|article|Company.find_by(symbol: company_symbol).articles.create(url: article.url)}
+      @feeds[url].entries.map{|article|Article.create(url: article.url, company: company_symbol, published_at: article.published)}
     end
   end
 
