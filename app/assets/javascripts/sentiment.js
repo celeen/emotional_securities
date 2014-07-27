@@ -1,49 +1,75 @@
-$(document).ready(function(){
-	var volume, prices, tweetSentiment, articleSentiment;
-
-	function stockChart(data) { 
-		c3.generate({
-    data: {
-    	dates: 'x',
-    	json: {
-
-        // Row of date/times formatted in x axis Y-M-D H-M-S
-        // Row that is volume, chart- bar
-        // Row that is stock price - spline
-        // Row that is sentiment - spline
-        		x: [2014-01-03,2014-01-04,2014-01-05,2014-01-03,2014-01-03,2014-01-03,],
-            volume: [200, 130, 90, 240, 130, 220],
-            prices: [300, 200, 160, 400, 250, 250],
-            tweetSentiment: [200, 130, 90, 240, 130, 220],
-            articleSentiment: [90, 70, 20, 50, 60, 120],
-    	},
-        type: 'bar',
-        types: {
-            prices: 'spline',
-            tweetSentiment: 'spline',
-            articleSentiment: 'spline',
-        },
-        // groups: [
-        //     ['data1','data2']
-        // ]
-    },
-    axis: {
-    	x: {
-    		type: 'timeseries',
-    		tick: {
-    			format: '%Y-%m-%d'
-    		}
-    	}
-    }
-	});
+	Array.max = function(array) {
+		return Math.max.apply( Math, array);
 	}
 
-	// Data call
+	function stockChart(data) { 
+		console.log(data)
+		chart = c3.generate({
+	    data: {
+	    	x: 'dates',
+	    	json: {
+	        		dates: data.dates,
+	            tweetSentiment: data.tweetSentiments,
+	            prices: data.prices,
+	            volume: data.volume,
+	    	},
+	    	axes: {
+	    		tweetSentiment: 'y',
+	    		prices: 'y2',
+	    		volume: 'y2'
+	    	},
+	        types: {
+	            prices: 'spline',
+	            tweetSentiment: 'line',
+	            volume: 'bar'
+	        },
+	    },
+	    subchart: {
+	    	show: true
+	    },
+	    axis: {
+	    	x: {
+	    		type: 'timeseries',
+	    		tick: {
+	    			count: 4,
+	    			format: '%m/%d/%y'
+	    		}
+	    	},
+	    	y: {
+	    		label: "Sentiment",
+	    		min: -1,
+	    		max: 1,
+	    	},
+	    	y2: {
+	    		label: "Share Price",
+	    		show: true,
+	    		padding: {top: Array.max(data.prices)}
+	    	},
+	    	y3: {
+	    		show: true
+	    	}
+	    },
+	    tooltip: {
+        format: {
+            title: function (d) { return 'Data ' + d; },
+            value: function (value, ratio, id) {
+                var format = id === 'prices' ? d3.format('$') : d3.format('.');
+                return format(value);
+            }
+        }
+    }
+		});
+		chart.hide('volume')
+	}
+
+$(document).ready(function(){
+	var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
+
+
 	$.post('/chart_data', function(response){
 		stockData = response;
-		console.log(stockData);
-		// Call chart here
-	})
+		stockChart(stockData)
+	}, 'json')
 
 
 })

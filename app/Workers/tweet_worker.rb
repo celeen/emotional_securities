@@ -15,10 +15,12 @@ class TweetWorker
 		puts text
 		response = AlchemyAPI.new.sentiment('text', text)
 		puts response
+		p response['docSentiment']['score'].to_f
 		response['docSentiment']['score'].to_f
 	end
 
 	def create_tweet(tweet_args)
+		p "#{tweet_args} ------- TWEET ARGS"
 		Tweet.create(tweet_args)
 		p Tweet.last
 	end
@@ -29,7 +31,7 @@ class TweetWorker
     volume = StockQuote::Stock.quote(symbol).volume
     puts "---#{volume}------"
     puts "---#{last_price}------"
-		Quote.create(price: last_price, volume: volume, company: symbol)
+		Quote.create(price: last_price * 100, volume: volume, company: symbol)
 		puts "CREATED (.)(.)   (.)(.)  (.)(.)  (.)(.)  (.)(.) (.)(.)"
 	end
 
