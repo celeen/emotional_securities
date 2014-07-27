@@ -25,12 +25,12 @@ describe TweetWorker do
 		let(:twerker) {TweetWorker.new}
 		let(:tweet_args) { {text: "Hello world!", tweet_id: 5, tweeted_at: Time.now } }
 		it "should add a new tweet to the database" do
-		apple = Company.create(symbol: 'aapl', name: "Apple")
+		apple = Company.find_or_create_by(symbol: 'aapl')
 		puts "count: #{apple.tweets.count}"
 		puts "putsing companies: #{Company.all.to_a}"
 		twerker.create_tweet(tweet_args)
 		puts "count: #{apple.tweets.count}"
-			expect(apple.tweets.count).to eq(1)		
+			expect(apple.tweets).to eq(1)		
 		end
 	end
 end

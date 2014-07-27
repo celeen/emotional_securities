@@ -20,5 +20,21 @@ describe Article, :type => :model do
     end
   end
 
+  context '##retrieve_feed' do
+    xit "should do something?" do
+    end
+  end
+
+  context '##create_articles_from_feed' do
+    xit "should do something" do
+    end
+
+  context '##update_articles' do
+    xit "should also so something probably" do
+
+    end
+  end
+  end
+
   # context update_articles(2344175-teslas-real-problem-energy-density)
 end
