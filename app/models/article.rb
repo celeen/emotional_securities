@@ -1,10 +1,10 @@
 class Article
   include Mongoid::Document
-  include Mongoid::Timestamps::Created::Short #c_at
   field :url, type: String
   field :sentiment, type: Integer
   field :company, type: String
-  
+  field :c_at, type: DateTime
+
   validates_uniqueness_of :url
   validates_presence_of :url
 
@@ -14,7 +14,7 @@ class Article
 
   def self.create_articles_from_feed(urls, company_symbol)
     urls.each do |url|
-      @url = @feeds[url].entries.map{|article|Company.find_by(symbol: company_symbol).articles.create(url: article.url)}
+      @feeds[url].entries.map{|article|Article.create(url: article.url, company: company_symbol, c_at: article.published)}
     end
   end
 
