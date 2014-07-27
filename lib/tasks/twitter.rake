@@ -16,7 +16,7 @@ namespace :stream do
     tweet_array = []
     stock_tickers = []
 
-    a = Company.create(name:"Apple", symbol:"aapl")
+    a = Company.find_or_create_by(name:"Apple", symbol:"aapl")
 
 
     i = 0
