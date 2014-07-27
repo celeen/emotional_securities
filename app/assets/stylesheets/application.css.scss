@@ -1,5 +1,7 @@
 @import "bourbon";
 @import "neat";
+@import "c3";
+@import "sentiment";
 @import "reset";
 @import "variables";
 @import url("http://fonts.googleapis.com/css?family=News+Cycle:400,700|Bitter|Old+Standard+TT");
@@ -18,6 +20,5 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
-
  *= require_self
  */
