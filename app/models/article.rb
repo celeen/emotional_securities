@@ -23,13 +23,4 @@ class Article
     Article.create_articles_from_feed(urls, company_symbol)
   end
 
-
-
-
-
-  # def self.update_feeds(urls)
-  #   urls.each do |url|
-  #    Feedjira::Feed.update(Article.create_feeds(urls)[url]).new_entries
-  #   end
-  # end
 end
