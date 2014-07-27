@@ -4,20 +4,17 @@ html {
 }
 
 h1 {
-	// font-size: 2.5em;
-	// letter-spacing: .04em;
 	color: $white;
 	font-family: $newscycle;
 	font-weight: 400;
-	// text-shadow: 2px 1px $dark;
 }
 
 header {
-	@include linear-gradient($light, $main);
 	@include clearfix;
 	background-color: $main;
 	text-align: center;
 	padding: 0em 1em;
+	@include margin(null null 2em null);
 
 
 	.wrapper {
@@ -32,11 +29,10 @@ header {
 }
 
 ul {
-	@include outer-container;
-	@include shift(1);
-	@include span-columns(10);
 	text-align: center;
-	padding: 1em 0;
+
+	@include shift(2);
+	@include span-columns(8);
 }
 
 
@@ -44,16 +40,29 @@ nav.wrapper {
 	@include shift(1);
 }
 
-.block {
+nav li {
 	display: inline-block;
-	@include span-columns(2.3 of 10);
-	margin: 1em 2em;
-	height: 8em;
+	// margin: 1em 0em;
 	background-color: $white;
-	// @include linear-gradient($light, $main);
-	@include directional-property(border,width,.1em .1em .1em .1em);
-	@include directional-property(border, color,$dark $dark $dark $dark);
-	@include border-style(solid solid solid);
+	height: 5em;
+	
+	// border: 1px solid $dark;
+	
+	@include media($mobile) {
+		@include span-columns(4 of 8);
+		margin: 1em 0em;
+	}
+	// @include media($mini-mobile) {
+	// 	@include span-columns(2 of 4);
+	// 	width: 80%;
+	// }
+}
+
+.block {
 	border-radius: 5px;
+	border: 1px solid $dark;
+	margin: 0 auto;
+	height: 70%;
+	width: 70%;
 
 }

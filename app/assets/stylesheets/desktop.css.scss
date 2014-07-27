@@ -4,29 +4,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-ul {
-	@include outer-container;
-	@include shift(1);
-	@include span-columns(10);
-	text-align: center;
-	padding: 1em 0;
-}
+li {
+	@include span-columns(2 of 8);
 
 
-nav.wrapper {
-	@include shift(1);
-}
-
-.block {
-	display: inline-block;
-	@include span-columns(2.3 of 10);
-	margin: 1em 2em;
-	height: 8em;
-	background-color: $white;
-	// @include linear-gradient($light, $main);
-	@include directional-property(border,width,.1em .1em .1em .1em);
-	@include directional-property(border, color,$dark $dark $dark $dark);
-	@include border-style(solid solid solid);
-	border-radius: 5px;
 
 }
