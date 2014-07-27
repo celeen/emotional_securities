@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Article, :type => :model do
+describe Article, :type => :model do
   let (:company) {Company.create(name:"apple", symbol:"aapl")}
   let (:article) {company.articles.create(url: "http://seekingalpha.com/article/2344175-teslas-real-problem-energy-density", sentiment: 0)}
   context "in attributes" do
@@ -20,5 +20,21 @@ RSpec.describe Article, :type => :model do
     end
   end
 
-  context update_articles(2344175-teslas-real-problem-energy-density)
+  context '##retrieve_feed' do
+    xit "should do something?" do
+    end
+  end
+
+  context '##create_articles_from_feed' do
+    xit "should do something" do
+    end
+
+  context '##update_articles' do
+    xit "should also so something probably" do
+
+    end
+  end
+  end
+
+  # context update_articles(2344175-teslas-real-problem-energy-density)
 end

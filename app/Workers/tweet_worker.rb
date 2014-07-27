@@ -20,10 +20,10 @@ class TweetWorker
 
 	def create_tweet(tweet_args)
 		apple = Company.find_by(symbol: 'aapl')
+		puts "Within the create method: #{apple.tweets}"
 		apple.tweets.create(tweet_args)
+		apple.tweets.last
 	end
-
-end
 
 	def get_stock_quote(symbol = 'aapl')
 		comp = Company.find_by(symbol: symbol)
