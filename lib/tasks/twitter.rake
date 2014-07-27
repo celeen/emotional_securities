@@ -43,6 +43,7 @@ namespace :stream do
         TweetWorker.perform_async(tweet_args, symbol) 
       end
 
+
     end
   end
 end
