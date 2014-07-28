@@ -25,7 +25,7 @@ footer, footer a {
   border-radius: 3px;
   color: $white;
   font-family: $oldstandard;
-  // font-size: 1.3em;
+  @include margin(null null null .5em)
 }
 
 h1 {
@@ -43,21 +43,17 @@ header {
 	background-color: $white;
 }
 
-footer nav {
+footer {
 	background-color: $main;
-}
-
-footer nav li {
-
+	// background: shade($main, 20%);
+	box-shadow: .15em 0 .15em .15em $med-dark;
+	
+	nav {
+		background-color: $main;
+	}
 }
 
 .block {
 	border-radius: 5px;
 	border: 1px solid $dark;
-}
-
-footer {
-	background-color: $main;
-	// background: shade($main, 20%);
-	box-shadow: .15em 0 .15em .15em $med-dark;
 }

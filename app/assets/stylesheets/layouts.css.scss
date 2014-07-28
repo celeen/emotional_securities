@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+}
+
 html, body {
 	height: 100%;
 }
@@ -62,30 +66,19 @@ li {
 	@include margin(2em null 2em null);
 	@include span-columns(6);
 	@include shift(3);
-	height: 15em;
+	height: 20em;
 	border: 1px solid $dark;
 }
 
-.container {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -30px;
-}
-
-footer, .push {
-	height: 30px;
-	margin: 0;
-}
 
 footer nav {
-	float:right;
+	float: right;
 }
 
-footer .copyright {
-	float: left;
+footer li {
+	@include margin(.1em 1em null .5em);
 }
 
-footer li, .copyright {
-	@include margin(.2em .5em null .5em);
+footer {
+	overflow: hidden;
 }
