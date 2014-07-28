@@ -58,4 +58,14 @@ describe TweetWorker do
 			expect(quote.volume).to be_kind_of Integer
 		end
 	end
+
+	context '#update_rss' do
+		it "should receive the #update_articles message" do
+			allow(Article).to receive(:update)
+			VCR.use_cassette('update_rss') do
+				twerker.update_rss(['tsla'])
+				expect(Article).to have_received(:update_articles)
+			end
+		end
+	end
 end
