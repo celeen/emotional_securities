@@ -21,19 +21,13 @@ class Article
   end
 
   def get_company_name(stock_symbol)
-    puts "in get company name"
     name = StockQuote::Stock.quote(stock_symbol).name
     name.gsub!(/(\A\w+)(.+)/, '\1')
-    p name
   end
 
   def self.set_article_sentiments
     alchemyapi = AlchemyAPI.new
-    articles = Article.all.reject do |article|
-      article.sentiment
-    end
-
-    puts "These are the articles returned: #{articles}"
+    articles = Article.all.reject{ |article| article.sentiment }
 
     articles.map do |article|
       response = alchemyapi.sentiment_targeted('url', article.url, article.get_company_name(article.company))
@@ -45,6 +39,7 @@ class Article
   def self.update_articles(urls, company_symbol)
     Article.retrieve_feed(urls)
     Article.create_articles_from_feed(urls, company_symbol)
+    Article.set_article_sentiments
   end
 
 end

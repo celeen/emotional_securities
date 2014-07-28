@@ -34,8 +34,8 @@ describe Article, :type => :model do
 
   context '##update_articles' do
     it "should also so something probably" do
-      Article.update_articles(["http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=EWJ"], "ewj")
-      expect(Article.where(company: "ewj").length).to be > 0
+      Article.update_articles(["http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=TSLA"], "tsla")
+      expect(Article.where(company: "tsla").length).to be > 0
     end
   end
 
