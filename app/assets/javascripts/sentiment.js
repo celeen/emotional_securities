@@ -75,5 +75,9 @@ $(document).ready(function(){
 		stockChart(stockData)
 	}, 'json')
 
+	$.post('/box_data', function(response){
+		stockData = response;
+		stockChart(stockData)
+	}, 'json')
 
 })

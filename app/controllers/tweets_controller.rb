@@ -20,4 +20,8 @@ class TweetsController < ApplicationController
 
 		render json: {volume: volume, prices: prices, tweetSentiments: sentiments, dates: dates}
 	end
+
+	def box_data
+		Article.where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400 ).avg(:sentiment)
+	end
 end
