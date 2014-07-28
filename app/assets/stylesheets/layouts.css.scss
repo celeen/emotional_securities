@@ -1,21 +1,12 @@
-
-html {
-	background-color: $white;
-}
-
-h1 {
-	color: $white;
-	font-family: $newscycle;
-	font-weight: 400;
+html, body {
+	height: 100%;
 }
 
 header {
-	@include clearfix;
-	background-color: $main;
 	text-align: center;
 	padding: 0em 1em;
+	@include clearfix;
 	@include margin(null null 2em null);
-
 
 	.wrapper {
 		@include outer-container;
@@ -23,14 +14,13 @@ header {
 
 	h1 {
 		line-height: $body-line-height;
-		// float:left;
-		// @include shift(1);
+		float:left;
+		@include shift(1);
 	}
 }
 
-ul {
+nav ul {
 	text-align: center;
-
 	@include shift(2);
 	@include span-columns(8);
 }
@@ -41,28 +31,39 @@ nav.wrapper {
 }
 
 nav li {
+	border: 1px solid $dark;
 	display: inline-block;
-	// margin: 1em 0em;
-	background-color: $white;
 	height: 5em;
-	
-	// border: 1px solid $dark;
+	@include span-columns(2 of 8);
 	
 	@include media($mobile) {
 		@include span-columns(4 of 8);
 		margin: 1em 0em;
 	}
-	// @include media($mini-mobile) {
-	// 	@include span-columns(2 of 4);
-	// 	width: 80%;
-	// }
 }
 
-.block {
-	border-radius: 5px;
-	border: 1px solid $dark;
+nav .block {
 	margin: 0 auto;
 	height: 70%;
 	width: 70%;
+}
 
+#chart-area {
+	@include margin(2em null 2em null);
+	@include span-columns(6);
+	@include shift(3);
+	height: 15em;
+	border: 1px solid $dark;
+}
+
+.container {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -25px;
+}
+
+footer, .push {
+	height: 25px;
+	margin: 0;
 }

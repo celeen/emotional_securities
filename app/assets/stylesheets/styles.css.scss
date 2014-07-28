@@ -1,0 +1,27 @@
+
+html {
+	background-color: $white;
+}
+
+h1 {
+	color: $white;
+	font-family: $newscycle;
+	font-weight: 400;
+}
+
+header {
+	background-color: $main;
+}
+
+nav li {
+	background-color: $white;
+}
+
+.block {
+	border-radius: 5px;
+	border: 1px solid $dark;
+}
+
+footer {
+	background-color: $main;
+}
