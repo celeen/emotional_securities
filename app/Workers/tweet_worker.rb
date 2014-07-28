@@ -10,13 +10,15 @@ class TweetWorker
 
 		create_tweet(tweet_args)
 
-		update_rss?(count, symbols)
+		if count % 5000 == 0
+			update_rss(symbols)
+		end
 	end
 
 	def get_alchemy_response(text)
-		puts text
+		# puts text
 		response = AlchemyAPI.new.sentiment('text', text)
-		puts response
+		# puts response
 		response['docSentiment']['score'].to_f
 	end
 
@@ -34,13 +36,11 @@ class TweetWorker
 		# puts "CREATED (.)(.)   (.)(.)  (.)(.)  (.)(.)  (.)(.) (.)(.)"
 	end
 
-	def update_rss?(count, symbols)
-		if count % 5000 == 0
+	def update_rss(symbols)
       symbols.each do |symbol|
         symbol.gsub!(/\$/, "")
         Article.update_articles(["http://finance.yahoo.com/rss/headline?s=#{symbol}", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=#{(symbol.upcase)}"], symbol)
       end
-    end
 	end
 end
 
