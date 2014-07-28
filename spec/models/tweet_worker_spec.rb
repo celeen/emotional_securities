@@ -67,10 +67,11 @@ describe TweetWorker do
 		let(:tweet_args) { {text: "Hello world!", tweet_id: 5, tweeted_at: Time.now, company: 'aapl' } }
 		it "should queue jobs" do
 			TweetWorker.perform_async(tweet_args, 'tsla', 5001, ['tsla'])
-			expect(TweetWorker).to have_enqueued_job(tweet_args, 'tsla', 5001, ['tsla'])
+			expect(TweetWorker.jobs.count).to eq(1)
 		end
 
 		it "should invoke other methods" do
+			allow(TweetWorker.any_instance).to receive(:get_stock_quote)
 			TweetWorker.perform_async(tweet_args, 'tsla', 5001, ['tsla'])
 			expect(TweetWorker.any_instance).to receive(:get_stock_quote)	
 		end
