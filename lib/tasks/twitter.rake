@@ -16,32 +16,34 @@ namespace :stream do
     tweet_array = []
     stock_tickers = []
 
-    i = 0
+    count = 0
     symbols = ['AAPL', 'GOOG', 'TSLA', 'CHTP', 'SBUX', '$YHOO', 'CMI', 'TSN', 'AFL', 'AXP', 'AMGN', 'CBG', '$MAR', 'LVLT', 'HMC', 'MRK', 'TWTR', '$MET', 'BCS']
     TweetStream::Client.new.track(symbols, language: 'en') do |tweet|
 
       puts 'in client'
       p tweet.to_h
 
-      i += 1 # no extra dynos
-      if i % 1000 == 0
-        Article.create_feeds(["http://finance.yahoo.com/rss/headline?s=aapl", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=AAPL"])
-      end
-
-      puts '----PAST THE INFALLIBLE ZONE-----------'
-      p "#{tweet.text}"
 
       # Optional dollar sign on FB
 
       companies = symbols.map { |symbol| symbol if /#{symbol.downcase}/.match(tweet.text.downcase) }
       companies.compact!
+      companies = nil if companies.empty?
 
       p "------#{companies}---------"
 
-      companies.each do |symbol| 
+      count += 1 # no extra dynos
+
+
+      puts '----PAST THE INFALLIBLE ZONE-----------'
+      p "#{tweet.text}"
+
+
+      companies.each do |symbol|
         tweet_args = {tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at, company: symbol }
         puts "IN ARGS ************************************"
-        TweetWorker.perform_async(tweet_args, symbol) 
+        puts "------#{tweet_args} ----- #{symbol}----------------- #{count}-------------#{symbols}"
+        TweetWorker.perform_async(tweet_args, symbol, count, symbols)
       end
 
 
