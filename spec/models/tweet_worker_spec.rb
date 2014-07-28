@@ -61,7 +61,7 @@ describe TweetWorker do
 
 	context '#update_rss' do
 		it "should receive the #update_articles message" do
-			allow(Article).to receive(:update)
+			allow(Article).to receive(:update_articles)
 			VCR.use_cassette('update_rss') do
 				twerker.update_rss(['tsla'])
 				expect(Article).to have_received(:update_articles)
