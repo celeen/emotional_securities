@@ -17,7 +17,7 @@ namespace :stream do
     stock_tickers = []
 
     count = 0
-    symbols = ['AAPL', 'GOOG', 'TSLA', 'CHTP', 'SBUX', '$YHOO', 'CMI', 'TSN', 'AFL', 'AXP', 'AMGN', 'CBG', '$MAR', 'LVLT', 'HMC', 'MRK', 'TWTR', '$MET', 'BCS']
+    symbols = ['AAPL', 'GOOG', 'TSLA', 'CHTP', 'SBUX', '$YHOO', 'CMI', 'TSN', 'AFL', 'AXP', 'AMGN', 'CBG', 'LVLT', 'HMC', 'MRK', 'TWTR']
     TweetStream::Client.new.track(symbols, language: 'en') do |tweet|
 
       puts 'in client'
