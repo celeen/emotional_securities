@@ -59,6 +59,7 @@ group :test, :development do
 	gem 'capybara'
 	gem 'mock_redis'
 	gem 'shoulda-matchers'
+	gem 'jasmine-rails'
 end
 
 gem 'json'

@@ -1,0 +1,68 @@
+
+html {
+	background-color: $white;
+}
+
+h1 {
+	color: $white;
+	font-family: $newscycle;
+	font-weight: 400;
+}
+
+header {
+	@include clearfix;
+	background-color: $main;
+	text-align: center;
+	padding: 0em 1em;
+	@include margin(null null 2em null);
+
+
+	.wrapper {
+		@include outer-container;
+	}
+
+	h1 {
+		line-height: $body-line-height;
+		// float:left;
+		// @include shift(1);
+	}
+}
+
+ul {
+	text-align: center;
+
+	@include shift(2);
+	@include span-columns(8);
+}
+
+
+nav.wrapper {
+	@include shift(1);
+}
+
+nav li {
+	display: inline-block;
+	// margin: 1em 0em;
+	background-color: $white;
+	height: 5em;
+	
+	// border: 1px solid $dark;
+	
+	@include media($mobile) {
+		@include span-columns(4 of 8);
+		margin: 1em 0em;
+	}
+	// @include media($mini-mobile) {
+	// 	@include span-columns(2 of 4);
+	// 	width: 80%;
+	// }
+}
+
+.block {
+	border-radius: 5px;
+	border: 1px solid $dark;
+	margin: 0 auto;
+	height: 70%;
+	width: 70%;
+
+}
