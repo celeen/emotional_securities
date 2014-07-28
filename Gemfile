@@ -53,6 +53,7 @@ gem 'rails_12factor', group: :production
 group :test do
   gem 'vcr'
   gem 'webmock'
+  gem 'rspec-sidekiq'
 end
 
 group :test, :development do
