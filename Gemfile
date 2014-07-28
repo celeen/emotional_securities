@@ -65,9 +65,9 @@ group :test, :development do
   gem 'shoulda-matchers'
   gem 'jasmine-rails'
   gem 'byebug'
+  gem 'coveralls', require: false
 end
 gem 'json'
-gem 'coveralls', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
