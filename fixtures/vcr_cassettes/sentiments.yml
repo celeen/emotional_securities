@@ -1,0 +1,165 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://query.yahooapis.com/v1/public/yql?callback=&diagnostics=true&env=store://datatables.org/alltableswithkeys&format=json&q=SELECT%20*%20FROM%20yahoo.finance.quotes%20WHERE%20symbol%20IN%20('TSLA')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Anticrime:
+      - 2p0
+      Set-Cookie:
+      - X-AC=jkdNaQ8HbABkK
+      X-Yql-Host:
+      - engine4.yql.bf1.yahoo.com
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 28 Jul 2014 18:47:00 GMT
+      Server:
+      - ATS
+      Age:
+      - '0'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"query":{"count":1,"created":"2014-07-28T18:47:00Z","lang":"en-US","diagnostics":{"url":[{"execution-start-time":"0","execution-stop-time":"1","execution-time":"1","content":"http://www.datatables.org/yahoo/finance/yahoo.finance.quotes.xml"},{"execution-start-time":"5","execution-stop-time":"41","execution-time":"36","content":"http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSLA"}],"publiclyCallable":"true","cache":{"execution-start-time":"4","execution-stop-time":"5","execution-time":"1","method":"GET","type":"MEMCACHED","content":"5d1e1de680846a307c9874dc3d6878dc"},"query":{"execution-start-time":"5","execution-stop-time":"42","execution-time":"37","params":"{url=[http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSLA]}","content":"select
+        * from csv where url=@url and columns=''Ask,AverageDailyVolume,Bid,AskRealtime,BidRealtime,BookValue,Change&PercentChange,Change,Commission,Currency,ChangeRealtime,AfterHoursChangeRealtime,DividendShare,LastTradeDate,TradeDate,EarningsShare,ErrorIndicationreturnedforsymbolchangedinvalid,EPSEstimateCurrentYear,EPSEstimateNextYear,EPSEstimateNextQuarter,DaysLow,DaysHigh,YearLow,YearHigh,HoldingsGainPercent,AnnualizedGain,HoldingsGain,HoldingsGainPercentRealtime,HoldingsGainRealtime,MoreInfo,OrderBookRealtime,MarketCapitalization,MarketCapRealtime,EBITDA,ChangeFromYearLow,PercentChangeFromYearLow,LastTradeRealtimeWithTime,ChangePercentRealtime,ChangeFromYearHigh,PercebtChangeFromYearHigh,LastTradeWithTime,LastTradePriceOnly,HighLimit,LowLimit,DaysRange,DaysRangeRealtime,FiftydayMovingAverage,TwoHundreddayMovingAverage,ChangeFromTwoHundreddayMovingAverage,PercentChangeFromTwoHundreddayMovingAverage,ChangeFromFiftydayMovingAverage,PercentChangeFromFiftydayMovingAverage,Name,Notes,Open,PreviousClose,PricePaid,ChangeinPercent,PriceSales,PriceBook,ExDividendDate,PERatio,DividendPayDate,PERatioRealtime,PEGRatio,PriceEPSEstimateCurrentYear,PriceEPSEstimateNextYear,Symbol,SharesOwned,ShortRatio,LastTradeTime,TickerTrend,OneyrTargetPrice,Volume,HoldingsValue,HoldingsValueRealtime,YearRange,DaysValueChange,DaysValueChangeRealtime,StockExchange,DividendYield''"},"javascript":{"execution-start-time":"3","execution-stop-time":"47","execution-time":"43","instructions-used":"67158","table-name":"yahoo.finance.quotes"},"user-time":"48","service-time":"38","build-version":"0.2.2635"},"results":{"quote":{"symbol":"TSLA","Ask":"228.77","AverageDailyVolume":"5726990","Bid":"228.50","AskRealtime":"228.77","BidRealtime":"228.50","BookValue":"7.353","Change_PercentChange":"+4.93
+        - +2.21%","Change":"+4.93","Commission":null,"Currency":"USD","ChangeRealtime":"+4.93","AfterHoursChangeRealtime":"N/A
+        - N/A","DividendShare":"0.00","LastTradeDate":"7/28/2014","TradeDate":null,"EarningsShare":"-1.111","ErrorIndicationreturnedforsymbolchangedinvalid":null,"EPSEstimateCurrentYear":"1.12","EPSEstimateNextYear":"3.07","EPSEstimateNextQuarter":"0.30","DaysLow":"221.402","DaysHigh":"232.00","YearLow":"116.10","YearHigh":"265.00","HoldingsGainPercent":"-
+        - -","AnnualizedGain":null,"HoldingsGain":null,"HoldingsGainPercentRealtime":"N/A
+        - N/A","HoldingsGainRealtime":null,"MoreInfo":"cnpriIed","OrderBookRealtime":null,"MarketCapitalization":"28.355B","MarketCapRealtime":null,"EBITDA":"32.8M","ChangeFromYearLow":"+112.40","PercentChangeFromYearLow":"+96.81%","LastTradeRealtimeWithTime":"N/A
+        - <b>228.50</b>","ChangePercentRealtime":"N/A - +2.21%","ChangeFromYearHigh":"-36.50","PercebtChangeFromYearHigh":"-13.77%","LastTradeWithTime":"2:32pm
+        - <b>228.50</b>","LastTradePriceOnly":"228.50","HighLimit":null,"LowLimit":null,"DaysRange":"221.402
+        - 232.00","DaysRangeRealtime":"N/A - N/A","FiftydayMovingAverage":"222.905","TwoHundreddayMovingAverage":"208.621","ChangeFromTwoHundreddayMovingAverage":"+19.879","PercentChangeFromTwoHundreddayMovingAverage":"+9.53%","ChangeFromFiftydayMovingAverage":"+5.595","PercentChangeFromFiftydayMovingAverage":"+2.51%","Name":"Tesla
+        Motors, Inc","Notes":null,"Open":"224.25","PreviousClose":"223.57","PricePaid":null,"ChangeinPercent":"+2.21%","PriceSales":"13.39","PriceBook":"30.41","ExDividendDate":null,"PERatio":null,"DividendPayDate":null,"PERatioRealtime":null,"PEGRatio":"4.97","PriceEPSEstimateCurrentYear":"199.62","PriceEPSEstimateNextYear":"72.82","Symbol":"TSLA","SharesOwned":null,"ShortRatio":"4.20","LastTradeTime":"2:32pm","TickerTrend":"&nbsp;-=++--&nbsp;","OneyrTargetPrice":"224.83","Volume":"4513980","HoldingsValue":null,"HoldingsValueRealtime":null,"YearRange":"116.10
+        - 265.00","DaysValueChange":"- - +2.21%","DaysValueChangeRealtime":"N/A -
+        N/A","StockExchange":"NasdaqNM","DividendYield":null,"PercentChange":"+2.21%"}}}}'
+    http_version: 
+  recorded_at: Mon, 28 Jul 2014 18:47:04 GMT
+- request:
+    method: get
+    uri: https://query.yahooapis.com/v1/public/yql?callback=&diagnostics=true&env=store://datatables.org/alltableswithkeys&format=json&q=SELECT%20*%20FROM%20yahoo.finance.quotes%20WHERE%20symbol%20IN%20('TSLA')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Anticrime:
+      - oLyoK
+      Set-Cookie:
+      - X-AC=1xVkP_EubFm
+      X-Yql-Host:
+      - engine10.yql.bf1.yahoo.com
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Mon, 28 Jul 2014 18:47:00 GMT
+      Server:
+      - ATS
+      Age:
+      - '1'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"query":{"count":1,"created":"2014-07-28T18:47:01Z","lang":"en-US","diagnostics":{"url":[{"execution-start-time":"0","execution-stop-time":"1","execution-time":"1","content":"http://www.datatables.org/yahoo/finance/yahoo.finance.quotes.xml"},{"execution-start-time":"4","execution-stop-time":"42","execution-time":"38","content":"http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSLA"}],"publiclyCallable":"true","cache":{"execution-start-time":"3","execution-stop-time":"3","execution-time":"0","method":"GET","type":"MEMCACHED","content":"5d1e1de680846a307c9874dc3d6878dc"},"query":{"execution-start-time":"3","execution-stop-time":"42","execution-time":"39","params":"{url=[http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSLA]}","content":"select
+        * from csv where url=@url and columns=''Ask,AverageDailyVolume,Bid,AskRealtime,BidRealtime,BookValue,Change&PercentChange,Change,Commission,Currency,ChangeRealtime,AfterHoursChangeRealtime,DividendShare,LastTradeDate,TradeDate,EarningsShare,ErrorIndicationreturnedforsymbolchangedinvalid,EPSEstimateCurrentYear,EPSEstimateNextYear,EPSEstimateNextQuarter,DaysLow,DaysHigh,YearLow,YearHigh,HoldingsGainPercent,AnnualizedGain,HoldingsGain,HoldingsGainPercentRealtime,HoldingsGainRealtime,MoreInfo,OrderBookRealtime,MarketCapitalization,MarketCapRealtime,EBITDA,ChangeFromYearLow,PercentChangeFromYearLow,LastTradeRealtimeWithTime,ChangePercentRealtime,ChangeFromYearHigh,PercebtChangeFromYearHigh,LastTradeWithTime,LastTradePriceOnly,HighLimit,LowLimit,DaysRange,DaysRangeRealtime,FiftydayMovingAverage,TwoHundreddayMovingAverage,ChangeFromTwoHundreddayMovingAverage,PercentChangeFromTwoHundreddayMovingAverage,ChangeFromFiftydayMovingAverage,PercentChangeFromFiftydayMovingAverage,Name,Notes,Open,PreviousClose,PricePaid,ChangeinPercent,PriceSales,PriceBook,ExDividendDate,PERatio,DividendPayDate,PERatioRealtime,PEGRatio,PriceEPSEstimateCurrentYear,PriceEPSEstimateNextYear,Symbol,SharesOwned,ShortRatio,LastTradeTime,TickerTrend,OneyrTargetPrice,Volume,HoldingsValue,HoldingsValueRealtime,YearRange,DaysValueChange,DaysValueChangeRealtime,StockExchange,DividendYield''"},"javascript":{"execution-start-time":"2","execution-stop-time":"51","execution-time":"48","instructions-used":"67158","table-name":"yahoo.finance.quotes"},"user-time":"52","service-time":"39","build-version":"0.2.2635"},"results":{"quote":{"symbol":"TSLA","Ask":"228.77","AverageDailyVolume":"5726990","Bid":"228.50","AskRealtime":"228.77","BidRealtime":"228.50","BookValue":"7.353","Change_PercentChange":"+4.93
+        - +2.21%","Change":"+4.93","Commission":null,"Currency":"USD","ChangeRealtime":"+4.93","AfterHoursChangeRealtime":"N/A
+        - N/A","DividendShare":"0.00","LastTradeDate":"7/28/2014","TradeDate":null,"EarningsShare":"-1.111","ErrorIndicationreturnedforsymbolchangedinvalid":null,"EPSEstimateCurrentYear":"1.12","EPSEstimateNextYear":"3.07","EPSEstimateNextQuarter":"0.30","DaysLow":"221.402","DaysHigh":"232.00","YearLow":"116.10","YearHigh":"265.00","HoldingsGainPercent":"-
+        - -","AnnualizedGain":null,"HoldingsGain":null,"HoldingsGainPercentRealtime":"N/A
+        - N/A","HoldingsGainRealtime":null,"MoreInfo":"cnpriIed","OrderBookRealtime":null,"MarketCapitalization":"28.355B","MarketCapRealtime":null,"EBITDA":"32.8M","ChangeFromYearLow":"+112.40","PercentChangeFromYearLow":"+96.81%","LastTradeRealtimeWithTime":"N/A
+        - <b>228.50</b>","ChangePercentRealtime":"N/A - +2.21%","ChangeFromYearHigh":"-36.50","PercebtChangeFromYearHigh":"-13.77%","LastTradeWithTime":"2:32pm
+        - <b>228.50</b>","LastTradePriceOnly":"228.50","HighLimit":null,"LowLimit":null,"DaysRange":"221.402
+        - 232.00","DaysRangeRealtime":"N/A - N/A","FiftydayMovingAverage":"222.905","TwoHundreddayMovingAverage":"208.621","ChangeFromTwoHundreddayMovingAverage":"+19.879","PercentChangeFromTwoHundreddayMovingAverage":"+9.53%","ChangeFromFiftydayMovingAverage":"+5.595","PercentChangeFromFiftydayMovingAverage":"+2.51%","Name":"Tesla
+        Motors, Inc","Notes":null,"Open":"224.25","PreviousClose":"223.57","PricePaid":null,"ChangeinPercent":"+2.21%","PriceSales":"13.39","PriceBook":"30.41","ExDividendDate":null,"PERatio":null,"DividendPayDate":null,"PERatioRealtime":null,"PEGRatio":"4.97","PriceEPSEstimateCurrentYear":"199.62","PriceEPSEstimateNextYear":"72.82","Symbol":"TSLA","SharesOwned":null,"ShortRatio":"4.20","LastTradeTime":"2:32pm","TickerTrend":"&nbsp;-=++--&nbsp;","OneyrTargetPrice":"224.83","Volume":"4513980","HoldingsValue":null,"HoldingsValueRealtime":null,"YearRange":"116.10
+        - 265.00","DaysValueChange":"- - +2.21%","DaysValueChangeRealtime":"N/A -
+        N/A","StockExchange":"NasdaqNM","DividendYield":null,"PercentChange":"+2.21%"}}}}'
+    http_version: 
+  recorded_at: Mon, 28 Jul 2014 18:47:05 GMT
+- request:
+    method: post
+    uri: http://access.alchemyapi.com/calls/url/URLGetTargetedSentiment
+    body:
+      encoding: US-ASCII
+      string: url=http%3A%2F%2Fwww.fool.com%2Finvesting%2Fgeneral%2F2014%2F07%2F27%2Ftesla-motors-inc-delivers-first-cars-to-hong-kong.aspx&target=Tesla&apikey=e9ac28255f8f8ea1327a84f05a20c7b74b768090&outputMode=json
+    headers:
+      Accept-Encoding:
+      - identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 28 Jul 2014 18:47:02 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '478'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - '*'
+      - '*'
+    body:
+      encoding: UTF-8
+      string: "{\r\n    \"status\": \"OK\",\r\n    \"usage\": \"By accessing AlchemyAPI
+        or using information generated by AlchemyAPI, you are agreeing to be bound
+        by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html\",\r\n
+        \   \"url\": \"http://www.fool.com/investing/general/2014/07/27/tesla-motors-inc-delivers-first-cars-to-hong-kong.aspx\",\r\n
+        \   \"language\": \"english\",\r\n    \"docSentiment\": {\r\n        \"type\":
+        \"positive\",\r\n        \"score\": \"0.350017\",\r\n        \"mixed\": \"1\"\r\n
+        \   }\r\n}\r\n"
+    http_version: 
+  recorded_at: Mon, 28 Jul 2014 18:47:06 GMT
+recorded_with: VCR 2.9.2

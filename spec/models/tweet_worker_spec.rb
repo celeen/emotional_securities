@@ -6,16 +6,22 @@ describe TweetWorker do
 
 			expect(TweetWorker).to have_enqueued_job
 		end
-	end
+
 
 	context '#get_alchemy_response' do
 		let(:twerker) {TweetWorker.new}
 		it "should return something" do
-			expect(twerker.get_alchemy_response("What a beautiful day!")).to_not be_nil
+			VCR.use_cassette('twerker') do
+				response = twerker.get_alchemy_response("What a beautiful day!")
+				expect(response).to_not be_nil
+			end
 		end
 
 		it "should return a float" do
-			expect(twerker.get_alchemy_response("What a beautiful day!")).to be_kind_of Float
+			VCR.use_cassette('twerker_float') do
+				response = twerker.get_alchemy_response("What a beautiful day!")
+				expect(response).to be_kind_of Float
+			end
 		end
 	end
 
