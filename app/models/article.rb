@@ -14,7 +14,7 @@ class Article
 
   def self.create_articles_from_feed(urls, company_symbol)
     urls.each do |url|
-      @feeds[url].entries.map{|article|Article.create(url: article.url, company: company_symbol, c_at: article.published)}
+      @feeds[url].entries.map{|article|Article.create(url: article.url.gsub(/http\:\/\/us\.rd\.yahoo\.com\/finance\/news\/rss\/story\/\*/, ""), company: company_symbol, c_at: article.published)}
     end
   end
 

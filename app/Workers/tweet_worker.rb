@@ -3,12 +3,14 @@ require 'alchemiapi'
 class TweetWorker
 	include Sidekiq::Worker
 
-	def perform(tweet_args, symbol)
+	def perform(tweet_args, symbol, count, symbols)
 		get_stock_quote(symbol)
 
 		tweet_args[:sentiment] = get_alchemy_response(tweet_args['text'])
 
 		create_tweet(tweet_args)
+
+		update_rss?(count, symbols)
 	end
 
 	def get_alchemy_response(text)
@@ -35,5 +37,13 @@ class TweetWorker
 		puts "CREATED (.)(.)   (.)(.)  (.)(.)  (.)(.)  (.)(.) (.)(.)"
 	end
 
+	def update_rss?(count, symbols)
+		if count % 5000 == 0
+      symbols.each do |symbol|
+        symbol.gsub!(/\$/, "")
+        Article.update_articles(["http://finance.yahoo.com/rss/headline?s=#{symbol}", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=#{(symbol.upcase)}"], symbol)
+      end
+    end
+	end
 end
 
