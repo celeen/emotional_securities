@@ -1,12 +1,10 @@
 require 'rails_helper'
 
 describe TweetWorker do
-	context '#perform' do 
-		xit "should accept a tweet_id" do
-			tweet = Tweet.create(text: "Hello World", tweet_id: 5, created_at: Time.now)
-			puts "this is the sentiment: #{tweet.sentiment}"
-			TweetWorker.perform_async(5)
-			expect(tweet.sentiment).to_not be_nil
+		xit "puts a job in queue" do
+			subject.perform
+
+			expect(TweetWorker).to have_enqueued_job
 		end
 	end
 
@@ -27,8 +25,7 @@ describe TweetWorker do
 		it "should add a new tweet to the database" do
 		puts "count: #{Tweet.all.count}"
 		twerker.create_tweet(tweet_args)
-		puts "count: #{apple.tweets.count}"
-			expect(Tweet.all.count).to eq(1)		
+			expect(Tweet.all.count).to eq(1)
 		end
 	end
 end

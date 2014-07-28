@@ -60,6 +60,9 @@ group :test, :development do
 	gem 'mock_redis'
 	gem 'shoulda-matchers'
 	gem 'jasmine-rails'
+  gem 'byebug'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 gem 'json'
