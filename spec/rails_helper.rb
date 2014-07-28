@@ -7,7 +7,7 @@ require 'mongoid-rspec'
 require 'mock_redis'
 require 'sidekiq/testing'
 require 'coveralls'
-Coveralls.wear!
+Coveralls.wear!('rails')
 require 'shoulda-matchers'
 
 
