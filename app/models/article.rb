@@ -6,6 +6,7 @@ class Article
   field :sentiment, type: Float
   field :company, type: String
   field :c_at, type: DateTime
+  field :flag, type: Boolean, default: false
 
   validates_uniqueness_of :url
   validates_presence_of :url
@@ -46,7 +47,6 @@ class Article
     Article.create_articles_from_feed(urls, company_symbol)
     Article.set_article_sentiments
   end
-
 end
 
 # try taking out everything before *

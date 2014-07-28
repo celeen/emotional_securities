@@ -32,7 +32,7 @@ namespace :stream do
 
       p "------#{companies}---------"
 
-      count += 1 # no extra dynos
+
 
 
       puts '----PAST THE INFALLIBLE ZONE-----------'
@@ -45,8 +45,7 @@ namespace :stream do
         puts "------#{tweet_args} ----- #{symbol}----------------- #{count}-------------#{symbols}"
         TweetWorker.perform_async(tweet_args, symbol, count, symbols)
       end
-
-
+      count += 1 # no extra dynos
     end
   end
 end

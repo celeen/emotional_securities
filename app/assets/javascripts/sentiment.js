@@ -68,7 +68,7 @@ function stockChart(data) {
 
 function populateBoxes(boxData){
 	console.log(boxData);
-	$(".1").append("<p> Avg Daily Expert Sentiment </p><br>"+ boxData.avg_daily_expert_sentiment + "</p>")
+	$(".1").append("<p> Daily Expert Sentiment </p>"+ boxData.avg_daily_expert_sentiment + "</p>")
 }
 
 $(document).ready(function(){
