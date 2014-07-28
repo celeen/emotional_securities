@@ -50,18 +50,22 @@ gem 'figaro'
 gem 'rails_12factor', group: :production
 
 #Test environment wutwtu!
-
-group :test, :development do
-	gem 'rspec-rails'
-	gem 'database_cleaner'
-	gem 'factory_girl_rails'
-	gem 'mongoid-rspec'
-	gem 'capybara'
-	gem 'mock_redis'
-	gem 'shoulda-matchers'
-	gem 'jasmine-rails'
+group :test do
+  gem 'vcr'
+  gem 'webmock'
 end
 
+group :test, :development do
+  gem 'rspec-rails'
+  gem 'database_cleaner'
+  gem 'factory_girl_rails'
+  gem 'mongoid-rspec'
+  gem 'capybara'
+  gem 'mock_redis'
+  gem 'shoulda-matchers'
+  gem 'jasmine-rails'
+  gem 'byebug'
+end
 gem 'json'
 gem 'coveralls', require: false
 

@@ -27,7 +27,7 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 RSpec.configure do |config|
   config.include Mongoid::Matchers, type: :model
   config.include FactoryGirl::Syntax::Methods
-  
+
   config.before(:suite) do
     DatabaseCleaner[:mongoid].strategy = :truncation
   end
@@ -62,4 +62,12 @@ RSpec.configure do |config|
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
+end
+
+require 'vcr'
+require 'webmock/rspec'
+VCR.configure do |c|
+  c.cassette_library_dir = 'fixtures/vcr_cassettes'
+  c.hook_into :webmock # or :fakeweb
+  c.allow_http_connections_when_no_cassette = true
 end

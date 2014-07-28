@@ -1,9 +1,12 @@
+require 'alchemiapi'
+
 class Article
   include Mongoid::Document
   field :url, type: String
-  field :sentiment, type: Integer
+  field :sentiment, type: Float
   field :company, type: String
   field :c_at, type: DateTime
+  field :flag, type: Boolean, default: false
 
   validates_uniqueness_of :url
   validates_presence_of :url
@@ -14,22 +17,37 @@ class Article
 
   def self.create_articles_from_feed(urls, company_symbol)
     urls.each do |url|
-      @feeds[url].entries.map{|article|Article.create(url: article.url, company: company_symbol, c_at: article.published)}
+      @feeds[url].entries.map{|article|Article.create(url: article.url.gsub(/http\:\/\/us\.rd\.yahoo\.com\/finance\/news\/rss\/story\/\*/, ""), company: company_symbol, c_at: article.published)}
+    end
+  end
+
+  def get_company_name(stock_symbol)
+    name = StockQuote::Stock.quote(stock_symbol).name
+    name.gsub!(/(\A\w+)(.+)/, '\1')
+  end
+
+  def self.set_article_sentiments
+    alchemyapi = AlchemyAPI.new
+    articles = Article.all.reject{ |article| article.sentiment != nil }
+
+    articles.map do |article|
+      p article.get_company_name(article.company)
+      response = alchemyapi.sentiment_targeted('url', article.url, article.get_company_name(article.company))
+      p "response = #{response}"
+      if response['status'] == 'ERROR'
+        next
+      end
+      article.sentiment = response['docSentiment']['score']
+      article.save
     end
   end
 
   def self.update_articles(urls, company_symbol)
     Article.retrieve_feed(urls)
     Article.create_articles_from_feed(urls, company_symbol)
+    Article.set_article_sentiments
   end
-
-
-
-
-
-  # def self.update_feeds(urls)
-  #   urls.each do |url|
-  #    Feedjira::Feed.update(Article.create_feeds(urls)[url]).new_entries
-  #   end
-  # end
 end
+
+# try taking out everything before *
+# get rid of noodls
