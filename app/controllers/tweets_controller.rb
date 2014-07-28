@@ -22,6 +22,7 @@ class TweetsController < ApplicationController
 	end
 
 	def box_data
-		Article.where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400 ).avg(:sentiment)
+		avg_daily_expert_sentiment = Article.where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400 ).avg(:sentiment).round(2)
+		render json: {avg_daily_expert_sentiment: avg_daily_expert_sentiment}
 	end
 end
