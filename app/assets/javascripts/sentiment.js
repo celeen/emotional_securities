@@ -2,7 +2,11 @@
 		return Math.max.apply( Math, array);
 	}
 
-	function stockChart(data) { 
+	Array.min = function(array) {
+		return Math.min.apply( Math, array);
+	}
+
+	function stockChart(data) {
 		console.log(data)
 		chart = c3.generate({
 	    data: {
@@ -20,7 +24,7 @@
 	    	},
 	        types: {
 	            prices: 'spline',
-	            tweetSentiment: 'line',
+	            tweetSentiment: 'spline',
 	            volume: 'bar'
 	        },
 	    },
@@ -33,7 +37,7 @@
 	    		tick: {
 	    			count: 4,
 	    			format: '%m/%d/%y'
-	    		}
+	    		},
 	    	},
 	    	y: {
 	    		label: "Sentiment",
@@ -43,7 +47,7 @@
 	    	y2: {
 	    		label: "Share Price",
 	    		show: true,
-	    		padding: {top: Array.max(data.prices)}
+	    		padding: {top:Array.max(data.prices)*.01, bottom:Array.min(data.prices)*.01},
 	    	},
 	    	y3: {
 	    		show: true

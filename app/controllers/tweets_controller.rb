@@ -20,5 +20,4 @@ class TweetsController < ApplicationController
 
 		render json: {volume: volume, prices: prices, tweetSentiments: sentiments, dates: dates}
 	end
-
 end
