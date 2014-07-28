@@ -3,6 +3,31 @@ html {
 	background-color: $white;
 }
 
+a {
+	text-decoration: none;
+}
+
+footer, footer a {
+	color: $white;
+	font-family: $oldstandard;
+	// font-size: 1.1em;
+	font-weight: 400px;
+}
+
+#{$all-text-inputs} {
+  border: 1px $med-dark;
+  border-radius: 3px;
+}
+
+#{$all-button-inputs} {
+  background: $med-dark;
+  border: .11em solid $white;
+  border-radius: 3px;
+  color: $white;
+  font-family: $oldstandard;
+  // font-size: 1.3em;
+}
+
 h1 {
 	color: $white;
 	font-family: $newscycle;
@@ -11,10 +36,19 @@ h1 {
 
 header {
 	background-color: $main;
+	box-shadow: 0 .2em .2em .2em $med-dark;
 }
 
-nav li {
+.metrics li {
 	background-color: $white;
+}
+
+footer nav {
+	background-color: $main;
+}
+
+footer nav li {
+
 }
 
 .block {
@@ -24,4 +58,6 @@ nav li {
 
 footer {
 	background-color: $main;
+	// background: shade($main, 20%);
+	box-shadow: .15em 0 .15em .15em $med-dark;
 }

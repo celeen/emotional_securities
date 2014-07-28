@@ -3,12 +3,15 @@
 	<h1>Emotional Securities</h1>
 	
 	<div class = "search">
-
+		<%= form_tag do %>
+		<%= text_field_tag(:search) %>
+		<%= submit_tag("Search") %>
+		<% end %>
 	</div>
 </div>
 </header>
 
-<nav>
+<section class = "metrics">
 	<ul>
 	<div = "wrapper">
 	<li>
@@ -30,7 +33,7 @@
 
 	</div>
 	</ul>
-</nav>
+</section>
 
 <section id="chart-area">
 <div id = "chart">
@@ -40,9 +43,16 @@
 </div>
 
 <footer>
-	<div class = "copyright">
-		
-	</div>
 	<nav>
+		<ul>
+			<li>
+				<%= link_to 'Gratitude', '#' %>
+			</li>
+			<li>
+				<%= link_to 'About The Authors', '#' %>
+			</li>
+			<li>
+				<%= link_to 'Source', "#" %>
+			</li>
 	</nav>
 </footer>

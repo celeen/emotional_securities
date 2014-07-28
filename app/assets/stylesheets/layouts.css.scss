@@ -17,22 +17,32 @@ header {
 		float:left;
 		@include shift(1);
 	}
+
+	.search {
+		float: right;
+		margin: 1em 1em;
+		line-height: $body-line-height;
+	}
 }
 
-nav ul {
+li {
+	display: inline-block;
+	line-height: $body-line-height;
+}
+
+.metrics ul {
 	text-align: center;
 	@include shift(2);
 	@include span-columns(8);
 }
 
 
-nav.wrapper {
+.metrics.wrapper {
 	@include shift(1);
 }
 
-nav li {
-	border: 1px solid $dark;
-	display: inline-block;
+.metrics li {
+	// border: 1px solid $dark;
 	height: 5em;
 	@include span-columns(2 of 8);
 	
@@ -42,7 +52,7 @@ nav li {
 	}
 }
 
-nav .block {
+.metrics .block {
 	margin: 0 auto;
 	height: 70%;
 	width: 70%;
@@ -60,10 +70,22 @@ nav .block {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
-	margin: 0 auto -25px;
+	margin: 0 auto -30px;
 }
 
 footer, .push {
-	height: 25px;
+	height: 30px;
 	margin: 0;
+}
+
+footer nav {
+	float:right;
+}
+
+footer .copyright {
+	float: left;
+}
+
+footer li, .copyright {
+	@include margin(.2em .5em null .5em);
 }
