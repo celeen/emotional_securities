@@ -14,7 +14,7 @@ class Article
 
   def self.create_articles_from_feed(urls, company_symbol)
     urls.each do |url|
-      @feeds[url].entries.map{|article|Article.create(url: article.url, company: company_symbol, c_at: article.published)}
+      @feeds[url].entries.map{|article|Article.create(url: article.url.gsub(/http\:\/\/us\.rd\.yahoo\.com\/finance\/news\/rss\/story\/\*/, ""), company: company_symbol, c_at: article.published)}
     end
   end
 
@@ -23,13 +23,4 @@ class Article
     Article.create_articles_from_feed(urls, company_symbol)
   end
 
-
-
-
-
-  # def self.update_feeds(urls)
-  #   urls.each do |url|
-  #    Feedjira::Feed.update(Article.create_feeds(urls)[url]).new_entries
-  #   end
-  # end
 end
