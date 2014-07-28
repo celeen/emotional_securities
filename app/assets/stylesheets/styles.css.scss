@@ -41,6 +41,8 @@ header {
 
 .metrics li {
 	background-color: $white;
+	border-radius: 5px;
+	border: 1px solid $dark;
 }
 
 footer {
@@ -54,6 +56,4 @@ footer {
 }
 
 .block {
-	border-radius: 5px;
-	border: 1px solid $dark;
 }
