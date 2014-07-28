@@ -86,6 +86,7 @@ footer .copyright {
 	float: left;
 }
 
-footer li, .copyright {
-	@include margin(.2em .5em null .5em);
+footer {
+	width: 100%;
+	overflow: hidden;
 }
