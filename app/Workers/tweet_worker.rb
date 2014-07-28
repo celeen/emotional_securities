@@ -17,14 +17,11 @@ class TweetWorker
 		puts text
 		response = AlchemyAPI.new.sentiment('text', text)
 		puts response
-		p response['docSentiment']['score'].to_f
 		response['docSentiment']['score'].to_f
 	end
 
 	def create_tweet(tweet_args)
-		p "#{tweet_args} ------- TWEET ARGS"
 		Tweet.create(tweet_args)
-		p Tweet.last
 	end
 
 	def get_stock_quote(symbol = 'aapl')

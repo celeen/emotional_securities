@@ -34,7 +34,9 @@ describe Article, :type => :model do
 
   context '##update_articles' do
     it "should also so something probably" do
+    VCR.use_cassette('update_articles') do
       Article.update_articles(["http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=TSLA"], "tsla")
+    end
       expect(Article.where(company: "tsla").length).to be > 0
     end
   end
@@ -42,11 +44,9 @@ describe Article, :type => :model do
   context '##set_article_sentiments' do
     it 'should update  sentiment' do
       article = Article.create(url: 'http://www.fool.com/investing/general/2014/07/27/tesla-motors-inc-delivers-first-cars-to-hong-kong.aspx', company: 'tsla', c_at: Time.now)
-
-      VCR.use_cassette('sentiment_request') do
+      VCR.use_cassette('sentiments') do
         Article.set_article_sentiments
       end
-
       expect(article.reload.sentiment).to_not be_nil
     end
   end
