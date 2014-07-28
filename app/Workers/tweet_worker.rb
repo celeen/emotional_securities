@@ -4,6 +4,7 @@ class TweetWorker
 	include Sidekiq::Worker
 
 	def perform(tweet_args, symbol, count, symbols)
+		
 		get_stock_quote(symbol)
 
 		tweet_args[:sentiment] = get_alchemy_response(tweet_args['text'])
