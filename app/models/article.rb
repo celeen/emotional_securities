@@ -30,6 +30,7 @@ class Article
     alchemyapi = AlchemyAPI.new
     articles = Article.all.reject{ |article| article.sentiment != nil && article.flag = false}
     p articles
+
     articles.map do |article|
       p article.get_company_name(article.company)
       response = alchemyapi.sentiment_targeted('url', article.url, article.get_company_name(article.company))
@@ -46,6 +47,7 @@ class Article
       else
         article.sentiment = 0
       end
+
       article.save
     end
   end
