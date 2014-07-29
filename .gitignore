@@ -21,3 +21,4 @@
 # Ignore OSX generated files
 */.DS_Store
 
+dump.rdb
