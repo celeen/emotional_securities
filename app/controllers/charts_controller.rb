@@ -11,20 +11,26 @@ def index
 
 		volume = @quotes.map { |company| company.volume}
 
-		prices = @quotes.map { |company| company.price / 100.0 }
+		prices = Quote.where(company: 'AAPL').map do |company|
+			c=company.c_at.to_i.to_s
+			c.gsub!(/[A-Z]{3} /,'')
+			c.gsub!(/:Time/,'')
+			c+="000"
+			[c.to_i, company.price / 100.0]
+		end
 
-		@tweets = Tweet.where(company: params[:company])
+	 	tweets = Tweet.where(company: 'AAPL').map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
+puts "tweet #{tweets[0]}"
+puts "price #{prices[0]}"
 
-		sentiments = @tweets.map{ |tweet| tweet.sentiment }
-
-		dates = @tweets.map{ |tweet| tweet.tweeted_at.strftime('%Q').to_i }
-
-		render json: {volume: volume, prices: prices, tweetSentiments: sentiments, dates: dates}
+		render json: {tweets: tweets, volume: volume, prices: prices}
 	end
 
 	def box_data
 		avg_daily_expert_sentiment = Article.where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400 ).avg(:sentiment).round(2)
 		render json: {avg_daily_expert_sentiment: avg_daily_expert_sentiment}
 	end
-	
+
 end
+
+# company.price / 100.0

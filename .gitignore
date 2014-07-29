@@ -18,7 +18,9 @@
 # Ignore application configuration
 /config/application.yml
 
+
 /dump.rdb
+
 # Ignore OSX generated files
 */.DS_Store
 
