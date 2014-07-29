@@ -28,10 +28,12 @@ class Article
 
   def self.set_article_sentiments
     alchemyapi = AlchemyAPI.new
-    articles = Article.all.reject{ |article| article.sentiment != nil && article.flag = false}
+    articles = Article.where(sentiment: nil, flag: false).to_a
     p articles
     articles.map do |article|
       p article.get_company_name(article.company)
+      p article.flag
+      p article.sentiment
       response = alchemyapi.sentiment_targeted('url', article.url, article.get_company_name(article.company))
       p "response = #{response}"
       if response['status'] == 'ERROR'
