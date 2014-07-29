@@ -11,7 +11,6 @@ function stockChart(data) {
     chart = c3.generate({
         size: {
             height: 550,
-
         },
         data: {
             x: 'dates',

@@ -10,6 +10,13 @@ module Ankusa
 
       @klass_word_counts = {}
       @klass_doc_counts = {}
+
+      # init_tables
+    end
+
+
+    def init_tables
+      # MONGOID INITS FOR US 
     end
 
     def classnames
