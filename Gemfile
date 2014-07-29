@@ -53,6 +53,12 @@ gem 'figaro'
 gem 'rails_12factor', group: :production
 
 #Test environment wutwtu!
+group :test do
+  gem 'vcr'
+  gem 'webmock'
+  gem 'rspec-sidekiq'
+
+end
 
 group :test, :development do
 	gem 'rspec-rails'
@@ -63,10 +69,11 @@ group :test, :development do
 	gem 'mock_redis'
 	gem 'shoulda-matchers'
 	gem 'jasmine-rails'
+  gem 'byebug'
+	gem 'coveralls', require: false
 end
 
 gem 'json'
-gem 'coveralls', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

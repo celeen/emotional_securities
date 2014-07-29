@@ -1,34 +1,79 @@
 require 'rails_helper'
 
 describe TweetWorker do
-	context '#perform' do 
-		xit "should accept a tweet_id" do
-			tweet = Tweet.create(text: "Hello World", tweet_id: 5, created_at: Time.now)
-			puts "this is the sentiment: #{tweet.sentiment}"
-			TweetWorker.perform_async(5)
-			expect(tweet.sentiment).to_not be_nil
-		end
-	end
+		let(:twerker) {TweetWorker.new}
 
 	context '#get_alchemy_response' do
-		let(:twerker) {TweetWorker.new}
+		# let(:twerker) {TweetWorker.new}
 		it "should return something" do
-			expect(twerker.get_alchemy_response("What a beautiful day!")).to_not be_nil
+			VCR.use_cassette('twerker') do
+				response = twerker.get_alchemy_response("What a beautiful day!")
+				expect(response).to_not be_nil
+			end
 		end
 
 		it "should return a float" do
-			expect(twerker.get_alchemy_response("What a beautiful day!")).to be_kind_of Float
+			VCR.use_cassette('twerker_float') do
+				response = twerker.get_alchemy_response("What a beautiful day!")
+				expect(response).to be_kind_of Float
+			end
 		end
 	end
 
 	context '#create_tweet' do
-		let(:twerker) {TweetWorker.new}
 		let(:tweet_args) { {text: "Hello world!", tweet_id: 5, tweeted_at: Time.now, company: 'aapl' } }
 		it "should add a new tweet to the database" do
 		puts "count: #{Tweet.all.count}"
 		twerker.create_tweet(tweet_args)
-		puts "count: #{apple.tweets.count}"
-			expect(Tweet.all.count).to eq(1)		
+			expect(Tweet.all.count).to eq(1)
+		end
+	end
+
+	context '#get_stock_quote' do
+		let(:quote) { twerker.get_stock_quote }
+		
+		it "should  instantiate a quote object" do
+			expect{twerker.get_stock_quote}.to change{Quote.all.count}
+		end
+
+		it "should set a stock price" do
+			expect(quote.price).to_not be_nil
+		end
+
+		it "should set a stock price as an integer" do
+			expect(quote.price).to be_kind_of Integer
+		end
+
+		it "should set a volume" do
+			expect(quote.volume).to_not be_nil
+		end
+
+		it "should set volume as an integer" do
+			expect(quote.volume).to be_kind_of Integer
+		end
+	end
+
+	context '#update_rss' do
+		it "should receive the #update_articles message" do
+			allow(Article).to receive(:update_articles)
+			VCR.use_cassette('update_rss') do
+				twerker.update_rss(['tsla'])
+				expect(Article).to have_received(:update_articles)
+			end
+		end
+	end
+
+	context '#perform' do
+		let(:tweet_args) { {text: "Hello world!", tweet_id: 5, tweeted_at: Time.now, company: 'aapl' } }
+		it "should queue jobs" do
+			TweetWorker.perform_async(tweet_args, 'tsla', 5001, ['tsla'])
+			expect(TweetWorker.jobs.count).to eq(1)
+		end
+
+		it "should invoke other methods" do
+			allow(TweetWorker.any_instance).to receive(:get_stock_quote)
+			TweetWorker.perform_async(tweet_args, 'tsla', 5001, ['tsla'])
+			expect(TweetWorker.any_instance).to receive(:get_stock_quote)	
 		end
 	end
 end
