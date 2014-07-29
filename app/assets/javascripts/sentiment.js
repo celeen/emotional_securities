@@ -43,7 +43,10 @@
 	    	y2: {
 	    		label: "Share Price",
 	    		show: true,
-	    		padding: {top: Array.max(data.prices)}
+	    		padding: {
+	    			top: Array.max(data.prices),
+	    			bottom: 0,
+	    		}
 	    	},
 	    	y3: {
 	    		show: true
