@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root 'tweets#index'
 
   post '/chart_data' => 'tweets#chart_data'
-  post '/box_data' => 'tweets#box_data'
+  post '/expert_data' => 'tweets#expert_data'
+  post '/herd_data' => 'tweets#herd_data'
+  post '/volume_data' => 'tweets#volume_data'
   mount Sidekiq::Web => '/sidekiq'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

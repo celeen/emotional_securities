@@ -95,10 +95,21 @@ $(document).ready(function() {
         stockChart(stockData);
     }, 'json');
 
+    var company = 'AAPL'
 
-    $.post('/box_data', function(response) {
+    $.post('/expert_data', { company: company }, function(response) {
         boxData = response;
         populateBoxes(boxData);
+    }, 'json');
+
+    $.post('/herd_data', { company: company }, function(response) {
+        herd_data = response;
+        populateBoxes(herd_data);
+    }, 'json');
+
+    $.post('/volume_data', { company: company }, function(response) {
+        volume_data = response;
+        populateBoxes(volume_data);
     }, 'json');
 
 });
