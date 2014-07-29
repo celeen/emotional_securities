@@ -36,7 +36,7 @@ h1 {
 
 header {
 	background-color: $main;
-	box-shadow: 0 .2em .2em .2em $med-dark;
+	box-shadow: 0 .08em .08em .08em $dark;
 }
 
 .metrics li {
@@ -54,7 +54,7 @@ footer nav {
 footer {
 	background-color: $main;
 	// background: shade($main, 20%);
-	box-shadow: .15em 0 .15em .15em $med-dark;
+	box-shadow: .08em 0 .08em .08em $dark;
 }
 
 .overlay {

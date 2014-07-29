@@ -1,0 +1,67 @@
+// Many thanks to csswizardry.com for their amazing tutorial on this subject:
+// http://csswizardry.com/2011/02/creating-a-pure-css-dropdown-menu/
+
+// Nav stylings? Let's take another look at this when the dropdown functionality is working
+
+#nav{
+    list-style:none;
+    // font-weight:bold;
+    // margin-bottom:10px;
+    float:left; /* Clear floats */
+    width:100%;
+    /* Bring the nav above everything else--uncomment if needed. */
+    position:relative;
+    z-index:5;
+    line-height: $body-line-height;
+    // border: 1px solid $dark;
+    font-family: $bitter;
+    background-color: $dark;
+}
+
+#nav li{
+    float:left;
+    margin-right: 1em;
+    margin-left: 1em;
+    position:relative;
+    display: block;
+    color: $white;
+}
+
+#nav a{
+    display:block;
+    // padding:5px;
+    color:#fff;
+    background:$main;
+    font-family: $newscycle;
+    text-decoration:none;
+}
+
+#nav a:hover{
+    color:$white;
+    // font-weight: bold;
+    background:$med-dark;
+    // text-decoration:underline;
+}
+
+// Dropdown---------------
+
+#nav ul{
+    background:$white; /* Adding a background makes the dropdown work properly in IE7+. Make this as close to your page's background as possible (i.e. white page == white background). */
+    background:rgba(255,255,255,0); /* But! Let's make the background fully transparent where we can, we don't actually want to see it if we can help it... */
+    list-style:none;
+    position:absolute;
+    left:-9999px; /* Hide off-screen when not needed (this is more accessible than display:none;) */
+}
+
+#nav ul li{
+	border: .05em solid $dark;
+	width: 100%;
+    // padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
+    // float:left;
+}
+
+
+#nav li:hover ul{ /* Display the dropdown on hover */
+    left:-32px; /* Bring back on-screen when needed */
+}
+
