@@ -25,7 +25,7 @@ footer, footer a {
   border-radius: 3px;
   color: $white;
   font-family: $oldstandard;
-  // font-size: 1.3em;
+  @include margin(null null null .5em)
 }
 
 h1 {
@@ -50,9 +50,6 @@ footer nav {
 	background-color: $main;
 }
 
-footer nav li {
-
-}
 
 footer {
 	background-color: $main;
@@ -106,5 +103,4 @@ footer li a:hover {
 	color: $dark;
 	// text-shadow: 
 }
-
 

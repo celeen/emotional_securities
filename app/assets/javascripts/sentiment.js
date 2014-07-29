@@ -84,10 +84,12 @@ function populateBoxes(boxData) {
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
 
+
     $.post('/chart_data', function(response) {
         stockData = response;
         stockChart(stockData);
     }, 'json');
+
 
     $.post('/box_data', function(response) {
         boxData = response;

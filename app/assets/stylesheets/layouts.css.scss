@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+}
+
 html, body {
 	height: 100%;
 }
@@ -65,6 +69,7 @@ li {
 	@include shift(1);
 	height: 35em;
 	// border: 1px solid $dark;
+<<<<<<< HEAD
 }
 
 .container {
@@ -72,24 +77,26 @@ li {
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -30px;
+=======
+>>>>>>> 1f19d9c0a9ebed0b0f4f4d5cd80e3b6271671f78
 }
 
-footer, .push {
-	height: 30px;
-	margin: 0;
-}
 
 footer nav {
+<<<<<<< HEAD
 	float:right;
 	@include padding(null .4em null null)
 }
 
 footer li {
 	@include padding(null .4em null .4em)
+=======
+	float: right;
+>>>>>>> 1f19d9c0a9ebed0b0f4f4d5cd80e3b6271671f78
 }
 
-footer .copyright {
-	float: left;
+footer li {
+	@include margin(.1em 1em null .5em);
 }
 
 footer {
