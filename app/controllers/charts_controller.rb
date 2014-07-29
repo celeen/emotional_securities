@@ -1,12 +1,11 @@
-class TweetsController < ApplicationController
-
-	def index
+class ChartsController < ApplicationController
+def index
 
 	end
 
 	def chart_data
 
-		@quotes = Quote.where(company: 'AAPL')
+		@quotes = Quote.where(company: "#{params[:company]}")
 
 		volume = @quotes.map { |company| company.volume}
 
@@ -25,4 +24,5 @@ class TweetsController < ApplicationController
 		avg_daily_expert_sentiment = Article.where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400 ).avg(:sentiment).round(2)
 		render json: {avg_daily_expert_sentiment: avg_daily_expert_sentiment}
 	end
+	
 end
