@@ -1,0 +1,15 @@
+* {
+	margin: 0;
+}
+html, body {
+	height: 100%;
+}
+.container {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -30; /* the bottom margin is the negative value of the footer's height */
+}
+footer, .push {
+	height: 30; /* '.push' must be the same height as 'footer' */
+}
