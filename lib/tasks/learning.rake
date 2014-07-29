@@ -1,5 +1,5 @@
 include Sidekiq::Worker
-require 'Modules/mongoHAL'
+require 'modules/mongoHAL'
 
 namespace :engage do
   desc 'ENGAGE NAIVE BAYES'
