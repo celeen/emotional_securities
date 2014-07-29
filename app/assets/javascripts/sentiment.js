@@ -84,6 +84,12 @@ function populateBoxes(boxData) {
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
 
+// setInterval(function(){
+//     $.post('/chart_data', function(response) {
+//         stockData = response;
+//         stockChart(stockData);
+//     }, 'json');
+// }, 5000);
 
     $.post('/chart_data', function(response) {
         stockData = response;

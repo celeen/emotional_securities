@@ -28,11 +28,13 @@ class Article
 
   def self.set_article_sentiments
     alchemyapi = AlchemyAPI.new
-    articles = Article.all.reject{ |article| article.sentiment != nil && article.flag = false}
+    articles = Article.where(sentiment: nil, flag: false).to_a
     p articles
 
     articles.map do |article|
       p article.get_company_name(article.company)
+      p article.flag
+      p article.sentiment
       response = alchemyapi.sentiment_targeted('url', article.url, article.get_company_name(article.company))
       p "response = #{response}"
       if response['status'] == 'ERROR'
@@ -41,8 +43,6 @@ class Article
         next
       end
       if response['docSentiment']['score']
-        p response['docSentiment']
-        p "here's the fucker"
         article.sentiment = response['docSentiment']['score']
       else
         article.sentiment = 0
@@ -55,7 +55,6 @@ class Article
   def self.update_articles(urls, company_symbol)
     Article.retrieve_feed(urls)
     Article.create_articles_from_feed(urls, company_symbol)
-    Article.set_article_sentiments
   end
 end
 
