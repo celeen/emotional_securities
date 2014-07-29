@@ -10,13 +10,6 @@ module Ankusa
 
       @klass_word_counts = {}
       @klass_doc_counts = {}
-
-      # init_tables
-    end
-
-
-    def init_tables
-      # MONGOID INITS FOR US 
     end
 
     def classnames
@@ -24,16 +17,9 @@ module Ankusa
     end
 
     def incr_word_count(klass, word, count)
-      p 'ABOUT TO UPDATE'
-      p "--klass: #{klass}----"
-      p "--word: #{word}----"
-      p "--count: #{count}----"
      our_word = WordFrequency.find_or_create_by(word: word)
-     p '------ Created Word ------'
      our_word.inc(klass => count)
-     p '------ Updated attributes ------'
      our_word.upsert
-     p 'RAN UPDATE'
 
       #update vocabulary size
       word_doc = WordFrequency.find_by(:word => word)

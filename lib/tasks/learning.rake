@@ -20,7 +20,6 @@ namespace :engage do
     spam = [22084427,251710903, 25365536, 1534656170, 719065658, 2649728580,900070338, 144130505, 13213122 ]
 
     learning_targets = experts + spam
-    puts learning_targets
 
     TweetStream::Client.new.follow(learning_targets) do |tweet|
       unless /RT @/.match(tweet.text)
