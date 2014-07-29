@@ -28,16 +28,24 @@ class Article
 
   def self.set_article_sentiments
     alchemyapi = AlchemyAPI.new
-    articles = Article.all.reject{ |article| article.sentiment != nil }
-
+    articles = Article.all.reject{ |article| article.sentiment != nil && article.flag = false}
+    p articles
     articles.map do |article|
       p article.get_company_name(article.company)
       response = alchemyapi.sentiment_targeted('url', article.url, article.get_company_name(article.company))
       p "response = #{response}"
       if response['status'] == 'ERROR'
+        article.flag = true
+        article.save
         next
       end
-      article.sentiment = response['docSentiment']['score']
+      if response['docSentiment']['score']
+        p response['docSentiment']
+        p "here's the fucker"
+        article.sentiment = response['docSentiment']['score']
+      else
+        article.sentiment = 0
+      end
       article.save
     end
   end
@@ -51,3 +59,4 @@ end
 
 # try taking out everything before *
 # get rid of noodls
+
