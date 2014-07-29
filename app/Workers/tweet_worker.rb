@@ -38,12 +38,11 @@ class TweetWorker
 	end
 
 	def update_rss(symbols)
-      symbols.each do |symbol|
-        symbol.gsub!(/\$/, "")
-        Article.update_articles(["http://finance.yahoo.com/rss/headline?s=#{symbol}", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=#{(symbol.upcase)}"], symbol)
-      end
-      Article.set_article_sentiments
+    symbols.each do |symbol|
+      symbol.gsub!(/\$/, "")
+      Article.update_articles(["http://finance.yahoo.com/rss/headline?s=#{symbol}", "http://articlefeeds.nasdaq.com/nasdaq/symbols?symbol=#{(symbol.upcase)}"], symbol)
     end
-	end
+  Article.set_article_sentiments
+  end
 end
 
