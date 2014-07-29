@@ -54,6 +54,7 @@ group :test do
   gem 'vcr'
   gem 'webmock'
   gem 'rspec-sidekiq'
+
 end
 
 group :test, :development do
@@ -68,6 +69,7 @@ group :test, :development do
   gem 'byebug'
 	gem 'coveralls', require: false
 end
+
 gem 'json'
 
 # Use ActiveModel has_secure_password
