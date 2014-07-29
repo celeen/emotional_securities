@@ -5,10 +5,10 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
   # resources :tweets, only: {index}
   # You can have the root of your site routed with "root"
-  root 'tweets#index'
+  root 'charts#index'
 
-  post '/chart_data' => 'tweets#chart_data'
-  post '/box_data' => 'tweets#box_data'
+  post '/chart_data' => 'charts#chart_data'
+  post '/box_data' => 'charts#box_data'
   mount Sidekiq::Web => '/sidekiq'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
