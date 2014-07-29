@@ -40,8 +40,6 @@ class Article
         next
       end
       if response['docSentiment']['score']
-        p response['docSentiment']
-        p "here's the fucker"
         article.sentiment = response['docSentiment']['score']
       else
         article.sentiment = 0
@@ -53,7 +51,6 @@ class Article
   def self.update_articles(urls, company_symbol)
     Article.retrieve_feed(urls)
     Article.create_articles_from_feed(urls, company_symbol)
-    Article.set_article_sentiments
   end
 end
 
