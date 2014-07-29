@@ -12,6 +12,9 @@ function stockChart(data) {
         size: {
             height: 550,
         },
+        point: {
+            show: false
+        },
         data: {
             x: 'dates',
             json: {
@@ -30,6 +33,14 @@ function stockChart(data) {
                 tweetSentiment: 'spline',
                 volume: 'bar'
             },
+            colors: {
+                prices: '#C8A010',
+                tweetSentiment: '#116751',
+                volume: '#328973',
+            },
+            size: {
+                width: 500
+            }
         },
         subchart: {
             show: true
