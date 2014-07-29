@@ -71,32 +71,6 @@ li {
 	// border: 1px solid $dark;
 }
 
-.container {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -30px;
-}
-
-
-footer nav {
-	float:right;
-	@include padding(null .4em null null)
-}
-
-footer li {
-	@include padding(null .4em null .4em)
-}
-
-footer li {
-	@include margin(.1em 1em null .5em);
-}
-
-footer {
-	width: 100%;
-	overflow: hidden;
-}
-
 // Nav stylings? Let's take another look at this when the dropdown functionality is working
 
 #nav{
@@ -109,8 +83,9 @@ footer {
     position:relative;
     z-index:5;
     line-height: $body-line-height;
-    border: 1px solid $dark;
+    // border: 1px solid $dark;
     font-family: $bitter;
+    background-color: $dark;
 }
 
 #nav li{
@@ -126,14 +101,15 @@ footer {
     display:block;
     // padding:5px;
     color:#fff;
-    background:$med-dark;
+    background:$main;
     font-family: $newscycle;
     text-decoration:none;
 }
 
 #nav a:hover{
-    color:#fff;
-    background:$dark;
+    color:$white;
+    // font-weight: bold;
+    background:$med-dark;
     // text-decoration:underline;
 }
 
@@ -149,15 +125,13 @@ footer {
 
 #nav ul li{
 	border: .05em solid $dark;
+	width: 100%;
     // padding-top:1px; /* Introducing a padding between the li and the a give the illusion spaced items */
-    float:none;
+    // float:left;
 }
 
-#nav ul a{
-    // white-space:nowrap; /* Stop text wrapping and creating multi-line dropdown items */
-}
 
 #nav li:hover ul{ /* Display the dropdown on hover */
-    left:0; /* Bring back on-screen when needed */
+    left:-32px; /* Bring back on-screen when needed */
 }
 

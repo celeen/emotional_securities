@@ -13,3 +13,19 @@ html, body {
 footer, .push {
 	height: 30; /* '.push' must be the same height as 'footer' */
 }
+
+footer {
+	width: 100%;
+	overflow: hidden;
+}
+
+footer nav {
+	float:right;
+	@include padding(null .4em null null)
+}
+
+footer li {
+	@include padding(null .4em null .4em)
+}
+
+
