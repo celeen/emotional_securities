@@ -2,14 +2,14 @@
 
   Array.max = function(array) {
       return Math.max.apply(Math, array);
-  }
+  };
 
   Array.min = function(array) {
       return Math.min.apply(Math, array);
-  }
+  };
 
   function stockChart(data) {
-      console.log(data)
+      console.log(data);
       chart = c3.generate({
           size: {
               height: 550,
@@ -64,8 +64,8 @@
                   label: "Share Price",
                   show: true,
                   padding: {
-                      top: Array.max(data.prices) * .01,
-                      bottom: Array.min(data.prices) * .01
+                      top: Array.max(data.prices) * 0.01,
+                      bottom: Array.min(data.prices) * 0.01
                   },
               },
               y3: {
@@ -157,29 +157,37 @@
 
   function populateBoxes(boxData) {
       console.log(boxData);
-      $(".1").append("<p> Daily Expert Sentiment </p>" + boxData.avg_daily_expert_sentiment + "</p>")
+      $(".1").append("<p> Daily Expert Sentiment </p>" + boxData.avg_daily_expert_sentiment + "</p>");
   }
 
 
-  $(document).ready(function() {
+  $(document).ready(function(event) {
+      getChartData('GOOG');
+
+      $('body').on("click", '.stocks > li',
+          function(event) {
+              event.preventDefault();
+              console.log(event);
+              console.log(event.currentTarget.className);
+              var symbol = event.currentTarget.className;
+              getChartData(symbol);
+          });
 
 
-      // setInterval(function(){
-      //     $.post('/chart_data', function(response) {
-      //         stockData = response;
-      //         stockChart(stockData);
-      //     }, 'json');
-      // }, 5000);
-      chartData =
-          $.post('/chart_data', function(response) {
-              stockData = response;
-              stockChart(stockData);
-          }, 'json');
+      function getChartData(symbol) {
+          console.log('getting chart data!')
+          $.post('/chart_data', {
+                  'company': symbol
+              },
+              stockChart,
+              'json');
+      };
 
-      boxData =
+      function getBoxData() {
           $.post('/box_data', function(response) {
               boxData = response;
               populateBoxes(boxData);
           }, 'json');
 
+      };
   });

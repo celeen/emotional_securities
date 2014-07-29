@@ -4,14 +4,16 @@ def index
 	end
 
 	def chart_data
+		puts "params are here: #{params}"
+		puts "company is here: #{params[:company]}"
 
-		@quotes = Quote.where(company: "#{params[:company]}")
+		@quotes = Quote.where(company: params[:company])
 
 		volume = @quotes.map { |company| company.volume}
 
 		prices = @quotes.map { |company| company.price / 100.0 }
 
-		@tweets = Tweet.where(company: 'AAPL')
+		@tweets = Tweet.where(company: params[:company])
 
 		sentiments = @tweets.map{ |tweet| tweet.sentiment }
 
