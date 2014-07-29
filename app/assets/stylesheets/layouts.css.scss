@@ -1,3 +1,7 @@
+* {
+	margin: 0;
+}
+
 html, body {
 	height: 100%;
 }
@@ -6,7 +10,7 @@ header {
 	text-align: center;
 	padding: 0em 1em;
 	@include clearfix;
-	@include margin(null null 2em null);
+	@include margin(null null 3em null);
 
 	.wrapper {
 		@include outer-container;
@@ -32,8 +36,9 @@ li {
 
 .metrics ul {
 	text-align: center;
-	@include shift(2);
-	@include span-columns(8);
+	@include shift(3);
+	@include span-columns(6);
+	// background-color: pink;
 }
 
 
@@ -44,26 +49,27 @@ li {
 .metrics li {
 	// border: 1px solid $dark;
 	height: 5em;
-	@include span-columns(2 of 8);
+	@include span-columns(1.5 of 6);
 	
 	@include media($mobile) {
-		@include span-columns(4 of 8);
+		@include span-columns(3 of 6);
 		margin: 1em 0em;
 	}
 }
 
-.metrics .block {
+.metrics .feature {
 	margin: 0 auto;
-	height: 70%;
-	width: 70%;
+	height: 100%;
+	width: 100%;
 }
 
 #chart-area {
 	@include margin(2em null 2em null);
-	@include span-columns(6);
-	@include shift(3);
-	height: 15em;
-	border: 1px solid $dark;
+	@include span-columns(10);
+	@include shift(1);
+	height: 35em;
+	// border: 1px solid $dark;
+<<<<<<< HEAD
 }
 
 .container {
@@ -71,21 +77,29 @@ li {
 	height: auto !important;
 	height: 100%;
 	margin: 0 auto -30px;
+=======
+>>>>>>> 1f19d9c0a9ebed0b0f4f4d5cd80e3b6271671f78
 }
 
-footer, .push {
-	height: 30px;
-	margin: 0;
-}
 
 footer nav {
+<<<<<<< HEAD
 	float:right;
+	@include padding(null .4em null null)
 }
 
-footer .copyright {
-	float: left;
+footer li {
+	@include padding(null .4em null .4em)
+=======
+	float: right;
+>>>>>>> 1f19d9c0a9ebed0b0f4f4d5cd80e3b6271671f78
 }
 
-footer li, .copyright {
-	@include margin(.2em .5em null .5em);
+footer li {
+	@include margin(.1em 1em null .5em);
+}
+
+footer {
+	width: 100%;
+	overflow: hidden;
 }
