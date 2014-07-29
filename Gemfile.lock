@@ -28,6 +28,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     addressable (2.3.6)
+    ankusa (0.1.0)
+      fast-stemmer (>= 1.0.0)
     arel (5.0.1.20140414130214)
     bourbon (3.2.3)
       sass (~> 3.2)
@@ -95,6 +97,7 @@ GEM
       railties (>= 3.0.0)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    fast-stemmer (1.0.2)
     feedjira (1.3.0)
       curb (~> 0.8.1)
       loofah (~> 2.0.0)
@@ -306,6 +309,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ankusa
   bourbon
   bson_ext
   byebug
