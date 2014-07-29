@@ -210,6 +210,9 @@ GEM
       rspec-expectations (~> 3.0.0)
       rspec-mocks (~> 3.0.0)
       rspec-support (~> 3.0.0)
+    rspec-sidekiq (1.0.0)
+      rspec (>= 2.0.0)
+      sidekiq (>= 2.4.0)
     rspec-support (3.0.3)
     safe_yaml (1.0.3)
     sass (3.2.19)
@@ -325,6 +328,7 @@ DEPENDENCIES
   rails_12factor
   redis
   rspec-rails
+  rspec-sidekiq
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   shoulda-matchers

@@ -30,6 +30,7 @@ class Article
     alchemyapi = AlchemyAPI.new
     articles = Article.where(sentiment: nil, flag: false).to_a
     p articles
+
     articles.map do |article|
       p article.get_company_name(article.company)
       p article.flag
@@ -46,6 +47,7 @@ class Article
       else
         article.sentiment = 0
       end
+
       article.save
     end
   end
