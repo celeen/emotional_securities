@@ -1,4 +1,5 @@
 Redis: redis-server
 Robin: bundle exec sidekiq -r./config/environment.rb
-EmoGrabber: bundle exec rake stream:emo_grabber 
+EmoGrabber: bundle exec rake stream:emo_grabber
+Hal9000: bundle exec rake engage:hal9000 
 Rails: rails s
