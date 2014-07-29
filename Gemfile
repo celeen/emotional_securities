@@ -56,18 +56,18 @@ group :test do
 end
 
 group :test, :development do
-  gem 'rspec-rails'
-  gem 'database_cleaner'
-  gem 'factory_girl_rails'
-  gem 'mongoid-rspec'
-  gem 'capybara'
-  gem 'mock_redis'
-  gem 'shoulda-matchers'
-  gem 'jasmine-rails'
+	gem 'rspec-rails'
+	gem 'database_cleaner'
+	gem 'factory_girl_rails'
+	gem 'mongoid-rspec'
+	gem 'capybara'
+	gem 'mock_redis'
+	gem 'shoulda-matchers'
+	gem 'jasmine-rails'
   gem 'byebug'
+	gem 'coveralls', require: false
 end
 gem 'json'
-gem 'coveralls', require: false
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

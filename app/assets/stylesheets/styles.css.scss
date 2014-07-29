@@ -25,7 +25,7 @@ footer, footer a {
   border-radius: 3px;
   color: $white;
   font-family: $oldstandard;
-  // font-size: 1.3em;
+  @include margin(null null null .5em)
 }
 
 h1 {
@@ -41,23 +41,66 @@ header {
 
 .metrics li {
 	background-color: $white;
+	border-radius: 5px;
+	// border: 1px solid $dark;
+	box-shadow: 0 0 .15em .15em $dark;
 }
 
 footer nav {
 	background-color: $main;
 }
 
-footer nav li {
-
-}
-
-.block {
-	border-radius: 5px;
-	border: 1px solid $dark;
-}
 
 footer {
 	background-color: $main;
 	// background: shade($main, 20%);
 	box-shadow: .15em 0 .15em .15em $med-dark;
 }
+
+.overlay {
+	border-radius: 5px;
+	background-color: rgba(0,0,0,0.7);
+	height: 100%;
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+	opacity: 0;
+	z-index: 1;
+}
+
+.overlay h3 {
+	color: $white;
+	font-family: $newscycle;
+	@include padding(20% null null null)
+}
+
+.feature:hover .overlay {
+	opacity: 1;
+}
+
+.metrics li:nth-of-type(1) {
+	background-image: url(herd.jpg);
+	// background-reapeat: no-repeat;
+	background-size: cover;
+}
+
+.metrics li:nth-of-type(2) {
+	@include background-image(url(expert.jpg));
+	background-size: cover;
+}
+
+.metrics li:nth-of-type(3) {
+	@include background-image(url(filler1.jpg));
+	background-size: cover;
+}
+
+.metrics li:nth-of-type(4) {
+	@include background-image(url(filler2.jpg));
+	background-size: cover;
+}
+
+footer li a:hover {
+	color: $dark;
+	// text-shadow: 
+}
+
