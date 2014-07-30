@@ -9,7 +9,13 @@ def index
 
 		@quotes = Quote.where(company: params[:company])
 
-		volume = @quotes.map { |company| company.volume}
+		volume = Quote.where(company: 'AAPL').map do |company|
+			c=company.c_at.to_i.to_s
+			c.gsub!(/[A-Z]{3} /,'')
+			c.gsub!(/:Time/,'')
+			c+="000"
+			[c.to_i, company.volume]
+		end
 
 		prices = Quote.where(company: 'AAPL').map do |company|
 			c=company.c_at.to_i.to_s
@@ -19,11 +25,19 @@ def index
 			[c.to_i, company.price / 100.0]
 		end
 
-	 	tweets = Tweet.where(company: 'AAPL').map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
-puts "tweet #{tweets[0]}"
-puts "price #{prices[0]}"
+		articles = Article.where(company: 'AAPL').map do |article|
+			a=article.c_at.to_i.to_s
+			a.gsub!(/[A-Z]{3} /,'')
+			a.gsub!(/:Time/,'')
+			a+="000"
+			[a.to_i, article.sentiment]
+		end
 
-		render json: {tweets: tweets, volume: volume, prices: prices}
+	 	tweets = Tweet.where(company: 'AAPL').map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
+		puts "tweet #{tweets[0]}"
+		puts "price #{prices[0]}"
+
+		render json: {tweets: tweets, volume: volume, prices: prices, articles: articles	}
 	end
 
 	def box_data

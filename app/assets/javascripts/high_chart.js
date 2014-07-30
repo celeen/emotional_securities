@@ -5,7 +5,7 @@ function highChart(data) {
             type: 'spline'
         },
         title: {
-            text: 'Sentiment And your moneys'
+            text: 'Market Feelz And your moneys'
         },
         subtitle: {
             text: 'watch the emo secs'
@@ -23,17 +23,23 @@ function highChart(data) {
         },
         yAxis: [{
             title: {
-                text: 'Snow depth (m)'
-            }
+                text: 'Tweet Sentiment',
+
+            },
+            opposite: true,
         },{
         title: {
             text: 'Price',
             }
-        }
-        ],
+        },{
+        title: {
+            text: 'Volume',
+            }
+        }],
         tooltip: {
             headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: '{point.x:%e. %b}: {point.y:.2f} m'
+            pointFormat: '{point.x:%e. %b}: {point.y:.2f} m',
+            shared: true
         },
         series: [{
             name: 'Tweet Sentiment',
@@ -41,17 +47,12 @@ function highChart(data) {
             yAxis: 1
         }, {
             name: 'Price',
-            data: data.prices
+            data: data.prices,
+            yAxis: 2
         }, {
-            name: 'Volume'
-            // data: [
-            //     [Date.UTC(1970,  9,  9), 0   ],
-            //     [Date.UTC(1970,  9, 14), 0.15],
-            //     [Date.UTC(1970, 10, 28), 0.35],
-            //     [Date.UTC(1970, 11, 12), 0.46],
-            //     [Date.UTC(1971,  0,  1), 0.59],
-            //     [Date.UTC(1971,  4, 21), 0   ]
-            // ]
+            name: 'Volume',
+            data: data.volume,
+            type: 'column'
         }]
     });
 }
