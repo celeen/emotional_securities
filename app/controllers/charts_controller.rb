@@ -9,7 +9,7 @@ def index
 
 		@quotes = Quote.where(company: params[:company])
 
-		volume = Quote.where(company: 'AAPL').map do |company|
+		volume = Quote.where(company: 'AAPL').order{:c_at}.map do |company|
 			c=company.c_at.to_i.to_s
 			c.gsub!(/[A-Z]{3} /,'')
 			c.gsub!(/:Time/,'')
@@ -17,7 +17,7 @@ def index
 			[c.to_i, company.volume]
 		end
 
-		prices = Quote.where(company: 'AAPL').map do |company|
+		prices = Quote.where(company: 'AAPL').order{:c_at}.map do |company|
 			c=company.c_at.to_i.to_s
 			c.gsub!(/[A-Z]{3} /,'')
 			c.gsub!(/:Time/,'')
@@ -33,7 +33,8 @@ def index
 			[a.to_i, article.sentiment]
 		end
 
-	 	tweets = Tweet.where(company: 'AAPL').map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
+	 	tweets = Tweet.where(company: 'AAPL').order{:tweeted_at}.map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
+		puts tweets
 		puts "tweet #{tweets[0]}"
 		puts "price #{prices[0]}"
 
