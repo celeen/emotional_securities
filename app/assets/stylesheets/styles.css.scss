@@ -29,9 +29,14 @@ footer, footer a {
 }
 
 h1 {
-	color: $white;
+	color: $main;
 	font-family: $newscycle;
 	font-weight: 400;
+	text-align: center;
+}
+
+header h1 {
+	color: $white;
 }
 
 header {
@@ -43,7 +48,7 @@ header {
 	background-color: $white;
 	border-radius: 5px;
 	// border: 1px solid $dark;
-	box-shadow: 0 0 .15em .15em $dark;
+	// box-shadow: 0 0 .15em .15em $dark;
 }
 
 footer nav {
@@ -74,9 +79,9 @@ footer {
 	@include padding(20% null null null)
 }
 
-.feature:hover .overlay {
-	opacity: 1;
-}
+// .feature:hover .overlay {
+// 	opacity: 1;
+// }
 
 .metrics li:nth-of-type(1) {
 	/*background-image: url(herd.jpg);*/

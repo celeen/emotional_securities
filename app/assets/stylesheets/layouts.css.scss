@@ -10,6 +10,7 @@ body {
 	padding-top: 8em;
 }
 
+
 header {
 	text-align: center;
 	width: 100%;
@@ -37,6 +38,8 @@ header {
 	}
 }
 
+
+
 li {
 	display: inline-block;
 	line-height: $body-line-height;
@@ -44,8 +47,8 @@ li {
 
 .metrics ul {
 	text-align: center;
-	@include shift(3);
-	@include span-columns(6);
+	@include shift(1.5);
+	@include span-columns(9);
 	// background-color: pink;
 }
 
@@ -56,13 +59,13 @@ li {
 
 .metrics li {
 	// border: 1px solid $dark;
-	height: 5em;
-	@include span-columns(1.5 of 6);
+	height: 8em;
+	@include span-columns(3 of 9);
 	
-	@include media($mobile) {
-		@include span-columns(3 of 6);
-		margin: 1em 0em;
-	}
+	// @include media($mobile) {
+	// 	@include span-columns(3 of 9);
+	// 	margin: 1em 0em;
+	// }
 }
 
 .metrics .feature {
@@ -85,4 +88,14 @@ li {
 	min-height: 400px;
 }
 
+#chart-area {
+	height: 100%;
+	position: relative;
+	min-height: 400px; 
+}
 
+#about {
+	height: 100%;
+	position: relative;
+	min-height: 400px; 
+}
