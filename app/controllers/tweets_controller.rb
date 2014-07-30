@@ -1,4 +1,4 @@
-require 'modules/investStats'
+
 
 class TweetsController < ApplicationController
 

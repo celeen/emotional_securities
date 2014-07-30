@@ -8,22 +8,18 @@ class Tweet
   field :company, type: String
 
 
-
-  def running_avg(company, limit)
-  	# ordered = Tweet.where(company: company).order{:tweeted_at}
-  	# ordered.map { |tweet| }
-  	# .limit(limit).avg(:sentiment)
-
-  	# array[tweet.postion...tweet.position+10]
-  	# avg = 0.0
-  	# count = 0
-
-  	# lamda do |x| 
-  	# 	count += 1
-  	# 	avg += (x - avg) / count
-  	# end
-
+  def avg
+    self.inject{ |sum, n| sum + n.sentiment }/self.length
   end
+
+  def self.running10(company)
+     moving_avg = []
+     ordered_sentiments = Tweet.where(company: company).order{:tweeted_at}.pluck(:sentiment)
+
+     p ordered_sentiments.length.times {|i| moving_avg << ordered_sentiments[i...i+10].inject(:+)/10 unless ordered_sentiments[i+10] == nil}
+
+     p moving_avg
+  end
+
 end
 
-# in controller dataPoints.map { |point| point.running_10 }

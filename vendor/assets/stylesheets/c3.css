@@ -5,7 +5,7 @@
 }
 .c3 path, .c3 line {
   fill: none;
-  stroke: #000;
+  stroke: $dark;
 }
 .c3 text {
   -webkit-user-select: none;
@@ -22,11 +22,11 @@
 }
 
 .c3-chart-arc path {
-  stroke: #fff;
+  stroke: $white;
 
 }
 .c3-chart-arc text {
-  fill: #fff;
+  fill: $white;
   font-size: 13px;
 }
 
@@ -144,7 +144,7 @@
 .c3-tooltip {
   border-collapse:collapse;
   border-spacing:0;
-  background-color:#fff;
+  background-color:$white;
   empty-cells:show;
   -webkit-box-shadow: 7px 7px 12px -9px rgb(119,119,119);
      -moz-box-shadow: 7px 7px 12px -9px rgb(119,119,119);
@@ -159,12 +159,12 @@
   font-size:14px;
   padding:2px 5px;
   text-align:left;
-  color:#FFF;
+  color:$white;
 }
 .c3-tooltip td {
   font-size:13px;
   padding: 3px 6px;
-  background-color:#fff;
+  background-color:$white;
   border-left:1px dotted #999;
 }
 .c3-tooltip td > span {
@@ -187,7 +187,7 @@
   stroke: none;
 }
 .c3-chart-arcs .c3-chart-arcs-gauge-unit {
-  fill: #000;
+  fill: $dark;
   font-size: 16px;
 }
 .c3-chart-arcs .c3-chart-arcs-gauge-max {
@@ -198,6 +198,10 @@
 }
 
 .c3-chart-arc .c3-gauge-value {
-  fill: #000;
+  fill: $dark;
   font-size: 28px;
+}
+
+.c3-line-prices {
+  /*font-weight: 1200;*/
 }

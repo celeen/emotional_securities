@@ -18,10 +18,10 @@
 # Ignore application configuration
 /config/application.yml
 
-<<<<<<< HEAD
+
 /dump.rdb
-=======
+
 # Ignore OSX generated files
 */.DS_Store
->>>>>>> 033645aad44d5ed8c3dc86bcc48cb0bd5eb0493f
+
 
