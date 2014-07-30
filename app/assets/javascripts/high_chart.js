@@ -1,10 +1,4 @@
-$(function() {
-    Highcharts.setOptions({
-        global: {
-            useUTC: false
-        }
-    });
-});
+var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
 
 function highChart(data) {
     $('#container').highcharts({
@@ -146,30 +140,44 @@ function populateSentimentBoxes(sentiment, r, box, label) {
 
 
 $(document).ready(function() {
-    var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
+    getChartData('AAPL');
 
 
-    $.post('/chart_data', function(response) {
-        stockData = response;
-        highChart(stockData);
-        console.log(stockData.tweets)
-    }, 'json');
+    function getChartData(symbol) {
+        console.log('getting chart data!')
+        $.post('/chart_data', {
+                'company': symbol
+            },
+            highChart,
+            'json');
+    };
+    // $.post('/chart_data', function(response) {
+    //     stockData = response;
+    //     highChart(stockData);
+    //     console.log(stockData.tweets)
+    // }, 'json');
 
     var company = 'AAPL'
 
-    $.post('/expert_data', { company: company }, function(response) {
+    $.post('/expert_data', {
+        company: company
+    }, function(response) {
         var expert_data = response;
         var expert_label = "Experts";
         populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h4', expert_label);
     }, 'json');
 
-    $.post('/herd_data', { company: company }, function(response) {
+    $.post('/herd_data', {
+        company: company
+    }, function(response) {
         var herd_data = response;
         var herd_label = "Herd";
         populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h4', herd_label);
     }, 'json');
 
-    $.post('/volume_data', { company: company }, function(response) {
+    $.post('/volume_data', {
+        company: company
+    }, function(response) {
         var volume_data = response;
         console.log(volume_data.daily_volume_delta);
         var volume_label = "Volume Delta";
