@@ -1,3 +1,11 @@
+$(function() {
+    Highcharts.setOptions({
+        global: {
+            useUTC: false
+        }
+    });
+});
+
 function highChart(data) {
     $('#container').highcharts({
         chart: {

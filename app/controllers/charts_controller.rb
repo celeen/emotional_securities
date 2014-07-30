@@ -1,6 +1,7 @@
 class ChartsController < ApplicationController
+
 	ONE_DAY = 86400
-	
+
   def index
 
   end
