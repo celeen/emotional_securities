@@ -6,11 +6,19 @@ html, body {
 	height: 100%;
 }
 
+body {
+	padding-top: 8em;
+}
+
 header {
 	text-align: center;
+	width: 100%;
 	padding: 0em 1em;
 	@include clearfix;
 	@include margin(null null 3em null);
+	position: fixed;
+	top:0;
+	z-index: 2;
 
 	.wrapper {
 		@include outer-container;
@@ -70,4 +78,11 @@ li {
 	height: 35em;
 	// border: 1px solid $dark;
 }
+
+#metrics {
+	height: 100%;
+	position: relative;
+	min-height: 400px;
+}
+
 
