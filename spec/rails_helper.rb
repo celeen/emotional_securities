@@ -9,6 +9,7 @@ require 'sidekiq/testing'
 require 'coveralls'
 Coveralls.wear!('rails')
 require 'shoulda-matchers'
+require 'capybara/rails'
 
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
