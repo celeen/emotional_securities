@@ -1,5 +1,4 @@
 function highChart(data) {
-    console.log(data);
     $('#container').highcharts({
         chart: {
             backgroundColor: '#EEEFDF',
@@ -126,13 +125,17 @@ function highChart(data) {
                 enabled: false
             }
         }
-        // {
-        //     name: 'Volume',
-        //     data: data.volume,
-        //     type: 'column'
-        // }]
     });
 }
+
+function populateVolumeBox(volume, box, label) {
+    $(box).append("<p>" + label + " </p>" + volume + "</p>")
+}
+
+function populateSentimentBoxes(sentiment, r, box, label) {
+    $(box).append("<p>" + label + " </p><p> Feelz: " + sentiment + "</p><p> R: " + r + "</p><p> R-Squared: " + Math.round(r * r * 100) / 100 + "</p>")
+}
+
 
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
@@ -144,15 +147,25 @@ $(document).ready(function() {
         console.log(stockData.tweets)
     }, 'json');
 
-    // $.post('/chart_data', function(response) {
-    //     stockData = response;
-    //     stockChart(stockData);
-    // }, 'json');
+    var company = 'AAPL'
 
+    $.post('/expert_data', { company: company }, function(response) {
+        var expert_data = response;
+        var expert_label = "Experts";
+        populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h4', expert_label);
+    }, 'json');
 
-    // $.post('/box_data', function(response) {
-    //     boxData = response;
-    //     populateBoxes(boxData);
-    // }, 'json');
+    $.post('/herd_data', { company: company }, function(response) {
+        var herd_data = response;
+        var herd_label = "Herd";
+        populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h4', herd_label);
+    }, 'json');
+
+    $.post('/volume_data', { company: company }, function(response) {
+        var volume_data = response;
+        console.log(volume_data.daily_volume_delta);
+        var volume_label = "Volume Delta";
+        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h4', volume_label);
+    }, 'json');
 
 });

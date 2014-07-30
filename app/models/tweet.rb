@@ -8,14 +8,6 @@ class Tweet
   field :company, type: String
 
 
-  # def self.running_10(company)
-  #   tweets = self.where(company: company).order{tweeted_at}
-  #   published_tweets = []
-  #   until tweets.length == 0
-  #     published_tweets << tweets.slice(-1..-10)
-  #   end
-  #   published_tweets
-  # end
   def avg
     self.inject{ |sum, n| sum + n.sentiment }/self.length
   end
@@ -30,5 +22,4 @@ class Tweet
   end
 
 end
-
 

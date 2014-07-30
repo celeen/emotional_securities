@@ -6,9 +6,10 @@ Rails.application.routes.draw do
   # resources :tweets, only: {index}
   # You can have the root of your site routed with "root"
   root 'charts#index'
-
   post '/chart_data' => 'charts#chart_data'
-  post '/box_data' => 'charts#box_data'
+  post '/expert_data' => 'charts#expert_data'
+  post '/herd_data' => 'charts#herd_data'
+  post '/volume_data' => 'charts#volume_data'
   mount Sidekiq::Web => '/sidekiq'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

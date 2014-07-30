@@ -30,8 +30,6 @@ namespace :stream do
 
         companies.each do |symbol|
           tweet_args = {tweet_id: tweet.id, text: tweet.text, tweeted_at: tweet.created_at, company: symbol }
-          puts "IN ARGS ************************************"
-          puts "------#{tweet_args} ----- #{symbol}----------------- #{count}-------------#{symbols}"
           TweetWorker.perform_async(tweet_args, symbol, count, symbols)
         end
         count += 1 # no extra dynos
