@@ -1,5 +1,4 @@
 function highChart(data) {
-    console.log(data);
     $('#container').highcharts({
         chart: {
             backgroundColor: '#EEEFDF',
@@ -126,13 +125,17 @@ function highChart(data) {
                 enabled: false
             }
         }
-        // {
-        //     name: 'Volume',
-        //     data: data.volume,
-        //     type: 'column'
-        // }]
     });
 }
+
+function populateVolumeBox(volume, box, label) {
+    $(box).append("<p>" + label + " </p>" + volume + "</p>")
+}
+
+function populateSentimentBoxes(sentiment, r, box, label) {
+    $(box).append("<p>" + label + " </p><p> Feelz: " + sentiment + "</p><p> R: " + r + "</p><p> R-Squared: " + Math.round(r * r * 100) / 100 + "</p>")
+}
+
 
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
@@ -160,9 +163,9 @@ $(document).ready(function() {
 
     $.post('/volume_data', { company: company }, function(response) {
         var volume_data = response;
+        console.log(volume_data.daily_volume_delta);
         var volume_label = "Volume Delta";
-        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h4', volume_label
-);
+        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h4', volume_label);
     }, 'json');
 
 });
