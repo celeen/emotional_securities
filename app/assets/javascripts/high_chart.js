@@ -1,10 +1,4 @@
-$(function() {
-    Highcharts.setOptions({
-        global: {
-            useUTC: false
-        }
-    });
-});
+var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
 
 function highChart(data) {
     $('#container').highcharts({
@@ -170,17 +164,25 @@ function populateSentimentBoxes(sentiment, r, box, label) {
 
 
 $(document).ready(function() {
-    var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
+    getChartData('AAPL');
 
     $('#resetZoom').click(function() {
         chart.zoomOut();
     });
 
-    $.post('/chart_data', function(response) {
-        stockData = response;
-        highChart(stockData);
-        console.log(stockData.tweets)
-    }, 'json');
+    function getChartData(symbol) {
+        console.log('getting chart data!')
+        $.post('/chart_data', {
+                'company': symbol
+            },
+            highChart,
+            'json');
+    };
+    // $.post('/chart_data', function(response) {
+    //     stockData = response;
+    //     highChart(stockData);
+    //     console.log(stockData.tweets)
+    // }, 'json');
 
     var company = 'AAPL'
 
