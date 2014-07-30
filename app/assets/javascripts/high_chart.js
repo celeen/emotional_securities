@@ -1,3 +1,5 @@
+var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
+
 $(function() {
     Highcharts.setOptions({
         global: {
@@ -97,7 +99,6 @@ function highChart(data) {
         }],
 
         series: [{
-
             name: 'Tweet Sentiment',
             data: data.tweets,
             id: 'primary',
@@ -209,7 +210,6 @@ function getVolumeData(symbol) {
     }, 'json');
 };
 
-
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
     getVolumeData('AAPL');
@@ -220,8 +220,6 @@ $(document).ready(function() {
     $('#resetZoom').click(function() {
         chart.zoomOut();
     });
-
-
 
     $('body').on("click", '.stocks > li',
         function(event) {

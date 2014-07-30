@@ -3,14 +3,15 @@
 
 <section class = "metrics">
 	<div id = "metrics">
-		<h1>HELLO<%= params[:company] %></h1>
+		<h1>FILLER:<%= params[:company] %></h1>
 	<ul>
 	<div = "wrapper">
 	<li>
 			<div class = "feature herd">
 				<h4></h4>
 		<div class = "overlay herd">
-			<h3>Herd</h3>
+			<p><%= image_tag 'herd.png' %></p>
+			<h3>Herd Sentiment</h3>
 		</div>
 			</div>
 	</li>
@@ -18,6 +19,7 @@
 			<div class = "feature expert">
 				<h4></h4>
 		<div class = "overlay expert">
+			<p><%= image_tag 'expert.png' %>
 			<h3>Expert</h3>
 		</div>
 			</div>
@@ -26,6 +28,7 @@
 			<div class = "feature volume">
 				<h4></h4>
 		<div class = "overlay three">
+			<p><%= image_tag 'delta.png' %></p>
 			<h3>Three</h3>
 		</div>
 			</div>
@@ -44,7 +47,8 @@
 <section class = "about">
 	<hr>
 	<div id = "about">
-		<h1>ABOUT US</h1>
+		<h1>ABOUT</h1>
+
 	</div>
 </section>
 <div class = "push"></div>
