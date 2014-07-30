@@ -1,15 +1,26 @@
-
 function highChart(data) {
-  console.log(data);
+    console.log(data);
     $('#container').highcharts({
         chart: {
-            type: 'line'
+            backgroundColor: '#EEEFDF',
+            type: 'line',
+            style: {
+                font: '12pt News Cycle, serif',
+                color: '#0f1c13'
+            },
         },
         title: {
-            text: 'Market Feelz And your moneys'
+            text: 'Market Feelz And your moneys',
+            style: {
+                font: '20pt News Cycle, serif',
+                color: '#0F1C13'
+            },
         },
         subtitle: {
-            text: 'watch the emo secs'
+            text: 'watch the emo secs',
+            style: {
+                font: '14pt News Cycle, serif',
+            }
         },
         xAxis: {
             type: 'datetime',
@@ -20,12 +31,12 @@ function highChart(data) {
                 //year: '%b'
             },
             title: {
-                text: 'The Last 24 Hours by Time'
+                text: 'The Last 24 Hours'
             },
             max: Date.now(),
             min: Date.now() - 86400000,
         },
-        yAxis: [{//sentiment axis
+        yAxis: [{ //sentiment axis
             labels: {
                 style: {
                     color: '#7F8FC3'
@@ -40,35 +51,46 @@ function highChart(data) {
             min: -1,
             max: 1,
             opposite: true,
-        },{//Price Axis
+        }, { //Price Axis
             labels: {
                 style: {
                     color: '#BD872D'
                 }
             },
-        title: {
-            text: 'Price',
-            style: {
-                color: '#BD872D'
+            title: {
+                text: 'Price',
+                style: {
+                    color: '#BD872D'
+                }
             }
-        }
         }],
 
         series: [{
+
             name: 'Tweet Sentiment',
             data: data.tweets,
             id: 'primary',
             type: 'scatter',
             color: '#7F8FC3',
             tooltip: {
-            headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: '{point.x:%l:%M %p}: {point.y:.4f}',
-            shared: false
-        },
-            // yAxis: 1
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.x:%l:%M %p}: {point.y:.4f}',
+            },
         }, {
-            connectNulls:true,
-            name: 'Exponential Moving Average',
+            name: 'Price',
+            data: data.prices,
+            shadow: true,
+            yAxis: 1,
+            color: '#BD872D',
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.x:%l:%M %p}: ${point.y:.2f}',
+            },
+
+        }, {
+            connectNulls: true,
+            shadow: true,
+            name: 'Average Tweet Sentiment',
             linkedTo: 'primary',
             showInLegend: true,
             type: 'trendline',
@@ -76,21 +98,9 @@ function highChart(data) {
             periods: 50,
             color: '#3C528B',
             tooltip: {
-            headerFormat: '<b>Average Sentiment</b><br>',
-            pointFormat: '{point.y:.4f}',
-            shared: false
-        },
-        },
-         {
-            name: 'Price',
-            data: data.prices,
-            yAxis: 1,
-            color: '#BD872D',
-             tooltip: {
-            headerFormat: '<b>{series.name}</b><br>',
-            pointFormat: '{point.x:%l:%M %p}: ${point.y:.2f}',
-            shared: false
-        },
+                headerFormat: '<b>Average Sentiment</b><br>',
+                pointFormat: '{point.y:.4f}',
+            },
         }],
         plotOptions: {
             scatter: {
@@ -103,6 +113,17 @@ function highChart(data) {
                         }
                     }
                 }
+            }
+        },
+        legend: {
+            itemStyle: {
+                font: '12pt News Cycle, serif',
+                color: '#0F1C13',
+            }
+        },
+        navigation: {
+            buttonOptions: {
+                enabled: false
             }
         }
         // {
