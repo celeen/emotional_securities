@@ -1,4 +1,8 @@
+require 'modules/investStats'
+
 class TweetsController < ApplicationController
+
+	ONE_DAY = 86400
 
 	def index
 
@@ -24,11 +28,9 @@ class TweetsController < ApplicationController
 	def expert_data
 		company = params[:company]
 
-		puts company
+		avg_daily_expert_sentiment = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY ).avg(:sentiment).round(2)
 
-		avg_daily_expert_sentiment = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400 ).avg(:sentiment).round(2)
-
-		exp_values = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400).to_a
+		exp_values = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY).to_a
 		feelings = exp_values.map { |article| article.sentiment }
 
 		exp_value_quotes = Quote.where(company: company).sort({_id:1}).limit(exp_values.length).to_a
@@ -37,17 +39,15 @@ class TweetsController < ApplicationController
 
 		pearson = Statsample::Bivariate::Pearson.new(feelings.to_scale, prices.to_scale)
 
-		p "#{pearson.r}"
-
-		render json: { avg_daily_expert_sentiment: avg_daily_expert_sentiment, correlation: pearson.r }
+		render json: { avg_daily_expert_sentiment: avg_daily_expert_sentiment, correlation: pearson.r.round(2) }
 	end
 
 	def herd_data
 		company = params[:company]
 
-		avg_daily_herd_sentiment = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - 86400).avg(:sentiment).round(2)
+		avg_daily_herd_sentiment = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - ONE_DAY).avg(:sentiment).round(2)
 
-		herd_values = Tweet.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - 86400).to_a
+		herd_values = Tweet.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY).to_a
 		feelings = herd_values.map { |article| article.sentiment }
 
 		herd_value_quotes = Quote.where(company: company).sort({_id:1}).limit(herd_values.length).to_a
@@ -56,9 +56,7 @@ class TweetsController < ApplicationController
 
 		pearson = Statsample::Bivariate::Pearson.new(feelings.to_scale, prices.to_scale)
 
-		p "#{pearson.r}"
-
-		render json: { avg_daily_herd_sentiment: avg_daily_herd_sentiment, correlation: pearson.r }
+		render json: { avg_daily_herd_sentiment: avg_daily_herd_sentiment, correlation: pearson.r.round(2) }
 	end
 
 	def volume_data
@@ -71,6 +69,5 @@ class TweetsController < ApplicationController
 
 		render json: { daily_volume_delta: daily_volume_delta }
 	end
-
 
 end

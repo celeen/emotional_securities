@@ -79,23 +79,23 @@ footer {
 }
 
 .metrics li:nth-of-type(1) {
-	background-image: url(herd.jpg);
+	/*background-image: url(herd.jpg);*/
 	// background-reapeat: no-repeat;
 	background-size: cover;
 }
 
 .metrics li:nth-of-type(2) {
-	@include background-image(url(expert.jpg));
+	/*@include background-image(url(expert.jpg));*/
 	background-size: cover;
 }
 
 .metrics li:nth-of-type(3) {
-	@include background-image(url(filler1.jpg));
+	/*@include background-image(url(filler1.jpg));*/
 	background-size: cover;
 }
 
 .metrics li:nth-of-type(4) {
-	@include background-image(url(filler2.jpg));
+	/*@include background-image(url(filler2.jpg));*/
 	background-size: cover;
 }
 

@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/expert_data' => 'tweets#expert_data'
   post '/herd_data' => 'tweets#herd_data'
   post '/volume_data' => 'tweets#volume_data'
+  post '/beta_value' => 'tweets#beta_value'
   mount Sidekiq::Web => '/sidekiq'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
