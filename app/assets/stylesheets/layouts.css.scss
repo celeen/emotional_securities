@@ -1,5 +1,5 @@
 * {
-	margin: 0;
+	border: 0;
 }
 
 html, body {
@@ -20,6 +20,7 @@ header {
 	position: fixed;
 	top:0;
 	z-index: 2;
+
 
 	.wrapper {
 		@include outer-container;
@@ -43,6 +44,27 @@ header {
 li {
 	display: inline-block;
 	line-height: $body-line-height;
+}
+
+#intro {
+	display: table;
+	margin-top: 1.5em;
+	margin-right: 9%;
+	margin-left: 9%;
+	text-align: center;
+}
+
+.descriptions {
+	width: 27%;
+	display: inline-block;
+	text-align: center;
+	margin-right: 2em;
+	margin-left: 2em;
+}
+
+.descriptions p {
+	display: table-cell;
+  vertical-align: middle;
 }
 
 .metrics ul {
@@ -79,6 +101,7 @@ li {
 	height: 50%;
 	width: 50%;
 }
+
 
 #chart-area {
 	@include margin(2em null 2em null);

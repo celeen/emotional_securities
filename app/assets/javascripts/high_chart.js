@@ -11,14 +11,14 @@ function highChart(data) {
             },
         },
         title: {
-            text: 'Market Feelz And your moneys',
+            text: 'Market Feelz and your Moneys',
             style: {
                 font: '20pt News Cycle, serif',
                 color: '#0F1C13'
             },
         },
         subtitle: {
-            text: 'watch the emo secs',
+            text: '',
             style: {
                 font: '14pt News Cycle, serif',
             }
@@ -179,6 +179,15 @@ function getVolumeData(symbol) {
     }, 'json');
 };
 
+function removeCompanyMetrics() {
+    $('.24-hour-metrics').empty();
+}
+
+function addCompanyName(symbol) {
+    $('#metrics h1').empty();
+    $('#metrics h1').text(String(symbol));
+}
+
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
     getVolumeData('AAPL');
@@ -194,6 +203,8 @@ $(document).ready(function() {
             console.log(event);
             console.log(event.currentTarget.className);
             var symbol = event.currentTarget.className;
+            removeCompanyMetrics();
+            addCompanyName(symbol);
             getVolumeData(symbol);
             getHerdData(symbol);
             getExpertData(symbol);
