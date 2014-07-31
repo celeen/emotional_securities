@@ -31,11 +31,12 @@ footer, footer a {
 h1 {
 	color: $main;
 	font-family: $newscycle;
-	font-weight: 400;
+	font-weight: 800;
 	text-align: center;
 }
 
 header h1 {
+	font-weight: 400;
 	color: $white;
 }
 
@@ -104,8 +105,17 @@ footer {
 // 	background-size: cover;
 // }
 
-footer li a:hover {
-	color: $dark;
-	// text-shadow: 
+
+strong {
+	color: $main;
+}
+
+p a {
+	color: $blue;
+	text-decoration: none;
+}
+
+a:hover {
+	color: $yellow;
 }
 

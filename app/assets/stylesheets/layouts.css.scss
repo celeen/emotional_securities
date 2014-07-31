@@ -45,12 +45,17 @@ li {
 	line-height: $body-line-height;
 }
 
+.metrics {
+	@include media($mini-mobile) {
+		padding-top: 5em;
+	}
+}
+
 .metrics ul {
 	text-align: center;
 	@include shift(1.5);
 	@include span-columns(9);
 	padding-top: 1em;
-	// background-color: pink;
 }
 
 
@@ -63,10 +68,12 @@ li {
 	height: 8em;
 	@include span-columns(3 of 9);
 	
-	// @include media($mobile) {
-	// 	@include span-columns(3 of 9);
-	// 	margin: 1em 0em;
-	// }
+	@include media($mini-mobile) {
+		@include span-columns(4 of 6);
+		@include shift(1);
+		// margin: 1em 0em;
+		text-align: center;
+	}
 }
 
 .metrics .feature {
@@ -100,5 +107,25 @@ li {
 	position: relative;
 	min-height: 400px; 
 	text-align:center;
+	clear: both;
+}
+
+article {
+	@include padding(1em 3em 1em 3em);
+	@include span-columns(9);
+	@include shift(1.5);
+	text-align: left;
+	@include media($mini-mobile) {
+		@include span-columns(6 of 6);
+		@include shift(0);
+	}
+}
+
+article p {
+	color: $dark;
+	@include padding(.5em null .5em null);
+	@include media($mini-mobile) {
+		@include padding(.1em null .1em null);
+	}
 }
 
