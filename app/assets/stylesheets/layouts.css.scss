@@ -112,6 +112,10 @@ li {
 	height: 7em;
 }
 
+.feature h2, .feature h3 {
+	@include margin(.5em null .5em null);
+}
+
 #chart-area {
 	@include margin(2em null 2em null);
 	@include span-columns(10);
