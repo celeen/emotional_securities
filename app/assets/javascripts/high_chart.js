@@ -21,7 +21,7 @@ function highChart(data) {
             resetZoomButton: {
 
                 theme: {
-                    height: 9,
+                    height: 12,
                     fill: '#2E563C',
 
                     style: {
