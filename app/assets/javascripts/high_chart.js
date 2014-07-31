@@ -208,13 +208,13 @@ function highChart(data) {
 }
 
 function populateVolumeBox(volume, box) {
-    $(box).append("<p>" + label + ": " + volume + "</p>")
+    $(box).append("<p> " + volume + "</p>")
 }
 
 function populateSentimentBoxes(sentiment, r, box) {
     console.log(sentiment)
     console.log(r)
-    $(box).append("<p>" + label + " </p><p> Sentiment: " + Math.round(sentiment * 100) / 100 + "</p><p> Correlation: " + Math.round(r * 1000) / 1000 + "</p><p> Determinism: " + Math.round(r * r * 1000) / 1000 + "</p>")
+    $(box).append("<p> Sentiment: " + Math.round(sentiment * 100) / 100 + "</p><p> Correlation: " + Math.round(r * 1000) / 1000 + "</p><p> Determinism: " + Math.round(r * r * 1000) / 1000 + "</p>")
 }
 
 function getChartData(symbol) {
