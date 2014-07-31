@@ -4,11 +4,10 @@
 [![Build Status](https://travis-ci.org/celeen/emotional_securities.svg?branch=master)](https://travis-ci.org/celeen/emotional_securities)
 [![Coverage Status](https://img.shields.io/coveralls/celeen/emotional_securities.svg)](https://coveralls.io/r/celeen/emotional_securities)
 
-Emotional Securities is a sentiment analysis tool for the stock market.
+Emotional Securities is an experimental sentiment analysis tool for the stock market.
 
-You can use this website to see realtime updates on the general public sentiment toward a publicly traded company as it relates to that company's current stock price.
+Working off a few of the core metrics of behavioral finance, we pulled "herd" sentiment data from the [Twitter Streaming API](https://dev.twitter.com/), and "expert" sentiment from articles on [Yahoo Finance](http://finance.yahoo.com/"). [AlchemyAPI](http://www.alchemyapi.com/) kindly granted us academic access to [their amazing service](http://www.alchemyapi.com/products/products-overview/), which we used to analyze sentiment in tweets, and entity targeted sentiment in articles.
 
-Currently, our data sources are Twitter, Alchemy, Yahoo Finance and Seeking Alpha. Check them out. They're pretty cool.
+We have incorporated a [Naïve Bayes](http://en.wikipedia.org/wiki/Naive_Bayes_classifier) [implimentation](https://github.com/bmuller/ankusa) to sort out irrelevant tweets; our algorithm, fondly nicknamed Hal9000, is given a sampling of "expert" tweets, and non-related tweets. It learns what words and phrases are commonly used in the relevant tweets, and sorts our incoming stream based on that data.
 
-AlchemyAPI has generously offered us academic access to their service at an academic level, so many thanks to them. Their product is incredible.
-
+The graph in the main view plots, in line form, stock price over time and an exponential moving average of tweet sentiments, which can be seen in a scatterplot behind the two main lines.

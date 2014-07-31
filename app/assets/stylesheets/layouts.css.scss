@@ -6,11 +6,20 @@ html, body {
 	height: 100%;
 }
 
+body {
+	padding-top: 5em;
+}
+
+
 header {
 	text-align: center;
+	width: 100%;
 	padding: 0em 1em;
 	@include clearfix;
 	@include margin(null null 3em null);
+	position: fixed;
+	top:0;
+	z-index: 2;
 
 	.wrapper {
 		@include outer-container;
@@ -29,16 +38,24 @@ header {
 	}
 }
 
+
+
 li {
 	display: inline-block;
 	line-height: $body-line-height;
 }
 
+.metrics {
+	@include media($mini-mobile) {
+		padding-top: 5em;
+	}
+}
+
 .metrics ul {
 	text-align: center;
-	@include shift(3);
-	@include span-columns(6);
-	// background-color: pink;
+	@include shift(1.5);
+	@include span-columns(9);
+	padding-top: 1em;
 }
 
 
@@ -48,12 +65,14 @@ li {
 
 .metrics li {
 	// border: 1px solid $dark;
-	height: 5em;
-	@include span-columns(1.5 of 6);
+	height: 8em;
+	@include span-columns(3 of 9);
 	
-	@include media($mobile) {
-		@include span-columns(3 of 6);
-		margin: 1em 0em;
+	@include media($mini-mobile) {
+		@include span-columns(4 of 6);
+		@include shift(1);
+		// margin: 1em 0em;
+		text-align: center;
 	}
 }
 
@@ -69,5 +88,44 @@ li {
 	@include shift(1);
 	height: 35em;
 	// border: 1px solid $dark;
+}
+
+#metrics {
+	height: 100%;
+	position: relative;
+	min-height: 400px;
+}
+
+#chart-area {
+	height: 100%;
+	position: relative;
+	min-height: 400px; 
+}
+
+#about {
+	height: 100%;
+	position: relative;
+	min-height: 400px; 
+	text-align:center;
+	clear: both;
+}
+
+article {
+	@include padding(1em 3em 1em 3em);
+	@include span-columns(9);
+	@include shift(1.5);
+	text-align: left;
+	@include media($mini-mobile) {
+		@include span-columns(6 of 6);
+		@include shift(0);
+	}
+}
+
+article p {
+	color: $dark;
+	@include padding(.5em null .5em null);
+	@include media($mini-mobile) {
+		@include padding(.1em null .1em null);
+	}
 }
 

@@ -1,3 +1,5 @@
+var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
+
 $(function() {
     Highcharts.setOptions({
         global: {
@@ -213,45 +215,68 @@ function populateSentimentBoxes(sentiment, r, box, label) {
     $(box).append("<p>" + label + " </p><p> Feelz: " + sentiment + "</p><p> R: " + r + "</p><p> R-Squared: " + Math.round(r * r * 100) / 100 + "</p>")
 }
 
+function getChartData(symbol) {
+    console.log('getting chart data!')
+    $.post('/chart_data', {
+            'company': symbol
+        },
+        highChart,
+        'json');
+};
 
-$(document).ready(function() {
-    var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
 
-    $('#resetZoom').click(function() {
-        chart.zoomOut();
-    });
-
-    $.post('/chart_data', function(response) {
-        stockData = response;
-        highChart(stockData);
-        console.log(stockData.tweets)
-    }, 'json');
-
-    var company = 'AAPL'
-
+function getExpertData(symbol) {
     $.post('/expert_data', {
-        company: company
+        company: symbol
     }, function(response) {
         var expert_data = response;
         var expert_label = "Experts";
         populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h4', expert_label);
     }, 'json');
+};
 
+function getHerdData(symbol) {
     $.post('/herd_data', {
-        company: company
+        company: symbol
     }, function(response) {
         var herd_data = response;
         var herd_label = "Herd";
         populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h4', herd_label);
     }, 'json');
+};
 
+function getVolumeData(symbol) {
     $.post('/volume_data', {
-        company: company
+        company: symbol
     }, function(response) {
         var volume_data = response;
         console.log(volume_data.daily_volume_delta);
         var volume_label = "Volume Delta";
         populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h4', volume_label);
     }, 'json');
+};
+
+$(document).ready(function() {
+    var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
+    getVolumeData('AAPL');
+    getHerdData('AAPL');
+    getExpertData('AAPL');
+    getChartData('AAPL');
+
+    $('#resetZoom').click(function() {
+        chart.zoomOut();
+    });
+
+    $('body').on("click", '.stocks > li',
+        function(event) {
+            event.preventDefault();
+            console.log(event);
+            console.log(event.currentTarget.className);
+            var symbol = event.currentTarget.className;
+            getVolumeData(symbol);
+            getHerdData(symbol);
+            getExpertData(symbol);
+            getChartData(symbol);
+        });
 
 });

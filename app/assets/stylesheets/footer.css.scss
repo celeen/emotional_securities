@@ -25,6 +25,7 @@ footer nav {
 }
 
 footer li {
+	height: 30px;
 	@include padding(null .4em null .4em)
 }
 
