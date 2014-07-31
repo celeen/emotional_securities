@@ -41,7 +41,7 @@ function highChart(data) {
                 text: 'The Last 24 Hours'
             },
             max: Date.now(),
-            min: Date.now() - 86400000,
+            // min: Date.now() - 86400000,
         },
         yAxis: [{ //sentiment axis
             labels: {
@@ -68,6 +68,18 @@ function highChart(data) {
                 text: 'Price',
                 style: {
                     color: '#BD872D'
+                }
+            }
+        }, { //Article Sentiment Axis
+            labels: {
+                style: {
+                    color: '#2E563C'
+                }
+            },
+            title: {
+                text: 'Expert Sentiment',
+                style: {
+                    color: '#2E563C'
                 }
             }
         }],
@@ -107,6 +119,17 @@ function highChart(data) {
             tooltip: {
                 headerFormat: '<b>Average Sentiment</b><br>',
                 pointFormat: '{point.y:.4f}',
+            },
+        }, {
+            name: 'Article',
+            data: data.articles,
+            shadow: true,
+            yAxis: 2,
+            color: '#BD872D',
+            type: 'scatter',
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.x:%l:%M %p}: ${point.y:.2f}',
             },
         }],
         plotOptions: {
@@ -157,19 +180,25 @@ $(document).ready(function() {
 
     var company = 'AAPL'
 
-    $.post('/expert_data', { company: company }, function(response) {
+    $.post('/expert_data', {
+        company: company
+    }, function(response) {
         var expert_data = response;
         var expert_label = "Experts";
         populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h4', expert_label);
     }, 'json');
 
-    $.post('/herd_data', { company: company }, function(response) {
+    $.post('/herd_data', {
+        company: company
+    }, function(response) {
         var herd_data = response;
         var herd_label = "Herd";
         populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h4', herd_label);
     }, 'json');
 
-    $.post('/volume_data', { company: company }, function(response) {
+    $.post('/volume_data', {
+        company: company
+    }, function(response) {
         var volume_data = response;
         console.log(volume_data.daily_volume_delta);
         var volume_label = "Volume Delta";
