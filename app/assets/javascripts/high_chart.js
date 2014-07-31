@@ -212,7 +212,7 @@ function populateVolumeBox(volume, box, label) {
 }
 
 function populateSentimentBoxes(sentiment, r, box, label) {
-    $(box).append("<p>" + label + " </p><p> Sentiment: " + sentiment + "</p><p> Correlation: " + r + "</p><p> Determinism: " + Math.round(r * r * 100) / 100 + "</p>")
+    $(box).append("<p>" + label + " </p><p> Sentiment: " + Math.round(sentiment) + "</p><p> Correlation: " + Math.round(r * 100) / 100 + "</p><p> Determinism: " + Math.round(r * r * 100) / 100 + "</p>")
 }
 
 function getChartData(symbol) {

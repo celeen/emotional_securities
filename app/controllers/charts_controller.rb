@@ -46,7 +46,7 @@ class ChartsController < ApplicationController
     @daily_articles = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY )
 
 
-    avg_daily_expert_sentiment = @daily_articles.avg(:sentiment).round(2) unless @daily_articles.count == 0
+    avg_daily_expert_sentiment = @daily_articles.avg(:sentiment)
 
     exp_values = @daily_articles.to_a
     feelings = exp_values.map { |article| article.sentiment }
@@ -65,7 +65,7 @@ class ChartsController < ApplicationController
 
     @daily_tweets = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - ONE_DAY)
 
-    avg_daily_herd_sentiment = @daily_tweets.avg(:sentiment).round(2)
+    avg_daily_herd_sentiment = @daily_tweets.avg(:sentiment)
 
     herd_values = @daily_tweets.to_a
 
