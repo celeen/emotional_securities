@@ -50,23 +50,19 @@ describe Article, :type => :model do
       end
       expect(article.reload.sentiment).to_not be_nil
     end
-    xit 'should score neutral articles as 0' do
+    it 'should score neutral articles as 0' do
       neutral_article = Article.create(url: "http://www.nasdaq.com/article/automakers-dominate-green-brands-list-ford-tops-analyst-blog-cm365329", company: "HMC")
-      VCR.use_cassette('neutral_sentiments') do
+      VCR.use_cassette('neutral_example') do
         Article.set_article_sentiments
       end
       expect(neutral_article.reload.sentiment).to eq(0)
     end
-    xit 'should flag articles without enough information' do
+    it 'should flag articles without enough information' do
       error_article = Article.create(url: "http://www.marketwatch.com/story/the-market-in-a-minute-what-will-gdp-mean-for-the-market-2014-07-28?siteid=yhoof2", company: "TSN")
-      VCR.use_cassette('error_sentiments') do
+      VCR.use_cassette('error_example') do
         Article.set_article_sentiments
       end
-      expect(neutral_article.reload.flag).to be true
+      expect(error_article.reload.flag).to be true
     end
   end
- #<Article.create(url: "http://www.nasdaq.com/article/automakers-dominate-green-brands-list-ford-tops-analyst-blog-cm365329", company: "HMC")
-
-
-  # context update_articles(2344175-teslas-real-problem-energy-density)
 end
