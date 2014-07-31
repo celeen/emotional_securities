@@ -1,7 +1,10 @@
 <div class = "container">
 	<%= render "partials/header" %>
+<div id="fullpage">
+	<div class="section">a</div>
+	<div class="section">b</div>
 
-<section class = "metrics">
+<section class = "metrics section">
 	<div id = "metrics">
 		<h1>$AAPL</h1>
 	<ul>
@@ -31,14 +34,15 @@
 	</ul>
 </div>
 </section>
+</div>
 
-<section id="chart-area">
+<section id="chart-area" >
 <hr>
 <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
 <hr>
 </section>
 
-<section class = "about">
+<section class = "about section">
 
 	<div id = "about">
 		<h1>ABOUT</h1>
@@ -46,7 +50,7 @@
 		<p><strong>Emotional Securities</strong> is an experimental analysis of general sentiment towards a given company against the stock price of said company.</p>
 		<p>Working off a few of the core metrics of behavioral finance, we pulled "herd" sentiment data from the <a href = "https://dev.twitter.com/">Twitter Streaming API</a>, and "expert" sentiment from articles on <a href = "http://finance.yahoo.com/">Yahoo Finance</a>. <a href = "http://www.alchemyapi.com/">AlchemyAPI</a> kindly granted us academic access to <a href = "http://www.alchemyapi.com/products/products-overview/">their amazing service</a>, which we used to analyze sentiment in tweets, and entity targeted sentiment in articles.</p>
 		<p>We have incorporated a <a href = "http://en.wikipedia.org/wiki/Naive_Bayes_classifier">Naïve Bayes</a> <a href = "https://github.com/bmuller/ankusa">implimentation</a> to sort out irrelevant tweets; our algorithm, fondly nicknamed Hal9000, is given a sampling of "expert" tweets, and non-related tweets. It learns what words and phrases are commonly used in the relevant tweets, and sorts our incoming stream based on that data.</p>
-		<p>The graph in the main view plots, in line form, stock price over time and an exponential moving average of tweet sentiments, which can be seen in a scatterplot behind the two main lines.</p> 
+		<p>The graph in the main view plots, in line form, stock price over time and an exponential moving average of tweet sentiments, which can be seen in a scatterplot behind the two main lines.</p>
 		<p>Please peruse our source code at your leisure, <a href = "https://github.com/celeen/emotional_securities">here</a>.</p>
 		</article>
 
