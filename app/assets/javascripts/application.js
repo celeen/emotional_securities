@@ -15,4 +15,6 @@
 //= require turbolinks
 //= require d3.min
 //= require c3.min
+//= require jquery.fullPage
+//= require jquery-ui.min
 //= require_tree .
