@@ -1,5 +1,5 @@
 * {
-	border: 0;
+	margin: 0;
 }
 
 html, body {
@@ -49,6 +49,7 @@ li {
 	@include media($mini-mobile) {
 		padding-top: 5em;
 	}
+}
 
 .metrics ul {
 	text-align: center;
@@ -66,7 +67,7 @@ li {
 	// border: 1px solid $dark;
 	height: 8em;
 	@include span-columns(3 of 9);
-
+	
 	@include media($mini-mobile) {
 		@include span-columns(4 of 6);
 		@include shift(1);
@@ -80,12 +81,6 @@ li {
 	height: 100%;
 	width: 100%;
 }
-
-.metricIcon{
-	height: 50%;
-	width: 50%;
-}
-
 
 #chart-area {
 	@include margin(2em null 2em null);
