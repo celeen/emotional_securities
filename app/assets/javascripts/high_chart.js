@@ -271,6 +271,7 @@ $(document).ready(function() {
     getHerdData('AAPL');
     getExpertData('AAPL');
     getChartData('AAPL');
+    $('#fullpage').fullpage();
 
 
 
