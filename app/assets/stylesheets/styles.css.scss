@@ -14,20 +14,6 @@ footer, footer a {
 	font-weight: 400px;
 }
 
-#{$all-text-inputs} {
-  border: 1px $med-dark;
-  border-radius: 3px;
-}
-
-#{$all-button-inputs} {
-  background: $med-dark;
-  border: .11em solid $white;
-  border-radius: 3px;
-  color: $white;
-  font-family: $oldstandard;
-  @include margin(null null null .5em)
-}
-
 h1 {
 	color: $main;
 	font-family: $newscycle;
@@ -42,7 +28,7 @@ header h1 {
 
 header {
 	background-color: $main;
-	box-shadow: 0 .08em .08em .08em $dark;
+	// box-shadow: 0 .08em .08em .08em $dark;
 }
 
 .metrics li {
