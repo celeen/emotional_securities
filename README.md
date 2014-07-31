@@ -4,7 +4,12 @@
 [![Build Status](https://travis-ci.org/celeen/emotional_securities.svg?branch=master)](https://travis-ci.org/celeen/emotional_securities)
 [![Coverage Status](https://img.shields.io/coveralls/celeen/emotional_securities.svg)](https://coveralls.io/r/celeen/emotional_securities)
 
-Emotional Securities is a sentiment analysis tool for the stock market.
+Emotional Securities is an experimental sentiment analysis tool for the stock market.
+
+##Methodology
+
+To represent the Herd Behavior, 
+
 
 You can use this website to see realtime updates on the general public sentiment toward a publicly traded company as it relates to that company's current stock price.
 

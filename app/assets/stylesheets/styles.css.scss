@@ -10,7 +10,7 @@ a {
 footer, footer a {
 	color: $white;
 	font-family: $oldstandard;
-	// font-size: 1.1em;
+	/*// font-size: 1.1em;*/
 	font-weight: 400px;
 }
 
@@ -47,8 +47,8 @@ header {
 .metrics li {
 	background-color: $white;
 	border-radius: 5px;
-	// border: 1px solid $dark;
-	// box-shadow: 0 0 .15em .15em $dark;
+	/*// border: 1px solid $dark;
+	// box-shadow: 0 0 .15em .15em $dark;*/
 }
 
 footer nav {
@@ -58,7 +58,7 @@ footer nav {
 
 footer {
 	background-color: $main;
-	// background: shade($main, 20%);
+	/*// background: shade($main, 20%);*/
 	box-shadow: .08em 0 .08em .08em $dark;
 }
 
@@ -79,13 +79,13 @@ footer {
 	@include padding(20% null null null)
 }
 
-// .feature:hover .overlay {
-// 	opacity: 1;
-// }
-
+/*.feature:hover .overlay {
+opacity: 1;
+}
+*/
 .metrics li:nth-of-type(1) {
 	/*background-image: url(herd.jpg);*/
-	// background-reapeat: no-repeat;
+	/*background-reapeat: no-repeat;*/
 	background-size: cover;
 }
 
@@ -104,8 +104,9 @@ footer {
 	background-size: cover;
 }
 
+
 footer li a:hover {
 	color: $dark;
-	// text-shadow: 
+	/*// text-shadow: */
 }
 

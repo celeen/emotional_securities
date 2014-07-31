@@ -6,20 +6,11 @@ html, body {
 	height: 100%;
 }
 
-body {
-	padding-top: 8em;
-}
-
-
 header {
 	text-align: center;
-	width: 100%;
 	padding: 0em 1em;
 	@include clearfix;
 	@include margin(null null 3em null);
-	position: fixed;
-	top:0;
-	z-index: 2;
 
 	.wrapper {
 		@include outer-container;
@@ -38,8 +29,6 @@ header {
 	}
 }
 
-
-
 li {
 	display: inline-block;
 	line-height: $body-line-height;
@@ -47,8 +36,8 @@ li {
 
 .metrics ul {
 	text-align: center;
-	@include shift(1.5);
-	@include span-columns(9);
+	@include shift(3);
+	@include span-columns(6);
 	// background-color: pink;
 }
 
@@ -59,13 +48,13 @@ li {
 
 .metrics li {
 	// border: 1px solid $dark;
-	height: 8em;
-	@include span-columns(3 of 9);
+	height: 5em;
+	@include span-columns(1.5 of 6);
 	
-	// @include media($mobile) {
-	// 	@include span-columns(3 of 9);
-	// 	margin: 1em 0em;
-	// }
+	@include media($mobile) {
+		@include span-columns(3 of 6);
+		margin: 1em 0em;
+	}
 }
 
 .metrics .feature {
@@ -82,20 +71,3 @@ li {
 	// border: 1px solid $dark;
 }
 
-#metrics {
-	height: 100%;
-	position: relative;
-	min-height: 400px;
-}
-
-#chart-area {
-	height: 100%;
-	position: relative;
-	min-height: 400px; 
-}
-
-#about {
-	height: 100%;
-	position: relative;
-	min-height: 400px; 
-}

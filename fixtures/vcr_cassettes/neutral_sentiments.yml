@@ -1,0 +1,159 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://query.yahooapis.com/v1/public/yql?callback=&diagnostics=true&env=store://datatables.org/alltableswithkeys&format=json&q=SELECT%20*%20FROM%20yahoo.finance.quotes%20WHERE%20symbol%20IN%20('HMC')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Anticrime:
+      - 6anhjeGiqLt
+      Set-Cookie:
+      - X-AC=z3GFK
+      X-Yql-Host:
+      - engine4.yql.bf1.yahoo.com
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 30 Jul 2014 20:39:34 GMT
+      Server:
+      - ATS
+      Age:
+      - '1'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"query":{"count":1,"created":"2014-07-30T20:39:35Z","lang":"en-US","diagnostics":{"url":[{"execution-start-time":"0","execution-stop-time":"1","execution-time":"1","content":"http://www.datatables.org/yahoo/finance/yahoo.finance.quotes.xml"},{"execution-start-time":"5","execution-stop-time":"9","execution-time":"4","content":"http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=HMC"}],"publiclyCallable":"true","cache":{"execution-start-time":"4","execution-stop-time":"4","execution-time":"0","method":"GET","type":"MEMCACHED","content":"5d1e1de680846a307c9874dc3d6878dc"},"query":{"execution-start-time":"4","execution-stop-time":"9","execution-time":"5","params":"{url=[http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=HMC]}","content":"select
+        * from csv where url=@url and columns=''Ask,AverageDailyVolume,Bid,AskRealtime,BidRealtime,BookValue,Change&PercentChange,Change,Commission,Currency,ChangeRealtime,AfterHoursChangeRealtime,DividendShare,LastTradeDate,TradeDate,EarningsShare,ErrorIndicationreturnedforsymbolchangedinvalid,EPSEstimateCurrentYear,EPSEstimateNextYear,EPSEstimateNextQuarter,DaysLow,DaysHigh,YearLow,YearHigh,HoldingsGainPercent,AnnualizedGain,HoldingsGain,HoldingsGainPercentRealtime,HoldingsGainRealtime,MoreInfo,OrderBookRealtime,MarketCapitalization,MarketCapRealtime,EBITDA,ChangeFromYearLow,PercentChangeFromYearLow,LastTradeRealtimeWithTime,ChangePercentRealtime,ChangeFromYearHigh,PercebtChangeFromYearHigh,LastTradeWithTime,LastTradePriceOnly,HighLimit,LowLimit,DaysRange,DaysRangeRealtime,FiftydayMovingAverage,TwoHundreddayMovingAverage,ChangeFromTwoHundreddayMovingAverage,PercentChangeFromTwoHundreddayMovingAverage,ChangeFromFiftydayMovingAverage,PercentChangeFromFiftydayMovingAverage,Name,Notes,Open,PreviousClose,PricePaid,ChangeinPercent,PriceSales,PriceBook,ExDividendDate,PERatio,DividendPayDate,PERatioRealtime,PEGRatio,PriceEPSEstimateCurrentYear,PriceEPSEstimateNextYear,Symbol,SharesOwned,ShortRatio,LastTradeTime,TickerTrend,OneyrTargetPrice,Volume,HoldingsValue,HoldingsValueRealtime,YearRange,DaysValueChange,DaysValueChangeRealtime,StockExchange,DividendYield''"},"javascript":{"execution-start-time":"3","execution-stop-time":"14","execution-time":"11","instructions-used":"67097","table-name":"yahoo.finance.quotes"},"user-time":"15","service-time":"5","build-version":"0.2.2635"},"results":{"quote":{"symbol":"HMC","Ask":null,"AverageDailyVolume":"647416","Bid":null,"AskRealtime":"36.08","BidRealtime":"35.71","BookValue":"32.283","Change_PercentChange":"-0.18
+        - -0.50%","Change":"-0.18","Commission":null,"Currency":"USD","ChangeRealtime":"-0.18","AfterHoursChangeRealtime":"N/A
+        - N/A","DividendShare":"0.195","LastTradeDate":"7/30/2014","TradeDate":null,"EarningsShare":"3.131","ErrorIndicationreturnedforsymbolchangedinvalid":null,"EPSEstimateCurrentYear":"0.00","EPSEstimateNextYear":"3.62","EPSEstimateNextQuarter":"0.00","DaysLow":"35.71","DaysHigh":"35.99","YearLow":"32.42","YearHigh":"42.96","HoldingsGainPercent":"-
+        - -","AnnualizedGain":null,"HoldingsGain":null,"HoldingsGainPercentRealtime":"N/A
+        - N/A","HoldingsGainRealtime":null,"MoreInfo":"cnprmIed","OrderBookRealtime":null,"MarketCapitalization":"64.594B","MarketCapRealtime":null,"EBITDA":"11.723B","ChangeFromYearLow":"+3.42","PercentChangeFromYearLow":"+10.55%","LastTradeRealtimeWithTime":"N/A
+        - <b>35.84</b>","ChangePercentRealtime":"N/A - -0.50%","ChangeFromYearHigh":"-7.12","PercebtChangeFromYearHigh":"-16.57%","LastTradeWithTime":"Jul
+        30 - <b>35.84</b>","LastTradePriceOnly":"35.84","HighLimit":null,"LowLimit":null,"DaysRange":"35.71
+        - 35.99","DaysRangeRealtime":"N/A - N/A","FiftydayMovingAverage":"35.1146","TwoHundreddayMovingAverage":"35.4307","ChangeFromTwoHundreddayMovingAverage":"+0.4093","PercentChangeFromTwoHundreddayMovingAverage":"+1.16%","ChangeFromFiftydayMovingAverage":"+0.7254","PercentChangeFromFiftydayMovingAverage":"+2.07%","Name":"Honda
+        Motor Compa","Notes":null,"Open":"35.99","PreviousClose":"36.02","PricePaid":null,"ChangeinPercent":"-0.50%","PriceSales":"0.56","PriceBook":"1.12","ExDividendDate":"26-Dec-13","PERatio":"11.50","DividendPayDate":"Jun
+        23","PERatioRealtime":null,"PEGRatio":null,"PriceEPSEstimateCurrentYear":null,"PriceEPSEstimateNextYear":"9.95","Symbol":"HMC","SharesOwned":null,"ShortRatio":"3.20","LastTradeTime":"4:04pm","TickerTrend":"&nbsp;======&nbsp;","OneyrTargetPrice":"42.74","Volume":"1322923","HoldingsValue":null,"HoldingsValueRealtime":null,"YearRange":"32.42
+        - 42.96","DaysValueChange":"- - -0.50%","DaysValueChangeRealtime":"N/A - N/A","StockExchange":"NYSE","DividendYield":"0.54","PercentChange":"-0.50%"}}}}'
+    http_version: 
+  recorded_at: Wed, 30 Jul 2014 20:39:38 GMT
+- request:
+    method: get
+    uri: https://query.yahooapis.com/v1/public/yql?callback=&diagnostics=true&env=store://datatables.org/alltableswithkeys&format=json&q=SELECT%20*%20FROM%20yahoo.finance.quotes%20WHERE%20symbol%20IN%20('HMC')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Anticrime:
+      - PR1A9Rj
+      Set-Cookie:
+      - X-AC=pKRuJTmCY
+      X-Yql-Host:
+      - engine7.yql.bf1.yahoo.com
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Wed, 30 Jul 2014 20:39:36 GMT
+      Server:
+      - ATS
+      Age:
+      - '1'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"query":{"count":1,"created":"2014-07-30T20:39:36Z","lang":"en-US","diagnostics":{"url":[{"execution-start-time":"1","execution-stop-time":"1019","execution-time":"1018","content":"http://www.datatables.org/yahoo/finance/yahoo.finance.quotes.xml"},{"execution-start-time":"1022","execution-stop-time":"1081","execution-time":"59","content":"http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=HMC"}],"publiclyCallable":"true","cache":{"execution-start-time":"1022","execution-stop-time":"1022","execution-time":"0","method":"GET","type":"MEMCACHED","content":"5d1e1de680846a307c9874dc3d6878dc"},"query":{"execution-start-time":"1022","execution-stop-time":"1081","execution-time":"59","params":"{url=[http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=HMC]}","content":"select
+        * from csv where url=@url and columns=''Ask,AverageDailyVolume,Bid,AskRealtime,BidRealtime,BookValue,Change&PercentChange,Change,Commission,Currency,ChangeRealtime,AfterHoursChangeRealtime,DividendShare,LastTradeDate,TradeDate,EarningsShare,ErrorIndicationreturnedforsymbolchangedinvalid,EPSEstimateCurrentYear,EPSEstimateNextYear,EPSEstimateNextQuarter,DaysLow,DaysHigh,YearLow,YearHigh,HoldingsGainPercent,AnnualizedGain,HoldingsGain,HoldingsGainPercentRealtime,HoldingsGainRealtime,MoreInfo,OrderBookRealtime,MarketCapitalization,MarketCapRealtime,EBITDA,ChangeFromYearLow,PercentChangeFromYearLow,LastTradeRealtimeWithTime,ChangePercentRealtime,ChangeFromYearHigh,PercebtChangeFromYearHigh,LastTradeWithTime,LastTradePriceOnly,HighLimit,LowLimit,DaysRange,DaysRangeRealtime,FiftydayMovingAverage,TwoHundreddayMovingAverage,ChangeFromTwoHundreddayMovingAverage,PercentChangeFromTwoHundreddayMovingAverage,ChangeFromFiftydayMovingAverage,PercentChangeFromFiftydayMovingAverage,Name,Notes,Open,PreviousClose,PricePaid,ChangeinPercent,PriceSales,PriceBook,ExDividendDate,PERatio,DividendPayDate,PERatioRealtime,PEGRatio,PriceEPSEstimateCurrentYear,PriceEPSEstimateNextYear,Symbol,SharesOwned,ShortRatio,LastTradeTime,TickerTrend,OneyrTargetPrice,Volume,HoldingsValue,HoldingsValueRealtime,YearRange,DaysValueChange,DaysValueChangeRealtime,StockExchange,DividendYield''"},"javascript":{"execution-start-time":"1020","execution-stop-time":"1086","execution-time":"65","instructions-used":"67097","table-name":"yahoo.finance.quotes"},"user-time":"1087","service-time":"1077","build-version":"0.2.2635"},"results":{"quote":{"symbol":"HMC","Ask":null,"AverageDailyVolume":"647416","Bid":null,"AskRealtime":"36.08","BidRealtime":"35.71","BookValue":"32.283","Change_PercentChange":"-0.18
+        - -0.50%","Change":"-0.18","Commission":null,"Currency":"USD","ChangeRealtime":"-0.18","AfterHoursChangeRealtime":"N/A
+        - N/A","DividendShare":"0.195","LastTradeDate":"7/30/2014","TradeDate":null,"EarningsShare":"3.131","ErrorIndicationreturnedforsymbolchangedinvalid":null,"EPSEstimateCurrentYear":"0.00","EPSEstimateNextYear":"3.62","EPSEstimateNextQuarter":"0.00","DaysLow":"35.71","DaysHigh":"35.99","YearLow":"32.42","YearHigh":"42.96","HoldingsGainPercent":"-
+        - -","AnnualizedGain":null,"HoldingsGain":null,"HoldingsGainPercentRealtime":"N/A
+        - N/A","HoldingsGainRealtime":null,"MoreInfo":"cnprmIed","OrderBookRealtime":null,"MarketCapitalization":"64.594B","MarketCapRealtime":null,"EBITDA":"11.723B","ChangeFromYearLow":"+3.42","PercentChangeFromYearLow":"+10.55%","LastTradeRealtimeWithTime":"N/A
+        - <b>35.84</b>","ChangePercentRealtime":"N/A - -0.50%","ChangeFromYearHigh":"-7.12","PercebtChangeFromYearHigh":"-16.57%","LastTradeWithTime":"Jul
+        30 - <b>35.84</b>","LastTradePriceOnly":"35.84","HighLimit":null,"LowLimit":null,"DaysRange":"35.71
+        - 35.99","DaysRangeRealtime":"N/A - N/A","FiftydayMovingAverage":"35.1146","TwoHundreddayMovingAverage":"35.4307","ChangeFromTwoHundreddayMovingAverage":"+0.4093","PercentChangeFromTwoHundreddayMovingAverage":"+1.16%","ChangeFromFiftydayMovingAverage":"+0.7254","PercentChangeFromFiftydayMovingAverage":"+2.07%","Name":"Honda
+        Motor Compa","Notes":null,"Open":"35.99","PreviousClose":"36.02","PricePaid":null,"ChangeinPercent":"-0.50%","PriceSales":"0.56","PriceBook":"1.12","ExDividendDate":"26-Dec-13","PERatio":"11.50","DividendPayDate":"Jun
+        23","PERatioRealtime":null,"PEGRatio":null,"PriceEPSEstimateCurrentYear":null,"PriceEPSEstimateNextYear":"9.95","Symbol":"HMC","SharesOwned":null,"ShortRatio":"3.20","LastTradeTime":"4:04pm","TickerTrend":"&nbsp;======&nbsp;","OneyrTargetPrice":"42.74","Volume":"1322923","HoldingsValue":null,"HoldingsValueRealtime":null,"YearRange":"32.42
+        - 42.96","DaysValueChange":"- - -0.50%","DaysValueChangeRealtime":"N/A - N/A","StockExchange":"NYSE","DividendYield":"0.54","PercentChange":"-0.50%"}}}}'
+    http_version: 
+  recorded_at: Wed, 30 Jul 2014 20:39:39 GMT
+- request:
+    method: post
+    uri: http://access.alchemyapi.com/calls/url/URLGetTargetedSentiment
+    body:
+      encoding: US-ASCII
+      string: url=http%3A%2F%2Fwww.nasdaq.com%2Farticle%2Fautomakers-dominate-green-brands-list-ford-tops-analyst-blog-cm365329&target=Honda&apikey=e9ac28255f8f8ea1327a84f05a20c7b74b768090&outputMode=json
+    headers:
+      Accept-Encoding:
+      - identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Wed, 30 Jul 2014 20:39:37 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '84'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - '*'
+      - '*'
+    body:
+      encoding: UTF-8
+      string: "{\r\n    \"status\": \"ERROR\",\r\n    \"statusInfo\": \"daily-transaction-limit-exceeded\"\r\n}\r\n"
+    http_version: 
+  recorded_at: Wed, 30 Jul 2014 20:39:39 GMT
+recorded_with: VCR 2.9.2
