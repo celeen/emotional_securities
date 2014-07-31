@@ -108,6 +108,10 @@ li {
 	// height: 20%;
 }
 
+.feature img {
+	height: 7em;
+}
+
 #chart-area {
 	@include margin(2em null 2em null);
 	@include span-columns(10);
