@@ -1,0 +1,163 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://query.yahooapis.com/v1/public/yql?callback=&diagnostics=true&env=store://datatables.org/alltableswithkeys&format=json&q=SELECT%20*%20FROM%20yahoo.finance.quotes%20WHERE%20symbol%20IN%20('TSN')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Anticrime:
+      - OBp1x
+      Set-Cookie:
+      - X-AC=310P6szDcdr
+      X-Yql-Host:
+      - engine8.yql.bf1.yahoo.com
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 31 Jul 2014 15:16:03 GMT
+      Server:
+      - ATS
+      Age:
+      - '0'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"query":{"count":1,"created":"2014-07-31T15:16:03Z","lang":"en-US","diagnostics":{"url":[{"execution-start-time":"0","execution-stop-time":"1","execution-time":"1","content":"http://www.datatables.org/yahoo/finance/yahoo.finance.quotes.xml"},{"execution-start-time":"4","execution-stop-time":"60","execution-time":"56","content":"http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSN"}],"publiclyCallable":"true","cache":{"execution-start-time":"3","execution-stop-time":"4","execution-time":"1","method":"GET","type":"MEMCACHED","content":"5d1e1de680846a307c9874dc3d6878dc"},"query":{"execution-start-time":"4","execution-stop-time":"60","execution-time":"56","params":"{url=[http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSN]}","content":"select
+        * from csv where url=@url and columns=''Ask,AverageDailyVolume,Bid,AskRealtime,BidRealtime,BookValue,Change&PercentChange,Change,Commission,Currency,ChangeRealtime,AfterHoursChangeRealtime,DividendShare,LastTradeDate,TradeDate,EarningsShare,ErrorIndicationreturnedforsymbolchangedinvalid,EPSEstimateCurrentYear,EPSEstimateNextYear,EPSEstimateNextQuarter,DaysLow,DaysHigh,YearLow,YearHigh,HoldingsGainPercent,AnnualizedGain,HoldingsGain,HoldingsGainPercentRealtime,HoldingsGainRealtime,MoreInfo,OrderBookRealtime,MarketCapitalization,MarketCapRealtime,EBITDA,ChangeFromYearLow,PercentChangeFromYearLow,LastTradeRealtimeWithTime,ChangePercentRealtime,ChangeFromYearHigh,PercebtChangeFromYearHigh,LastTradeWithTime,LastTradePriceOnly,HighLimit,LowLimit,DaysRange,DaysRangeRealtime,FiftydayMovingAverage,TwoHundreddayMovingAverage,ChangeFromTwoHundreddayMovingAverage,PercentChangeFromTwoHundreddayMovingAverage,ChangeFromFiftydayMovingAverage,PercentChangeFromFiftydayMovingAverage,Name,Notes,Open,PreviousClose,PricePaid,ChangeinPercent,PriceSales,PriceBook,ExDividendDate,PERatio,DividendPayDate,PERatioRealtime,PEGRatio,PriceEPSEstimateCurrentYear,PriceEPSEstimateNextYear,Symbol,SharesOwned,ShortRatio,LastTradeTime,TickerTrend,OneyrTargetPrice,Volume,HoldingsValue,HoldingsValueRealtime,YearRange,DaysValueChange,DaysValueChangeRealtime,StockExchange,DividendYield''"},"javascript":{"execution-start-time":"2","execution-stop-time":"67","execution-time":"65","instructions-used":"67525","table-name":"yahoo.finance.quotes"},"user-time":"68","service-time":"58","build-version":"0.2.2635"},"results":{"quote":{"symbol":"TSN","Ask":null,"AverageDailyVolume":"4609930","Bid":null,"AskRealtime":"37.35","BidRealtime":"37.34","BookValue":"17.815","Change_PercentChange":"-0.85
+        - -2.23%","Change":"-0.85","Commission":null,"Currency":"USD","ChangeRealtime":"-0.85","AfterHoursChangeRealtime":"N/A
+        - N/A","DividendShare":"0.275","LastTradeDate":"7/31/2014","TradeDate":null,"EarningsShare":"2.749","ErrorIndicationreturnedforsymbolchangedinvalid":null,"EPSEstimateCurrentYear":"2.82","EPSEstimateNextYear":"3.25","EPSEstimateNextQuarter":"0.79","DaysLow":"37.30","DaysHigh":"37.76","YearLow":"27.08","YearHigh":"44.24","HoldingsGainPercent":"-
+        - -","AnnualizedGain":null,"HoldingsGain":null,"HoldingsGainPercentRealtime":"N/A
+        - N/A","HoldingsGainRealtime":null,"MoreInfo":"cn","OrderBookRealtime":null,"MarketCapitalization":"14.034B","MarketCapRealtime":null,"EBITDA":"2.041B","ChangeFromYearLow":"+10.27","PercentChangeFromYearLow":"+37.92%","LastTradeRealtimeWithTime":"N/A
+        - <b>37.35</b>","ChangePercentRealtime":"N/A - -2.23%","ChangeFromYearHigh":"-6.89","PercebtChangeFromYearHigh":"-15.57%","LastTradeWithTime":"11:01am
+        - <b>37.35</b>","LastTradePriceOnly":"37.35","HighLimit":null,"LowLimit":null,"DaysRange":"37.30
+        - 37.76","DaysRangeRealtime":"N/A - N/A","FiftydayMovingAverage":"37.9292","TwoHundreddayMovingAverage":"39.2817","ChangeFromTwoHundreddayMovingAverage":"-1.9317","PercentChangeFromTwoHundreddayMovingAverage":"-4.92%","ChangeFromFiftydayMovingAverage":"-0.5792","PercentChangeFromFiftydayMovingAverage":"-1.53%","Name":"Tyson
+        Foods, Inc.","Notes":null,"Open":"37.57","PreviousClose":"38.20","PricePaid":null,"ChangeinPercent":"-2.23%","PriceSales":"0.39","PriceBook":"2.14","ExDividendDate":"May
+        28","PERatio":"13.90","DividendPayDate":"Sep 15","PERatioRealtime":null,"PEGRatio":"0.71","PriceEPSEstimateCurrentYear":"13.55","PriceEPSEstimateNextYear":"11.75","Symbol":"TSN","SharesOwned":null,"ShortRatio":"3.20","LastTradeTime":"11:01am","TickerTrend":"&nbsp;++====&nbsp;","OneyrTargetPrice":"46.00","Volume":"14275284","HoldingsValue":null,"HoldingsValueRealtime":null,"YearRange":"27.08
+        - 44.24","DaysValueChange":"- - -2.23%","DaysValueChangeRealtime":"N/A - N/A","StockExchange":"NYSE","DividendYield":"0.72","PercentChange":"-2.23%"}}}}'
+    http_version: 
+  recorded_at: Thu, 31 Jul 2014 15:16:04 GMT
+- request:
+    method: get
+    uri: https://query.yahooapis.com/v1/public/yql?callback=&diagnostics=true&env=store://datatables.org/alltableswithkeys&format=json&q=SELECT%20*%20FROM%20yahoo.finance.quotes%20WHERE%20symbol%20IN%20('TSN')
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept:
+      - '*/*; q=0.5, application/xml'
+      Accept-Encoding:
+      - gzip, deflate
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      X-Anticrime:
+      - oE
+      Set-Cookie:
+      - X-AC=Dlv0Wt6a0z6eSi
+      X-Yql-Host:
+      - engine3.yql.bf1.yahoo.com
+      X-Content-Type-Options:
+      - nosniff
+      Access-Control-Allow-Origin:
+      - '*'
+      Cache-Control:
+      - no-cache
+      Content-Type:
+      - application/json;charset=utf-8
+      Date:
+      - Thu, 31 Jul 2014 15:16:03 GMT
+      Server:
+      - ATS
+      Age:
+      - '0'
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+    body:
+      encoding: UTF-8
+      string: '{"query":{"count":1,"created":"2014-07-31T15:16:03Z","lang":"en-US","diagnostics":{"url":[{"execution-start-time":"0","execution-stop-time":"1","execution-time":"1","content":"http://www.datatables.org/yahoo/finance/yahoo.finance.quotes.xml"},{"execution-start-time":"6","execution-stop-time":"11","execution-time":"5","content":"http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSN"}],"publiclyCallable":"true","cache":{"execution-start-time":"5","execution-stop-time":"6","execution-time":"1","method":"GET","type":"MEMCACHED","content":"5d1e1de680846a307c9874dc3d6878dc"},"query":{"execution-start-time":"6","execution-stop-time":"11","execution-time":"5","params":"{url=[http://download.finance.yahoo.com/d/quotes.csv?f=aa2bb2b3b4cc1c3c4c6c8dd1d2ee1e7e8e9ghjkg1g3g4g5g6ii5j1j3j4j5j6k1k2k4k5ll1l2l3mm2m3m4m5m6m7m8nn4opp1p2p5p6qrr1r2r5r6r7ss1s7t1t7t8vv1v7ww1w4xy&s=TSN]}","content":"select
+        * from csv where url=@url and columns=''Ask,AverageDailyVolume,Bid,AskRealtime,BidRealtime,BookValue,Change&PercentChange,Change,Commission,Currency,ChangeRealtime,AfterHoursChangeRealtime,DividendShare,LastTradeDate,TradeDate,EarningsShare,ErrorIndicationreturnedforsymbolchangedinvalid,EPSEstimateCurrentYear,EPSEstimateNextYear,EPSEstimateNextQuarter,DaysLow,DaysHigh,YearLow,YearHigh,HoldingsGainPercent,AnnualizedGain,HoldingsGain,HoldingsGainPercentRealtime,HoldingsGainRealtime,MoreInfo,OrderBookRealtime,MarketCapitalization,MarketCapRealtime,EBITDA,ChangeFromYearLow,PercentChangeFromYearLow,LastTradeRealtimeWithTime,ChangePercentRealtime,ChangeFromYearHigh,PercebtChangeFromYearHigh,LastTradeWithTime,LastTradePriceOnly,HighLimit,LowLimit,DaysRange,DaysRangeRealtime,FiftydayMovingAverage,TwoHundreddayMovingAverage,ChangeFromTwoHundreddayMovingAverage,PercentChangeFromTwoHundreddayMovingAverage,ChangeFromFiftydayMovingAverage,PercentChangeFromFiftydayMovingAverage,Name,Notes,Open,PreviousClose,PricePaid,ChangeinPercent,PriceSales,PriceBook,ExDividendDate,PERatio,DividendPayDate,PERatioRealtime,PEGRatio,PriceEPSEstimateCurrentYear,PriceEPSEstimateNextYear,Symbol,SharesOwned,ShortRatio,LastTradeTime,TickerTrend,OneyrTargetPrice,Volume,HoldingsValue,HoldingsValueRealtime,YearRange,DaysValueChange,DaysValueChangeRealtime,StockExchange,DividendYield''"},"javascript":{"execution-start-time":"4","execution-stop-time":"19","execution-time":"15","instructions-used":"67525","table-name":"yahoo.finance.quotes"},"user-time":"20","service-time":"7","build-version":"0.2.2635"},"results":{"quote":{"symbol":"TSN","Ask":null,"AverageDailyVolume":"4609930","Bid":null,"AskRealtime":"37.35","BidRealtime":"37.34","BookValue":"17.815","Change_PercentChange":"-0.85
+        - -2.23%","Change":"-0.85","Commission":null,"Currency":"USD","ChangeRealtime":"-0.85","AfterHoursChangeRealtime":"N/A
+        - N/A","DividendShare":"0.275","LastTradeDate":"7/31/2014","TradeDate":null,"EarningsShare":"2.749","ErrorIndicationreturnedforsymbolchangedinvalid":null,"EPSEstimateCurrentYear":"2.82","EPSEstimateNextYear":"3.25","EPSEstimateNextQuarter":"0.79","DaysLow":"37.30","DaysHigh":"37.76","YearLow":"27.08","YearHigh":"44.24","HoldingsGainPercent":"-
+        - -","AnnualizedGain":null,"HoldingsGain":null,"HoldingsGainPercentRealtime":"N/A
+        - N/A","HoldingsGainRealtime":null,"MoreInfo":"cn","OrderBookRealtime":null,"MarketCapitalization":"14.034B","MarketCapRealtime":null,"EBITDA":"2.041B","ChangeFromYearLow":"+10.27","PercentChangeFromYearLow":"+37.92%","LastTradeRealtimeWithTime":"N/A
+        - <b>37.35</b>","ChangePercentRealtime":"N/A - -2.23%","ChangeFromYearHigh":"-6.89","PercebtChangeFromYearHigh":"-15.57%","LastTradeWithTime":"11:01am
+        - <b>37.35</b>","LastTradePriceOnly":"37.35","HighLimit":null,"LowLimit":null,"DaysRange":"37.30
+        - 37.76","DaysRangeRealtime":"N/A - N/A","FiftydayMovingAverage":"37.9292","TwoHundreddayMovingAverage":"39.2817","ChangeFromTwoHundreddayMovingAverage":"-1.9317","PercentChangeFromTwoHundreddayMovingAverage":"-4.92%","ChangeFromFiftydayMovingAverage":"-0.5792","PercentChangeFromFiftydayMovingAverage":"-1.53%","Name":"Tyson
+        Foods, Inc.","Notes":null,"Open":"37.57","PreviousClose":"38.20","PricePaid":null,"ChangeinPercent":"-2.23%","PriceSales":"0.39","PriceBook":"2.14","ExDividendDate":"May
+        28","PERatio":"13.90","DividendPayDate":"Sep 15","PERatioRealtime":null,"PEGRatio":"0.71","PriceEPSEstimateCurrentYear":"13.55","PriceEPSEstimateNextYear":"11.75","Symbol":"TSN","SharesOwned":null,"ShortRatio":"3.20","LastTradeTime":"11:01am","TickerTrend":"&nbsp;++====&nbsp;","OneyrTargetPrice":"46.00","Volume":"14275284","HoldingsValue":null,"HoldingsValueRealtime":null,"YearRange":"27.08
+        - 44.24","DaysValueChange":"- - -2.23%","DaysValueChangeRealtime":"N/A - N/A","StockExchange":"NYSE","DividendYield":"0.72","PercentChange":"-2.23%"}}}}'
+    http_version: 
+  recorded_at: Thu, 31 Jul 2014 15:16:04 GMT
+- request:
+    method: post
+    uri: http://access.alchemyapi.com/calls/url/URLGetTargetedSentiment
+    body:
+      encoding: US-ASCII
+      string: url=http%3A%2F%2Fwww.marketwatch.com%2Fstory%2Fthe-market-in-a-minute-what-will-gdp-mean-for-the-market-2014-07-28%3Fsiteid%3Dyhoof2&target=Tyson&apikey=e9ac28255f8f8ea1327a84f05a20c7b74b768090&outputMode=json
+    headers:
+      Accept-Encoding:
+      - identity
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+      Content-Type:
+      - application/x-www-form-urlencoded
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 31 Jul 2014 15:16:05 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '426'
+      Connection:
+      - keep-alive
+      Cache-Control:
+      - no-cache
+      Access-Control-Allow-Origin:
+      - '*'
+      - '*'
+    body:
+      encoding: UTF-8
+      string: "{\r\n    \"status\": \"ERROR\",\r\n    \"statusInfo\": \"cannot-locate-keyphrase\",\r\n
+        \   \"usage\": \"By accessing AlchemyAPI or using information generated by
+        AlchemyAPI, you are agreeing to be bound by the AlchemyAPI Terms of Use: http://www.alchemyapi.com/company/terms.html\",\r\n
+        \   \"url\": \"http://www.marketwatch.com/story/the-market-in-a-minute-what-will-gdp-mean-for-the-market-2014-07-28?siteid=yhoof2\",\r\n
+        \   \"language\": \"english\"\r\n}\r\n"
+    http_version: 
+  recorded_at: Thu, 31 Jul 2014 15:16:06 GMT
+recorded_with: VCR 2.9.2

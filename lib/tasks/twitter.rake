@@ -18,7 +18,7 @@ namespace :stream do
 
     count = 0
 
-    symbols = ['AAPL', 'GOOG', 'TSLA', 'CHTP', 'SBUX', '$YHOO', 'CMI', 'TSN', 'AFL', 'AXP', 'AMGN', 'CBG', 'LVLT', 'HMC', 'MRK', 'TWTR']
+    symbols = ['AAPL', 'GOOG', 'TSLA', 'CHTP', 'SBUX', '$YHOO', 'CMI', 'TSN', 'AFL', 'AXP', 'TWTR']
 
     TweetStream::Client.new.track(symbols, language: 'en') do |tweet|
 

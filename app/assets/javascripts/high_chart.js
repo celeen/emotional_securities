@@ -21,14 +21,14 @@ function highChart(data) {
             resetZoomButton: {
 
                 theme: {
-                    height: 7,
+                    // height: 12,
                     fill: '#2E563C',
 
                     style: {
                         color: "#EEEFDF",
-                        font: '9pt News Cycle, serif',
-                        height: '10px',
-                        lineHeight: '2px',
+                        font: '10pt News Cycle, serif',
+                        // height: '10px',
+                        // lineHeight: '2px',
 
                     },
                     states: {
