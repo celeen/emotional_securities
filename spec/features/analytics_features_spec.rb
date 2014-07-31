@@ -5,15 +5,15 @@ describe 'POST Methods' do
 		visit root
 	end
 
-	scenario 'grab the expert sentiment' do
+	pending 'grab the expert sentiment' do
 		response.body.should include("")
 	end
 
-	scenario 'grab the herd sentiment' do
+	pending 'grab the herd sentiment' do
 		response.body.should include("")
 	end
 
-	scenario 'grab the volume data' do
+	pending 'grab the volume data' do
 		response.body.should include("")
 	end
 end
