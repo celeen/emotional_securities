@@ -43,14 +43,14 @@ function highChart(data) {
             }
         },
         title: {
-            text: 'Market Feelz And your moneys',
+            text: 'Market Feelz and your Moneys',
             style: {
                 font: '20pt News Cycle, serif',
                 color: '#0F1C13'
             },
         },
         subtitle: {
-            text: 'watch the emo secs',
+            text: '',
             style: {
                 font: '14pt News Cycle, serif',
             }
@@ -162,11 +162,11 @@ function highChart(data) {
 }
 
 function populateVolumeBox(volume, box, label) {
-    $(box).append("<p>" + label + " </p>" + volume + "</p>")
+    $(box).append("<p>" + label + ": " + volume + "</p>")
 }
 
 function populateSentimentBoxes(sentiment, r, box, label) {
-    $(box).append("<p>" + label + " </p><p> Feelz: " + sentiment + "</p><p> R: " + r + "</p><p> R-Squared: " + Math.round(r * r * 100) / 100 + "</p>")
+    $(box).append("<p>" + label + " </p><p> Sentiment: " + sentiment + "</p><p> Correlation: " + r + "</p><p> Determinism: " + Math.round(r * r * 100) / 100 + "</p>")
 }
 
 function getChartData(symbol) {
@@ -185,7 +185,7 @@ function getExpertData(symbol) {
     }, function(response) {
         var expert_data = response;
         var expert_label = "Experts";
-        populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h4', expert_label);
+        populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h3', expert_label);
     }, 'json');
 };
 
@@ -195,7 +195,7 @@ function getHerdData(symbol) {
     }, function(response) {
         var herd_data = response;
         var herd_label = "Herd";
-        populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h4', herd_label);
+        populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h3', herd_label);
     }, 'json');
 };
 
@@ -206,9 +206,18 @@ function getVolumeData(symbol) {
         var volume_data = response;
         console.log(volume_data.daily_volume_delta);
         var volume_label = "Volume Delta";
-        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h4', volume_label);
+        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h3', volume_label);
     }, 'json');
 };
+
+function removeCompanyMetrics() {
+    $('.24-hour-metrics').empty();
+}
+
+function addCompanyName(symbol) {
+    $('#metrics h1').empty();
+    $('#metrics h1').text("$" + String(symbol));
+}
 
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
@@ -217,9 +226,7 @@ $(document).ready(function() {
     getExpertData('AAPL');
     getChartData('AAPL');
 
-    $('#resetZoom').click(function() {
-        chart.zoomOut();
-    });
+
 
     $('body').on("click", '.stocks > li',
         function(event) {
@@ -227,6 +234,8 @@ $(document).ready(function() {
             console.log(event);
             console.log(event.currentTarget.className);
             var symbol = event.currentTarget.className;
+            removeCompanyMetrics();
+            addCompanyName(symbol);
             getVolumeData(symbol);
             getHerdData(symbol);
             getExpertData(symbol);

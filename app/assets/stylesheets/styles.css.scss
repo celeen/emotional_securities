@@ -45,6 +45,24 @@ header {
 	box-shadow: 0 .08em .08em .08em $dark;
 }
 
+.btn {
+  font-family: sans-serif-font;
+  border: 1px solid;
+  background: transparent;
+  padding: 0.5em;
+  color: white;
+  border-color: white;
+
+  &:hover {
+    background-color: white-scrim;
+    color: black;
+  }
+}
+    /*.btn hover {
+      background-color: $white-scrim;
+      color: $black;
+    }*/
+
 .metrics li {
 	background-color: $white;
 	border-radius: 5px;
