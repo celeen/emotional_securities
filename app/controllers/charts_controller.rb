@@ -26,13 +26,14 @@ class ChartsController < ApplicationController
       [c.to_i, company.price / 100.0]
     end
 
-    # articles = Article.where(company: params[:company]).map do |article|
-    #   a=article.c_at.to_i.to_s
-    #   a.gsub!(/[A-Z]{3} /,'')
-    #   a.gsub!(/:Time/,'')
-    #   a+="000"
-    #   [a.to_i, article.sentiment]
-    # end
+    articles = Article.where(company: params[:company], :sentiment.ne => nil).order{:c_at}.map do |article|
+
+      a=article.c_at.to_i.to_s
+      a.gsub!(/[A-Z]{3} /,'')
+      a.gsub!(/:Time/,'')
+      a+="000"
+      [a.to_i, article.sentiment]
+    end.sort_by {|array| array[0]}
 
     tweets = Tweet.where(company: params[:company]).order{:tweeted_at}.where(:tweeted_at.gt => Time.now - ONE_DAY).map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
 
