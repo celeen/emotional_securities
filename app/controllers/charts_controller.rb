@@ -37,7 +37,7 @@ class ChartsController < ApplicationController
 
     tweets = Tweet.where(company: params[:company]).order{:tweeted_at}.where(:tweeted_at.gt => Time.now - ONE_DAY).map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
 
-    render json: {tweets: tweets, volume: volume, prices: prices, articles: articles	}
+    render json: {tweets: tweets, prices: prices, articles: articles	}
   end
 
   def expert_data
