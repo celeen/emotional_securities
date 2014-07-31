@@ -15,6 +15,30 @@ function highChart(data) {
                 font: '12pt News Cycle, serif',
                 color: '#0f1c13'
             },
+            zoomType: 'x',
+            resetZoomButton: {
+
+                theme: {
+                    height: 7,
+                    fill: '#2E563C',
+
+                    style: {
+                        color: "#EEEFDF",
+                        font: '9pt News Cycle, serif',
+                        height: '10px',
+                        lineHeight: '2px',
+
+                    },
+                    states: {
+                        hover: {
+                            fill: '#2E563C',
+                            style: {
+                                color: '#BD872D'
+                            }
+                        }
+                    }
+                }
+            }
         },
         title: {
             text: 'Market Feelz And your moneys',
@@ -171,6 +195,9 @@ function populateSentimentBoxes(sentiment, r, box, label) {
 $(document).ready(function() {
     var chart, volume, prices, tweetSentiment, articleSentiment, stockData;
 
+    $('#resetZoom').click(function() {
+        chart.zoomOut();
+    });
 
     $.post('/chart_data', function(response) {
         stockData = response;
