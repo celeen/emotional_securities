@@ -43,9 +43,12 @@ class ChartsController < ApplicationController
   def expert_data
     company = params[:company]
 
-    avg_daily_expert_sentiment = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY ).avg(:sentiment).round(2)
+    @daily_articles = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY )
 
-    exp_values = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY).to_a
+
+    avg_daily_expert_sentiment = @daily_articles.avg(:sentiment).round(2) unless @daily_articles.count == 0
+
+    exp_values = @daily_articles.to_a
     feelings = exp_values.map { |article| article.sentiment }
 
     exp_value_quotes = Quote.where(company: company).sort({_id:1}).limit(exp_values.length).to_a
@@ -54,15 +57,18 @@ class ChartsController < ApplicationController
 
     pearson = Statsample::Bivariate::Pearson.new(feelings.to_scale, prices.to_scale)
 
-    render json: { avg_daily_expert_sentiment: avg_daily_expert_sentiment, correlation: pearson.r.round(2) }
+    render json: { avg_daily_expert_sentiment: avg_daily_expert_sentiment, correlation: pearson.r }
   end
 
   def herd_data
     company = params[:company]
 
-    avg_daily_herd_sentiment = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - ONE_DAY).avg(:sentiment).round(2)
+    @daily_tweets = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - ONE_DAY)
 
-    herd_values = Tweet.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY).to_a
+    avg_daily_herd_sentiment = @daily_tweets.avg(:sentiment).round(2)
+
+    herd_values = @daily_tweets.to_a
+
     feelings = herd_values.map { |article| article.sentiment }
 
     herd_value_quotes = Quote.where(company: company).sort({_id:1}).limit(herd_values.length).to_a
@@ -71,7 +77,7 @@ class ChartsController < ApplicationController
 
     pearson = Statsample::Bivariate::Pearson.new(feelings.to_scale, prices.to_scale)
 
-    render json: { avg_daily_herd_sentiment: avg_daily_herd_sentiment, correlation: pearson.r.round(2) }
+    render json: { avg_daily_herd_sentiment: avg_daily_herd_sentiment, correlation: pearson.r }
   end
 
   def volume_data
