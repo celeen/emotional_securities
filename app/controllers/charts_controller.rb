@@ -64,10 +64,12 @@ class ChartsController < ApplicationController
     company = params[:company]
 
     @daily_tweets = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - ONE_DAY)
+    p @daily_tweets.count
 
     avg_daily_herd_sentiment = @daily_tweets.avg(:sentiment)
 
     herd_values = @daily_tweets.to_a
+    p herd_values
 
     feelings = herd_values.map { |article| article.sentiment }
 
