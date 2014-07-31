@@ -74,7 +74,7 @@ function highChart(data) {
                 }
             },
             title: {
-                text: 'Tweet Sentiment',
+                text: 'Sentiment',
                 style: {
                     color: '#3C528B',
                 }
@@ -96,30 +96,25 @@ function highChart(data) {
             }
         }, { //Article Sentiment Axis
             labels: {
+                enabled: false,
                 style: {
                     color: '#2E563C'
                 }
+
             },
             title: {
+                enabled: false,
                 text: 'Expert Sentiment',
                 style: {
                     color: '#2E563C'
                 }
-            }
+            },
+            min: -1,
+            max: 1,
+            opposite: true
         }],
 
         series: [{
-
-            name: 'Tweet Sentiment',
-            data: data.tweets,
-            id: 'primary',
-            type: 'scatter',
-            color: '#7F8FC3',
-            tooltip: {
-                headerFormat: '<b>{series.name}</b><br>',
-                pointFormat: '{point.x:%l:%M %p}: {point.y:.4f}',
-            },
-        }, {
             name: 'Price',
             data: data.prices,
             shadow: true,
@@ -129,7 +124,16 @@ function highChart(data) {
                 headerFormat: '<b>{series.name}</b><br>',
                 pointFormat: '{point.x:%l:%M %p}: ${point.y:.2f}',
             },
-
+        }, {
+            name: 'Tweet Sentiment',
+            data: data.tweets,
+            id: 'primary',
+            type: 'scatter',
+            color: '#7F8FC3',
+            tooltip: {
+                headerFormat: '<b>{series.name}</b><br>',
+                pointFormat: '{point.x:%l:%M %p}: {point.y:.4f}',
+            },
         }, {
             connectNulls: true,
             shadow: true,
@@ -145,16 +149,34 @@ function highChart(data) {
                 pointFormat: '{point.y:.4f}',
             },
         }, {
-            name: 'Article',
+            name: 'Article Sentiment',
             data: data.articles,
+            id: 'secondary',
+            visible: false,
             shadow: true,
             yAxis: 2,
-            color: '#BD872D',
+            color: '#2E563C',
             type: 'scatter',
             tooltip: {
                 headerFormat: '<b>{series.name}</b><br>',
                 pointFormat: '{point.x:%l:%M %p}: ${point.y:.2f}',
             },
+
+        }, {
+            connectNulls: true,
+            shadow: true,
+            name: 'Average Article Sentiment',
+            linkedTo: 'secondary',
+            showInLegend: true,
+            visible: false,
+            type: 'trendline',
+            algorithm: 'EMA',
+            periods: 5,
+            color: '#2E563C',
+            tooltip: {
+                headerFormat: '<b>Average Sentiment</b><br>',
+                pointFormat: '{point.y:.4f}',
+            }
         }],
         plotOptions: {
             scatter: {

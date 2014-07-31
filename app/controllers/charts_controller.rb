@@ -26,7 +26,7 @@ class ChartsController < ApplicationController
       [c.to_i, company.price / 100.0]
     end
 
-    articles = Article.where(company: 'AAPL').map do |article|
+    articles = Article.where(company: 'AAPL').order{:c_at}.map do |article|
       a=article.c_at.to_i.to_s
       a.gsub!(/[A-Z]{3} /,'')
       a.gsub!(/:Time/,'')
