@@ -131,11 +131,11 @@ function highChart(data) {
 }
 
 function populateVolumeBox(volume, box, label) {
-    $(box).append("<p>" + label + " </p>" + volume + "</p>")
+    $(box).append("<p>" + label + ": " + volume + "</p>")
 }
 
 function populateSentimentBoxes(sentiment, r, box, label) {
-    $(box).append("<p>" + label + " </p><p> Feelz: " + sentiment + "</p><p> R: " + r + "</p><p> R-Squared: " + Math.round(r * r * 100) / 100 + "</p>")
+    $(box).append("<p>" + label + " </p><p> Sentiment: " + sentiment + "</p><p> Correlation: " + r + "</p><p> Determanism: " + Math.round(r * r * 100) / 100 + "</p>")
 }
 
 function getChartData(symbol) {
@@ -154,7 +154,7 @@ function getExpertData(symbol) {
     }, function(response) {
         var expert_data = response;
         var expert_label = "Experts";
-        populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h4', expert_label);
+        populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h3', expert_label);
     }, 'json');
 };
 
@@ -164,7 +164,7 @@ function getHerdData(symbol) {
     }, function(response) {
         var herd_data = response;
         var herd_label = "Herd";
-        populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h4', herd_label);
+        populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h3', herd_label);
     }, 'json');
 };
 
@@ -175,7 +175,7 @@ function getVolumeData(symbol) {
         var volume_data = response;
         console.log(volume_data.daily_volume_delta);
         var volume_label = "Volume Delta";
-        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h4', volume_label);
+        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h3', volume_label);
     }, 'json');
 };
 

@@ -4,44 +4,35 @@
 <section class = "metrics">
 	<div id = "metrics">
 		<h1>FILLER:<%= params[:company] %></h1>
-	<ul>
-	<div = "wrapper">
-	<li>
-			<div class = "feature herd">
-				<h4></h4>
-		<div class = "overlay herd">
-			<p><%= image_tag 'herd.png' %></p>
-			<h3>Herd Sentiment</h3>
-		</div>
+		<ul>
+		<div = "wrapper">
+			<li>
+				<div class = "feature herd">
+						<p><%= image_tag 'herd.png', :class => 'metricIcon' %></p>
+						<h3></h3>
+				</div>
+			</li>
+			<li>
+				<div class = "feature expert">
+						<p><%= image_tag 'expert.png', :class => 'metricIcon' %>
+						<h3></h3>
+				</div>
+			</li>
+			<li>
+					<div class = "feature volume">
+							<p><%= image_tag 'delta.png', :class => 'metricIcon' %></p>
+							<h3></h3>
+						</div>
+			</li>
 			</div>
-	</li>
-	<li>
-			<div class = "feature expert">
-				<h4></h4>
-		<div class = "overlay expert">
-			<p><%= image_tag 'expert.png' %>
-			<h3>Expert</h3>
-		</div>
-			</div>
-	</li>
-	<li>
-			<div class = "feature volume">
-				<h4></h4>
-		<div class = "overlay three">
-			<p><%= image_tag 'delta.png' %></p>
-			<h3>Three</h3>
-		</div>
-			</div>
-	</li>
+		</ul>
 	</div>
-	</ul>
-</div>
 </section>
 
 <section id="chart-area">
-<hr>
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-<hr>
+	<hr>
+		<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto;"></div>
+	<hr>
 </section>
 
 <section class = "about">
