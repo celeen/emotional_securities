@@ -2,21 +2,24 @@
 	margin: 0;
 }
 
-html, body {
+html, body, .metrics, .container  {
+	padding: 0;
+	margin: 0;
 	height: 100%;
 }
 
 body {
-	padding-top: 5em;
+	// padding-top: 5em;
+	height: 100%;
 }
 
 
 header {
 	text-align: center;
 	width: 100%;
-	padding: 0em 1em;
+	// padding: 0em 1em;
 	@include clearfix;
-	@include margin(null null 3em null);
+	// @include margin(null null 3em null);
 	position: fixed;
 	top:0;
 	z-index: 2;
@@ -65,7 +68,7 @@ li {
 
 .metrics li {
 	// border: 1px solid $dark;
-	height: 8em;
+	// height: 8em;
 	@include span-columns(3 of 9);
 	
 	@include media($mini-mobile) {
@@ -78,40 +81,41 @@ li {
 
 .metrics .feature {
 	margin: 0 auto;
-	height: 100%;
-	width: 100%;
+	// height: 20%;
 }
 
 #chart-area {
 	@include margin(2em null 2em null);
 	@include span-columns(10);
 	@include shift(1);
-	height: 35em;
+	// height: 35em;
 	// border: 1px solid $dark;
 }
 
-#metrics {
+.landing {
 	height: 100%;
-	position: relative;
-	min-height: 400px;
+	margin: auto;
+	background-color: $main;
+	// padding-top: 3em;
+}
+
+.metrics {
+	// height: 100%;
 }
 
 #chart-area {
-	height: 100%;
 	position: relative;
-	min-height: 400px; 
+	height: 95%;
 }
 
 #about {
-	height: 100%;
-	position: relative;
-	min-height: 500px; 
 	text-align:center;
+	height: 100%;
 	clear: both;
 }
 
 article {
-	@include padding(1em 3em 1em 3em);
+	@include padding(1em 2em 1em 3em);
 	@include span-columns(9);
 	@include shift(1.5);
 	text-align: left;

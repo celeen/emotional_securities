@@ -43,7 +43,7 @@ function highChart(data) {
             }
         },
         title: {
-            text: 'Market Feelz and your Moneys',
+            text: 'when we feel sad, is the stock price bad?',
             style: {
                 font: '20pt News Cycle, serif',
                 color: '#0F1C13'
@@ -261,8 +261,8 @@ function removeCompanyMetrics() {
 }
 
 function addCompanyName(symbol) {
-    $('#metrics h1').empty();
-    $('#metrics h1').text("$" + String(symbol));
+    $('.company').empty();
+    $('.company').text("$" + String(symbol));
 }
 
 $(document).ready(function() {
