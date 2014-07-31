@@ -261,8 +261,8 @@ function removeCompanyMetrics() {
 }
 
 function addCompanyName(symbol) {
-    $('#metrics h1').empty();
-    $('#metrics h1').text("$" + String(symbol));
+    $('.company').empty();
+    $('.company').text("$" + String(symbol));
 }
 
 $(document).ready(function() {
