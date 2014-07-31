@@ -48,6 +48,30 @@ li {
 	line-height: $body-line-height;
 }
 
+.landing h1 {
+	color: $dark;
+	// text-shadow: .5px .5px 0 $blue;
+	display: block;
+	position: relative;
+	clear:both;
+	text-align: center;
+	font-family: $bitter;
+	// font-weight: 800;
+	top: -2em;
+	// padding-top: 10em;
+}
+
+.landing img {
+	@include span-columns(6);
+	@include shift(3);
+	height: 90%;
+	position: relative;
+	// top: -1em;
+	// padding-top:
+}
+
+
+
 .metrics {
 	@include media($mini-mobile) {
 		padding-top: 5em;
@@ -70,7 +94,7 @@ li {
 	// border: 1px solid $dark;
 	// height: 8em;
 	@include span-columns(3 of 9);
-	
+
 	@include media($mini-mobile) {
 		@include span-columns(4 of 6);
 		@include shift(1);
@@ -131,5 +155,9 @@ article p {
 	@include media($mini-mobile) {
 		@include padding(.1em null .1em null);
 	}
+}
+
+.company {
+	@include margin(2em null .5em null);
 }
 
