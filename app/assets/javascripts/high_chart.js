@@ -173,7 +173,7 @@ function highChart(data) {
             visible: false,
             type: 'trendline',
             algorithm: 'EMA',
-            periods: 5,
+            periods: 10,
             color: '#2E563C',
             tooltip: {
                 headerFormat: '<b>Average Sentiment</b><br>',
