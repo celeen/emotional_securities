@@ -1,43 +1,43 @@
 	<%= render "partials/header" %>
-<div class = "landing">
 
-</div>
+<div id="fullpage">
+	<div class = "landing section">
 
-	<div class = "metrics">
-		<h1 class = "company">$AAPL</h1>
-	<ul>
-	<div = "wrapper">
-	<li>
-			<div class = "feature herd">
-				<h4></h4>
-			<p><%= image_tag 'herd.png' %></p>
-			<h3 class="24-hour-metrics"></h3>
-			</div>
-	</li>
-	<li>
-			<div class = "feature volume">
-				<h4></h4>
-			<p><%= image_tag 'delta.png' %></p>
-			<h3 class="24-hour-metrics"></h3>
-			</div>
-	</li>
-	<li>
-			<div class = "feature expert">
-				<h4></h4>
-			<p><%= image_tag 'expert.png' %>
-			<h3 class="24-hour-metrics"></h3>
-			</div>
-	</li>
 	</div>
-	</ul>
-</div>
 
-<div id="chart-area">
-<h1 class = "company">$AAPL</h1>
-<div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
-</div>
+	<div class = "metrics section">
+			<h1 class = "company">$AAPL</h1>
+		<ul>
+		<div = "wrapper">
+		<li>
+				<div class = "feature herd">
+					<h4></h4>
+				<p><%= image_tag 'herd.png' %></p>
+				<h3 class="24-hour-metrics"></h3>
+				</div>
+		</li>
+		<li>
+				<div class = "feature volume">
+					<h4></h4>
+				<p><%= image_tag 'delta.png' %></p>
+				<h3 class="24-hour-metrics"></h3>
+				</div>
+		</li>
+		<li>
+				<div class = "feature expert">
+					<h4></h4>
+				<p><%= image_tag 'expert.png' %>
+				<h3 class="24-hour-metrics"></h3>
+				</div>
+		</li>
+		</div>
+		</ul>
+	</div>
 
-	<div id = "about">
+
+		<div id="container" class="section" style="min-width: 100%; padding-top: 10%; height: 90%; margin: 0 auto"></div>
+
+	<div id = "about" class="section">
 		<h1>ABOUT</h1>
 		<article>
 		<p><strong>Emotional Securities</strong> is an experimental analysis of general sentiment towards a given company against the stock price of said company.</p>
@@ -49,3 +49,4 @@
 
 
 	</div>
+</div>
