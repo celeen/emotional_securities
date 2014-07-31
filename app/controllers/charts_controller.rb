@@ -8,17 +8,17 @@ class ChartsController < ApplicationController
 
   def chart_data
 
-    @quotes = Quote.where(company: params[:company])
+    # @quotes = Quote.where(company: params[:company]).order{:c_at}.where(:c_at.gt => Time.now - ONE_DAY)
 
-    volume = Quote.where(company: params[:company]).order{:c_at}.map do |company|
-      c=company.c_at.to_i.to_s
-      c.gsub!(/[A-Z]{3} /,'')
-      c.gsub!(/:Time/,'')
-      c+="000"
-      [c.to_i, company.volume]
-    end
+    # volume = Quote.where(company: params[:company]).order{:c_at}.map do |company|
+    #   c=company.c_at.to_i.to_s
+    #   c.gsub!(/[A-Z]{3} /,'')
+    #   c.gsub!(/:Time/,'')
+    #   c+="000"
+    #   [c.to_i, company.volume]
+    # end
 
-    prices = Quote.where(company: params[:company]).order{:c_at}.map do |company|
+    prices = Quote.where(company: params[:company]).order{:c_at}.where(:c_at.gt => Time.now - ONE_DAY).map do |company|
       c=company.c_at.to_i.to_s
       c.gsub!(/[A-Z]{3} /,'')
       c.gsub!(/:Time/,'')
@@ -26,15 +26,15 @@ class ChartsController < ApplicationController
       [c.to_i, company.price / 100.0]
     end
 
-    articles = Article.where(company: params[:company]).map do |article|
-      a=article.c_at.to_i.to_s
-      a.gsub!(/[A-Z]{3} /,'')
-      a.gsub!(/:Time/,'')
-      a+="000"
-      [a.to_i, article.sentiment]
-    end
+    # articles = Article.where(company: params[:company]).map do |article|
+    #   a=article.c_at.to_i.to_s
+    #   a.gsub!(/[A-Z]{3} /,'')
+    #   a.gsub!(/:Time/,'')
+    #   a+="000"
+    #   [a.to_i, article.sentiment]
+    # end
 
-    tweets = Tweet.where(company: params[:company]).order{:tweeted_at}.map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
+    tweets = Tweet.where(company: params[:company]).order{:tweeted_at}.where(:tweeted_at.gt => Time.now - ONE_DAY).map{ |tweet| [tweet.tweeted_at.strftime('%Q').to_i, tweet.sentiment]}
 
     render json: {tweets: tweets, volume: volume, prices: prices, articles: articles	}
   end
