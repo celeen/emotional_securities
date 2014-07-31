@@ -43,7 +43,7 @@ function highChart(data) {
             }
         },
         title: {
-            text: 'Market Feelz and your Moneys',
+            text: 'when we feel sad, is the stock price bad?',
             style: {
                 font: '20pt News Cycle, serif',
                 color: '#0F1C13'
