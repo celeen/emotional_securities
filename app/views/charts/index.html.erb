@@ -6,42 +6,45 @@
 <div id="fullpage">
 <div class = "landing section">
 	<%= image_tag 'happy.png' %>
-	<h1>How does general sentiment interact with Stock Price?</h1>
+	<h1>How does public opinion interact with stock price?</h1>
 </div>
 
+
+<div class = "section">
+	<h1 class = "company">$AAPL</h1>
+		<div id="container" ></div>
+</div>
 	<div class = "metrics section">
 			<h1 class = "company">$AAPL</h1>
 		<ul>
 		<div = "wrapper">
 		<li>
 				<div class = "feature herd">
-					<h4></h4>
 				<p><%= image_tag 'herd.png' %></p>
+				<h2>Herd</h2>
 				<h3 class="24-hour-metrics"></h3>
+				<p>'Herd Behavior' is a key metric in behavioral finance. In this context, it represents all the tweets made about a company.
 				</div>
 		</li>
 		<li>
 				<div class = "feature volume">
-					<h4></h4>
-				<p><%= image_tag 'delta.png' %></p>
+				<p><%= image_tag 'volume.png' %></p>
+				<h2>Volume Delta</h2>
 				<h3 class="24-hour-metrics"></h3>
+				<p>Volume measures the frequency of stocks traded in the past day. Our volume delta measures the change in volume for the past 24 hours.
 				</div>
 		</li>
 		<li>
 				<div class = "feature expert">
-					<h4></h4>
 				<p><%= image_tag 'expert.png' %>
+				<h2>Expert</h2>
 				<h3 class="24-hour-metrics"></h3>
+				<p>We want to balance herd behavior with expert sentiment. We quantify this with financial blog articles.
 				</div>
 		</li>
 		</div>
 		</ul>
 	</div>
-
-<div class = "section">
-	<h1 class = "company">$AAPL</h1>
-		<div id="container" ></div>
-</div>
 	<div id = "about" class="section">
 		<h1>ABOUT</h1>
 		<article>

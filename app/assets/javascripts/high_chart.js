@@ -207,14 +207,14 @@ function highChart(data) {
     });
 }
 
-function populateVolumeBox(volume, box, label) {
-    $(box).append("<p>" + label + ": " + volume + "</p>")
+function populateVolumeBox(volume, box) {
+    $(box).append("<p> " + volume + "</p>")
 }
 
-function populateSentimentBoxes(sentiment, r, box, label) {
+function populateSentimentBoxes(sentiment, r, box) {
     console.log(sentiment)
     console.log(r)
-    $(box).append("<p>" + label + " </p><p> Sentiment: " + Math.round(sentiment * 100) / 100  + "</p><p> Correlation: " + Math.round(r * 1000) / 1000 + "</p><p> Determinism: " + Math.round(r * r * 1000) / 1000 + "</p>")
+    $(box).append("<p> Sentiment: " + Math.round(sentiment * 100) / 100 + "</p><p> Correlation: " + Math.round(r * 1000) / 1000 + "</p><p> Determinism: " + Math.round(r * r * 1000) / 1000 + "</p>")
 }
 
 function getChartData(symbol) {
@@ -232,8 +232,7 @@ function getExpertData(symbol) {
         company: symbol
     }, function(response) {
         var expert_data = response;
-        var expert_label = "Experts";
-        populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h3', expert_label);
+        populateSentimentBoxes(expert_data.avg_daily_expert_sentiment, expert_data.correlation, '.feature.expert h3');
     }, 'json');
 };
 
@@ -242,8 +241,7 @@ function getHerdData(symbol) {
         company: symbol
     }, function(response) {
         var herd_data = response;
-        var herd_label = "Herd";
-        populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h3', herd_label);
+        populateSentimentBoxes(herd_data.avg_daily_herd_sentiment, herd_data.correlation, '.feature.herd h3');
     }, 'json');
 };
 
@@ -253,8 +251,7 @@ function getVolumeData(symbol) {
     }, function(response) {
         var volume_data = response;
         console.log(volume_data.daily_volume_delta);
-        var volume_label = "Volume Delta";
-        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h3', volume_label);
+        populateVolumeBox(volume_data.daily_volume_delta, '.feature.volume h3');
     }, 'json');
 };
 
