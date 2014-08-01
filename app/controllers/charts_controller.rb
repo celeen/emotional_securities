@@ -44,7 +44,7 @@ class ChartsController < ApplicationController
   def expert_data
     company = params[:company]
 
-    @daily_articles = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY - HOUR ).where(:c_at.le => Time.now - (15 * HOUR) )
+    @daily_articles = Article.where(company: company).where(:sentiment.ne => nil).where(:c_at.gt => Time.now - ONE_DAY - HOUR ).where(:c_at.lt => Time.now - (15 * HOUR) )
 
 
     avg_daily_expert_sentiment = @daily_articles.avg(:sentiment)
@@ -64,7 +64,7 @@ class ChartsController < ApplicationController
   def herd_data
     company = params[:company]
 
-    @daily_tweets = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - ONE_DAY).where(:c_at.le => Time.now - (15 * HOUR) )
+    @daily_tweets = Tweet.where(company: company).where(:sentiment.ne => nil).where(:tweeted_at.gt => Time.now - ONE_DAY).where(:c_at.lt => Time.now - (15 * HOUR) )
 
     avg_daily_herd_sentiment = @daily_tweets.avg(:sentiment)
 
