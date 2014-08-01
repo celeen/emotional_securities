@@ -67,7 +67,7 @@ function highChart(data) {
                 text: 'The Last 24 Hours'
             },
             max: Date.now(),
-            // min: Date.now() - 86400000,
+            min: Date.now() - 86400000,
         },
         yAxis: [{ //sentiment axis
             labels: {
