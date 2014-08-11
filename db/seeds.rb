@@ -6,7 +6,6 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-
 class SPYParser
   attr_reader :file, :spy_array
 
@@ -21,3 +20,7 @@ class SPYParser
 end
 
 SPYParser.new('lib/assets/SPYsymbols.csv')
+
+
+3000.times do
+	Tweet.create()

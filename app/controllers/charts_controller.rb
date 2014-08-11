@@ -9,17 +9,7 @@ class ChartsController < ApplicationController
 
   def chart_data
 
-    # @quotes = Quote.where(company: params[:company]).order{:c_at}.where(:c_at.gt => Time.now - ONE_DAY)
-
-    # volume = Quote.where(company: params[:company]).order{:c_at}.map do |company|
-    #   c=company.c_at.to_i.to_s
-    #   c.gsub!(/[A-Z]{3} /,'')
-    #   c.gsub!(/:Time/,'')
-    #   c+="000"
-    #   [c.to_i, company.volume]
-    # end
-
-    prices = Quote.where(company: params[:company]).order{:c_at}.where(:c_at.gt => Time.now - ONE_DAY).map do |company|
+      prices = Quote.where(company: params[:company]).order{:c_at}.where(:c_at.gt => Time.now - ONE_DAY).map do |company|
       c=company.c_at.to_i.to_s
       c.gsub!(/[A-Z]{3} /,'')
       c.gsub!(/:Time/,'')
